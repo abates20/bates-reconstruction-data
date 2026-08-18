@@ -83,7 +83,7 @@ class GenomeClient:
         )
 
         url = f"{NCBI_BASE_URL}/genome/download"
-        download(
+        download.download(
             url,
             path,
             method="POST",
