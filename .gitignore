@@ -11,3 +11,6 @@ wheels/
 
 # uv lock file
 uv.lock
+
+# MacOS files
+.DS_store
