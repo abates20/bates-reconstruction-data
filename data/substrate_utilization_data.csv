@@ -1,0 +1,1027 @@
+﻿organism_id,compound,bigg_id,seed_id,growth
+saur,Fumarate,fum,cpd00106,FALSE
+saur,L-Lactate,lac__L,cpd00159,TRUE
+saur,Hypoxanthine,hxan,cpd00226,TRUE
+saur,L-Glutamate,glu__L,cpd00023,TRUE
+saur,a-Ketobutyrate,2obut,cpd00094,TRUE
+saur,Uridine,uri,cpd00249,FALSE
+saur,Glycolate,glyclt,cpd00139,TRUE
+saur,2-Deoxy-D-Ribose,drib,cpd01242,TRUE
+saur,Pyruvate,pyr,cpd00020,TRUE
+saur,L-Proline,pro__L,cpd00129,FALSE
+saur,L-Serine,ser__L,cpd00054,TRUE
+saur,Formate,for,cpd00047,TRUE
+saur,N-Acetylneuraminate,acnam,cpd00232,FALSE
+saur,Succinate,succ,cpd00036,TRUE
+saur,Trehalose 6-phosphate,tre6p,cpd00523,TRUE
+saur,D-Gluconate,glcn__D;glcn,cpd00222,TRUE
+saur,D-Ribose,rib__D,cpd00105,TRUE
+saur,L-Threonine,thr__L,cpd00161,FALSE
+saur,L-Phenylalanine,phe__L,cpd00066,FALSE
+saur,a-Ketoglutarate,akg,cpd00024,TRUE
+saur,Thymidine,thymd,cpd00184,TRUE
+saur,L-Alanine,ala__L,cpd00035,TRUE
+saur,D-Cellobiose,cellb,cpd03845,TRUE
+saur,L-Methionine,met__L,cpd00060,TRUE
+saur,L-Arabinose,arab__L,cpd19109,TRUE
+saur,L-Glutamine,gln__L,cpd00053,TRUE
+saur,Gly-Asp,gly_asp__L,cpd11589,FALSE
+saur,Acetate,ac,cpd00029,TRUE
+saur,Adenosine,adn,cpd00182,FALSE
+saur,L-Malate,mal__L,cpd00130,FALSE
+saur,L-Histidine,his__L,cpd00119,FALSE
+saur,Butyryl-ACP,butACP;butacp,cpd11464,TRUE
+saur,D-Mannose 6-phosphate,man6p,cpd00235,TRUE
+saur,L-Citrulline,citr__L,cpd00274,TRUE
+saur,D-Glucose,glc__D,cpd00027,TRUE
+saur,"2,3-Butanediol",btd_RR,cpd01947,TRUE
+saur,D-Glucosamine 6-phosphate,gam6p,cpd00288,TRUE
+saur,L-Asparagine,asn__L,cpd00132,TRUE
+saur,D-Glucuronate,glcur,cpd00164,TRUE
+saur,L-Isoleucine,ile__L,cpd00322,FALSE
+saur,L-Arginine,arg__L,cpd00051,FALSE
+saur,L-Valine,val__L,cpd00156,TRUE
+saur,N-Acetyl-D-glucosamine 1-phosphate,acgam1p,cpd02611,TRUE
+saur,D-Glucarate,glcr,cpd00571;cpd00609,TRUE
+saur,D-Fructose-6-phosphate,f6p,cpd19035,TRUE
+saur,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,TRUE
+saur,N-Acetyl-D-Mannosamine,acmana,cpd00492,TRUE
+saur,Maltotriose,malttr,cpd01262,TRUE
+saur,D-Glucose-6-phosphate,g6p,cpd00079,TRUE
+saur,L-Lysine,lys__L,cpd00039,TRUE
+saur,L-Leucine,leu__L,cpd00107,FALSE
+saur,L-Arabitol,abt__L;abt,cpd00417,TRUE
+saur,Dihydroxyacetone phosphate,dhap,cpd00095,TRUE
+saur,Inosine,ins,cpd00246,TRUE
+saur,L-Ornithine,orn__L;orn,cpd00064,TRUE
+saur,m-Inositol,inost,cpd00121,TRUE
+saur,D-Fructose,fru,cpd00082,TRUE
+saur,Glycerol,glyc,cpd00100,TRUE
+saur,Glycerol-3-phosphate,glyc3p,cpd00080,TRUE
+saur,L-Aspartate,asp__L,cpd00041,TRUE
+saur,D-Alanine,ala__D,cpd00117,FALSE
+saur,D-Mannitol-1-phosphate,mnl1p,cpd27436,TRUE
+saur,Gly-Pro,gly_pro__L,cpd11588,TRUE
+saur,Gly-Glu,gly_glu__L,cpd11592,TRUE
+saur,Ala-Gly,alagly;L_alagly,cpd11585,FALSE
+saur,Putrescine,ptrc,cpd00118,FALSE
+saur,D-Melibiose,melib,cpd03198,TRUE
+saur,2`-Deoxyadenosine,dad_2,cpd00438,TRUE
+saur,Acetamide,ad,cpd03734,TRUE
+saur,Decanoyl-ACP,dcaACP,cpd11474,FALSE
+saur,Quinate,quin,cpd00248,FALSE
+saur,5-Keto-D-Gluconate,5dglcn,cpd00781,TRUE
+saur,D-Lactose,lcts,cpd00208,TRUE
+saur,Xylitol,xylt,cpd00306,TRUE
+saur,Arbutin-6-phosphate,arbt6p,cpd03697,FALSE
+saur,Salicylate,salc,cpd00599,FALSE
+saur,D-Galacturonate,galur,cpd00280,TRUE
+saur,Ethanolamine,etha,cpd00162,FALSE
+saur,L-Lyxose,lyx__L,cpd01067,TRUE
+saur,D-Raffinose,raffin,cpd00382,FALSE
+saur,N-Acetyl-D-Galactosamine,acgal;acgala,cpd00832;cpd27607,TRUE
+saur,Glyoxylate,glx,cpd00040,FALSE
+saur,L-Homoserine,hom__L,cpd00227,FALSE
+saur,L-Rhamnose,rmn,cpd00396,TRUE
+saur,D-Xylose,xyl__D,cpd00154,TRUE
+saur,D-Serine,ser__D,cpd00550,FALSE
+saur,D-Allose,all__D,cpd01055,FALSE
+saur,Acetoacetate,acac,cpd00142,FALSE
+saur,Salicin,salcn;rbl_B,cpd01030,FALSE
+saur,L-Tartrate,tartr__L,cpd00666,TRUE
+saur,"D,L-Carnitine",crn,cpd00266,FALSE
+saur,D-Sorbitol,sbt__D,cpd00588,FALSE
+saur,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+saur,Oxalate,oxa,cpd00180,FALSE
+saur,Glycogen,glycogen,cpd00155,TRUE
+saur,Hydroxy-L-Proline,4hpro_LT,cpd00851,TRUE
+saur,D-Malate,mal__D,cpd00386,TRUE
+saur,Galactitol,galt,cpd01171,TRUE
+saur,D-Galactarate,galctr__D;galct__D,cpd00652,TRUE
+saur,D-Tartrate,tartr__D,cpd19018,TRUE
+saur,4-Aminobutanal,4abutn,cpd00434,FALSE
+saur,D-Glucose-1-phosphate,g1p,cpd00089,FALSE
+saur,L-Fucose,fuc__L,cpd00751,TRUE
+saur,a-Methyl-D-Glucoside,amdglc;madg,cpd15584,FALSE
+saur,Tyramine,tym,cpd00374,FALSE
+saur,Sucrose,sucr,cpd00076,TRUE
+saur,Propanoyl phosphate,ppap,cpd01844,TRUE
+saur,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,TRUE
+saur,4-Hydroxybenzoate,4hbz,cpd00136,FALSE
+pput,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,FALSE
+pput,Ethanolamine,etha,cpd00162,TRUE
+pput,2-Deoxy-D-Ribose,drib,cpd01242,TRUE
+pput,"2,3-Butanediol",btd_RR,cpd01947,FALSE
+pput,2`-Deoxyadenosine,dad_2,cpd00438,FALSE
+pput,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,FALSE
+pput,4-Hydroxybenzoate,4hbz,cpd00136,TRUE
+pput,5-Keto-D-Gluconate,5dglcn,cpd00781,FALSE
+pput,D-Glucose,glc__D,cpd00027,TRUE
+pput,D-Lactose,lcts,cpd00208,FALSE
+pput,a-Hydroxybutyrate,2hbut,cpd03561,TRUE
+pput,a-Ketobutyrate,2obut,cpd00094,FALSE
+pput,a-Ketoglutarate,akg,cpd00024,TRUE
+pput,a-Methyl-D-Glucoside,amdglc;madg,cpd15584,FALSE
+pput,Acetamide,ad,cpd03734,FALSE
+pput,Acetate,ac,cpd00029,TRUE
+pput,Acetoacetate,acac,cpd00142,FALSE
+pput,Adenosine,adn,cpd00182,TRUE
+pput,Adonitol,rbt,cpd00366,FALSE
+pput,Ala-Gly,alagly;L_alagly,cpd11585,TRUE
+pput,Arbutin,arbt,cpd03696,FALSE
+pput,D-Allose,all__D,cpd01055,FALSE
+pput,b-Hydroxybutyric acid,bhb,cpd00797,TRUE
+pput,Methyl-D-Glucoside,mbdg,cpd15585,FALSE
+pput,b-Methyl-D-Glucuronate,,cpd24423,FALSE
+pput,Butyrate,but,cpd00211,TRUE
+pput,Caprate,dca,cpd01107,TRUE
+pput,Chondroitin Sulfate C,cs_c,cpd11717;cpd26720,FALSE
+pput,Citraconic acid,citac,cpd01502,FALSE
+pput,Citramalic acid,citm,cpd00607,FALSE
+pput,Citrate,cit,cpd00137,TRUE
+pput,D-Alanine,ala__D,cpd00117,TRUE
+pput,5-Aminopentanoate,5aptn,cpd00339,TRUE
+pput,D-Arabinose,arab__D,cpd00185,FALSE
+pput,D-Arabitol,abt__D,cpd01307,FALSE
+pput,D-Aspartate,asp__D,cpd00320,FALSE
+pput,D-Cellobiose,cellb,cpd03845,FALSE
+pput,D-Fructose,fru,cpd00082,TRUE
+pput,D-Fructose-6-phosphate,f6p,cpd19035,FALSE
+pput,D-Galactose,gal,cpd00108,FALSE
+pput,D-Galacturonate,galur,cpd00280,TRUE
+pput,D-Gluconate,glcn__D;glcn,cpd00222,TRUE
+pput,D-Glucosamine,gam,cpd00276,TRUE
+pput,D-Glucose-1-phosphate,g1p,cpd00089,FALSE
+pput,D-Glucose-6-phosphate,g6p,cpd00079,TRUE
+pput,D-Glucuronate,glcur,cpd00164,TRUE
+pput,D-Malate,mal__D,cpd00386,FALSE
+pput,D-Mannitol,mnl,cpd00314,FALSE
+pput,D-Mannose,man,cpd00138,TRUE
+pput,D-Melibiose,melib,cpd03198,FALSE
+pput,D-Raffinose,raffin,cpd00382,FALSE
+pput,D-Ribose,rib__D,cpd00105,FALSE
+pput,D-Glucarate,glcr,cpd00571;cpd00609,TRUE
+pput,D-Serine,ser__D,cpd00550,TRUE
+pput,D-Sorbitol,sbt__D,cpd00588,FALSE
+pput,D-Tagatose,tgt;tag__D,cpd00589,TRUE
+pput,D-Tartrate,tartr__D,cpd19018,FALSE
+pput,D-Trehalose,tre,cpd00794,TRUE
+pput,D-Xylose,xyl__D,cpd00154,FALSE
+pput,Dextrin,dextrin;dxtrn,cpd11594,FALSE
+pput,Dihydroxyacetone,dha,cpd00157,FALSE
+pput,Glycerol-3-phosphate,glyc3p,cpd00080,FALSE
+pput,"D,L-Carnitine",crn,cpd00266,TRUE
+pput,"D,L-Malate",mal__L;mal__D,cpd00130;cpd00386,TRUE
+pput,Galactitol,galt,cpd01171,FALSE
+pput,Formate,for,cpd00047,TRUE
+pput,Fumarate,fum,cpd00106,TRUE
+pput,4-Aminobutyrate,4abut,cpd00281,TRUE
+pput,g-Hydroxybutyric acid,ghb;h4but,cpd00728,TRUE
+pput,Gly-Asp,gly_asp__L,cpd11589,FALSE
+pput,Gly-Glu,gly_glu__L,cpd11592,FALSE
+pput,Gly-Pro,gly_pro__L,cpd11588,FALSE
+pput,Glycerol,glyc,cpd00100,TRUE
+pput,Glycine,gly,cpd00033,FALSE
+pput,Glycogen,glycogen,cpd00155,FALSE
+pput,Glycolate,glyclt,cpd00139,FALSE
+pput,Glyoxylate,glx,cpd00040,FALSE
+pput,Hexanoate,hxa,cpd01113,TRUE
+pput,Hydroxy-L-Proline,4hpro_LT,cpd00851,TRUE
+pput,Inosine,ins,cpd00246,TRUE
+pput,Itaconic acid,itacon,cpd00380,FALSE
+pput,L-Alaninamide,,cpd23030,FALSE
+pput,L-Alanine,ala__L,cpd00035,TRUE
+pput,L-Arabinose,arab__L,cpd19109,FALSE
+pput,L-Arabitol,abt__L;abt,cpd00417,FALSE
+pput,L-Arginine,arg__L,cpd00051,TRUE
+pput,L-Asparagine,asn__L,cpd00132,TRUE
+pput,L-Aspartate,asp__L,cpd00041,TRUE
+pput,L-Fucose,fuc__L,cpd00751,FALSE
+pput,L-Galactonic acid-g-Lactone,galctn__L,cpd00820,TRUE
+pput,L-Glutamate,glu__L,cpd00023,TRUE
+pput,L-Glutamine,gln__L,cpd00053,TRUE
+pput,L-Histidine,his__L,cpd00119,TRUE
+pput,L-Homoserine,hom__L,cpd00227,FALSE
+pput,L-Isoleucine,ile__L,cpd00322,TRUE
+pput,L-Lactate,lac__L,cpd00159,TRUE
+pput,L-Leucine,leu__L,cpd00107,TRUE
+pput,L-Lysine,lys__L,cpd00039,TRUE
+pput,L-Lyxose,lyx__L,cpd01067,FALSE
+pput,L-Malate,mal__L,cpd00130,TRUE
+pput,L-Methionine,met__L,cpd00060,FALSE
+pput,L-Ornithine,orn__L;orn,cpd00064,TRUE
+pput,L-Phenylalanine,phe__L,cpd00066,TRUE
+pput,L-Proline,pro__L,cpd00129,TRUE
+pput,L-Pyroglutamic acid,5oxpro,cpd01293,TRUE
+pput,L-Rhamnose,rmn,cpd00396,FALSE
+pput,L-Serine,ser__L,cpd00054,TRUE
+pput,L-Sorbose,srb__L,cpd00212,FALSE
+pput,L-Tartrate,tartr__L,cpd00666,FALSE
+pput,L-Threonine,thr__L,cpd00161,FALSE
+pput,L-Valine,val__L,cpd00156,TRUE
+pput,m-Hydroxyphenyl Acetic acid,3hoxpac,cpd03320,FALSE
+pput,m-Inositol,inost,cpd00121,FALSE
+pput,m-Tartaric acid,tartr__M,cpd00432,FALSE
+pput,Malonate,malon,cpd00308,FALSE
+pput,Maltose,malt,cpd00179,FALSE
+pput,Maltotriose,malttr,cpd01262,TRUE
+pput,Mannan,mannan,cpd11685,FALSE
+pput,Mono-Methylsuccinate,,cpd24419,FALSE
+pput,D-Galactarate,galctr__D;galct__D,cpd00652,TRUE
+pput,N-Acetyl-D-Galactosamine,acgal;acgala,cpd00832;cpd27607,FALSE
+pput,N-Acetyl-D-Glucosamine,acgam,cpd00122,TRUE
+pput,N-Acetyl-D-Mannosamine,acmana,cpd00492,FALSE
+pput,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+pput,N-Acetylneuraminate,acnam,cpd00232,FALSE
+pput,Oxalate,oxa,cpd00180,FALSE
+pput,p-Hydroxyphenyl Acetic acid,4hphac,cpd00489,FALSE
+pput,Palatinose,pala,cpd01200,FALSE
+pput,Pectin,pectin,cpd11601;cpd27835,FALSE
+pput,Phenylethylamine,peamn,cpd03161,TRUE
+pput,Propionate,ppa,cpd00141,TRUE
+pput,Putrescine,ptrc,cpd00118,TRUE
+pput,Pyruvate,pyr,cpd00020,TRUE
+pput,Quinate,quin,cpd00248,TRUE
+pput,Salicin,salcn;rbl_B,cpd01030,FALSE
+pput,Sebacic acid,sebacid,cpd05192,FALSE
+pput,Stachyose,stys;stchs,cpd01133,FALSE
+pput,Succinate,succ,cpd00036,TRUE
+pput,Sucrose,sucr,cpd00076,FALSE
+pput,Thymidine,thymd,cpd00184,FALSE
+pput,Tricarballylate,tcb,cpd16654,FALSE
+pput,Tyramine,tym,cpd00374,FALSE
+pput,Uridine,uri,cpd00249,FALSE
+pput,Xylitol,xylt,cpd00306,FALSE
+pput,Salicylate,salc,cpd00599,FALSE
+pput,"2,3-Butanedione",diact,cpd00551,FALSE
+pput,3-Methylglucose,,cpd26351,FALSE
+pput,3-O-b-D-Galactopyranosyl-D-Arabinose,,cpd24453,FALSE
+pput,a-Cyclodextrin,,cpd24451,FALSE
+pput,a-Hydroxyglutaric acid-g-Lactone,S2hglut,cpd02041,FALSE
+pput,a-Keto-Valeric acid,,cpd03737,TRUE
+pput,a-Methyl-D-Galactoside,,cpd24416,FALSE
+pput,a-Methyl-D-Mannoside,,cpd24424,FALSE
+pput,Amygdalin,,cpd01356,FALSE
+pput,b-Cyclodextrin,,cpd09394,FALSE
+pput,b-Methyl-D-Galactoside,,cpd02274,FALSE
+pput,b-Methyl-D-Xyloside,,cpd24425,FALSE
+pput,Bromosuccinate,,cpd23859,TRUE
+pput,D-Fucose,,cpd00750,FALSE
+pput,D-Galactonic acid-g-Lactone,galctn__D,cpd00653,FALSE
+pput,D-Glucosamine,gam,cpd00276,FALSE
+pput,D-Lactic acid Methyl Ester,,cpd24428,TRUE
+pput,D-Lactitol,,cpd00382,FALSE
+pput,D-Melezitose,,cpd05161,FALSE
+pput,D-Psicose,,cpd03884,FALSE
+pput,"D-Ribono-1,4-Lactone",,cpd23861,TRUE
+pput,D-Threonine,,cpd00611,FALSE
+pput,"D,L-Octopamine",,cpd02599,FALSE
+pput,g-Cyclodextrin,,cpd24452,FALSE
+pput,Gelatin,,cpd11879,FALSE
+pput,Gentiobiose,,cpd05158,FALSE
+pput,Glucuronamide,,cpd26269,FALSE
+pput,i-Erythritol,,cpd00392,FALSE
+pput,Inulin,,cpd11602,FALSE
+pput,L-Glucose,,cpd24421,FALSE
+pput,Lactulose,,cpd04349,FALSE
+pput,Laminarin,,cpd11748,FALSE
+pput,Maltitol,,cpd37280,FALSE
+pput,Melibionic acid,,cpd24454,FALSE
+pput,Methylpyruvate,,cpd24420,TRUE
+pput,N-Acetyl-D-Glucosaminitol,,cpd24427,FALSE
+pput,Oxalomalate,,cpd01363,FALSE
+pput,sec-Butylamine,,cpd24429,FALSE
+pput,Sedoheptulosan,,cpd24426,FALSE
+pput,Sorbic acid,,cpd16648,TRUE
+pput,Succinamic acid,,cpd25518,FALSE
+pput,Turanose,,cpd20885,FALSE
+pput,Tween 20,,cpd13391,TRUE
+pput,Tween 40,,cpd24417,TRUE
+pput,Tween 80,,cpd13392,TRUE
+ecol,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,FALSE
+ecol,4-Aminobutyrate,4abut,cpd00281,FALSE
+ecol,5-Keto-D-Gluconate,5dglcn,cpd00781,TRUE
+ecol,Acetate,ac,cpd00029,TRUE
+ecol,Acetoacetate,acac,cpd00142,FALSE
+ecol,N-Acetyl-D-Glucosamine,acgam,cpd00122,TRUE
+ecol,N-Acetyl-D-Mannosamine,acmana,cpd00492,TRUE
+ecol,N-Acetylneuraminate,acnam,cpd00232,TRUE
+ecol,Adenosine,adn,cpd00182,TRUE
+ecol,a-Ketoglutarate,akg,cpd00024,TRUE
+ecol,D-Alanine,ala__D,cpd00117,TRUE
+ecol,L-Alanine,ala__L,cpd00035,TRUE
+ecol,D-Allose,all__D,cpd01055,TRUE
+ecol,L-Arabinose,arab__L,cpd19109,TRUE
+ecol,L-Arginine,arg__L,cpd00051,FALSE
+ecol,L-Asparagine,asn__L,cpd00132,FALSE
+ecol,L-Aspartate,asp__L,cpd00041,TRUE
+ecol,Butyrate,but,cpd00211,FALSE
+ecol,Citrate,cit,cpd00137,FALSE
+ecol,2`-Deoxyadenosine,dad_2,cpd00438,TRUE
+ecol,Caprate,dca,cpd01107,FALSE
+ecol,Dihydroxyacetone,dha,cpd00157,FALSE
+ecol,Ethanolamine,etha,cpd00162,FALSE
+ecol,D-Fructose-6-phosphate,f6p,cpd19035,TRUE
+ecol,Formate,for,cpd00047,TRUE
+ecol,D-Fructose,fru,cpd00082,TRUE
+ecol,L-Fucose,fuc__L,cpd00751,TRUE
+ecol,Fumarate,fum,cpd00106,TRUE
+ecol,D-Glucose-1-phosphate,g1p,cpd00089,TRUE
+ecol,D-Glucose-6-phosphate,g6p,cpd00079,TRUE
+ecol,D-Galactose,gal,cpd00108,TRUE
+ecol,D-Galactarate,galctr__D;galct__D,cpd00652,TRUE
+ecol,D-Galactonic acid-g-Lactone,galctn__D,cpd00653,TRUE
+ecol,L-Galactonic acid-g-Lactone,galctn__L,cpd00820,TRUE
+ecol,Galactitol,galt,cpd01171,FALSE
+ecol,D-Galacturonate,galur,cpd00280,TRUE
+ecol,D-Glucose,glc__D,cpd00027,TRUE
+ecol,D-Gluconate,glcn__D;glcn,cpd00222,TRUE
+ecol,D-Glucarate,glcr,cpd00571;cpd00609,TRUE
+ecol,D-Glucuronate,glcur,cpd00164,TRUE
+ecol,L-Glutamine,gln__L,cpd00053,TRUE
+ecol,L-Glutamate,glu__L,cpd00023,FALSE
+ecol,Glycine,gly,cpd00033,TRUE
+ecol,Glycerol,glyc,cpd00100,FALSE
+ecol,Glycerol-3-phosphate,glyc3p,cpd00080,FALSE
+ecol,Glycolate,glyclt,cpd00139,TRUE
+ecol,L-Histidine,his__L,cpd00119,FALSE
+ecol,L-Homoserine,hom__L,cpd00227,FALSE
+ecol,Hexanoate,hxa,cpd01113,FALSE
+ecol,L-Isoleucine,ile__L,cpd00322,FALSE
+ecol,m-Inositol,inost,cpd00121,FALSE
+ecol,Inosine,ins,cpd00246,TRUE
+ecol,L-Lactate,lac__L,cpd00159,TRUE
+ecol,D-Lactose,lcts,cpd00208,TRUE
+ecol,L-Leucine,leu__L,cpd00107,FALSE
+ecol,L-Lysine,lys__L,cpd00039,FALSE
+ecol,L-Lyxose,lyx__L,cpd01067,TRUE
+ecol,D-Malate,mal__D,cpd00386,TRUE
+ecol,L-Malate,mal__L,cpd00130,TRUE
+ecol,Maltose,malt,cpd00179,TRUE
+ecol,Maltotriose,malttr,cpd01262,TRUE
+ecol,D-Mannose,man,cpd00138,TRUE
+ecol,D-Melibiose,melib,cpd03198,TRUE
+ecol,L-Methionine,met__L,cpd00060,FALSE
+ecol,D-Mannitol,mnl,cpd00314,TRUE
+ecol,L-Ornithine,orn__L;orn,cpd00064,FALSE
+ecol,Phenylethylamine,peamn,cpd03161,FALSE
+ecol,L-Phenylalanine,phe__L,cpd00066,FALSE
+ecol,Propionate,ppa,cpd00141,FALSE
+ecol,L-Proline,pro__L,cpd00129,FALSE
+ecol,Putrescine,ptrc,cpd00118,FALSE
+ecol,Pyruvate,pyr,cpd00020,TRUE
+ecol,D-Ribose,rib__D,cpd00105,TRUE
+ecol,L-Rhamnose,rmn,cpd00396,TRUE
+ecol,D-Sorbitol,sbt__D,cpd00588,TRUE
+ecol,D-Serine,ser__D,cpd00550,TRUE
+ecol,L-Serine,ser__L,cpd00054,TRUE
+ecol,Succinate,succ,cpd00036,TRUE
+ecol,Sucrose,sucr,cpd00076,FALSE
+ecol,L-Tartrate,tartr__L,cpd00666,FALSE
+ecol,L-Threonine,thr__L,cpd00161,FALSE
+ecol,Thymidine,thymd,cpd00184,TRUE
+ecol,D-Trehalose,tre,cpd00794,TRUE
+ecol,Tyramine,tym,cpd00374,FALSE
+ecol,Uridine,uri,cpd00249,TRUE
+ecol,L-Valine,val__L,cpd00156,FALSE
+ecol,D-Xylose,xyl__D,cpd00154,TRUE
+ecol,"D,L-Malate",mal__L;mal__D,cpd00130;cpd00386,TRUE
+ecol,a-Methyl-D-Galactoside,,cpd24416,TRUE
+ecol,Gly-Asp,gly_asp__L,cpd11589,TRUE
+ecol,Ala-Gly,alagly;L_alagly,cpd11585,TRUE
+ecol,Mono-Methylsuccinate,,cpd24419,TRUE
+ecol,Methylpyruvate,,cpd24420,TRUE
+ecol,a-Methyl-D-Galactoside,,cpd24416,TRUE
+ecol,b-Methyl-D-Galactoside,,cpd02274,TRUE
+ecol,Tween 20,,cpd13391,FALSE
+ecol,Tween 40,,cpd24417,FALSE
+ecol,Tween 80,,cpd13392,FALSE
+ecol,a-Hydroxyglutaric acid-g-Lactone,S2hglut,cpd02041,FALSE
+ecol,m-Hydroxyphenyl Acetic acid,3hoxpac,cpd03320,FALSE
+ecol,Glucuronamide,,cpd26269,FALSE
+ecol,a-Cyclodextrin,,cpd24451,FALSE
+ecol,g-Cyclodextrin,,cpd24452,FALSE
+ecol,Gentiobiose,,cpd05158,FALSE
+ecol,D-Lactitol,,cpd00382,FALSE
+ecol,Maltitol,,cpd37280,FALSE
+ecol,b-Methyl-D-Glucuronate,,cpd24423,FALSE
+ecol,a-Methyl-D-Mannoside,,cpd24424,FALSE
+ecol,b-Methyl-D-Xyloside,,cpd24425,FALSE
+ecol,Turanose,,cpd20885,FALSE
+ecol,b-Hydroxybutyric acid,bhb,cpd00797,FALSE
+ecol,g-Hydroxybutyric acid,ghb;h4but,cpd00728,FALSE
+ecol,D-Lactic acid Methyl Ester,,cpd24428,FALSE
+ecol,Melibionic acid,,cpd24454,FALSE
+ecol,"D-Ribono-1,4-Lactone",,cpd23861,FALSE
+ecol,Sebacic acid,sebacid,cpd05192,FALSE
+ecol,Sorbic acid,,cpd16648,FALSE
+ecol,Succinamic acid,,cpd25518,FALSE
+ecol,L-Alaninamide,,cpd23030,FALSE
+ecol,"D,L-Carnitine",crn,cpd00266,FALSE
+ecol,sec-Butylamine,,cpd24429,FALSE
+ecol,"D,L-Octopamine",,cpd02599,FALSE
+ecol,"2,3-Butanedione",diact,cpd00551,FALSE
+ecol,a-Hydroxybutyrate,2hbut,cpd03561,TRUE
+ecol,Methyl-D-Glucoside,mbdg,cpd15585,TRUE
+ecol,Bromosuccinate,,cpd23859,TRUE
+ecol,Gly-Glu,gly_glu__L,cpd11592,TRUE
+ecol,Gly-Pro,gly_pro__L,cpd11588,TRUE
+ecol,b-Cyclodextrin,,cpd09394,TRUE
+ecol,3-O-b-D-Galactopyranosyl-D-Arabinose,,cpd24453,TRUE
+ecol,3-Methylglucose,,cpd26351,TRUE
+ecol,Hydroxypyruvate,hpyr,cpd00145,TRUE
+ecol,Oxalomalate,,cpd01363,TRUE
+ecol,a-Ketobutyrate,2obut,cpd00094,TRUE
+ecol,4-Hydroxybenzoate,4hbz,cpd00136,FALSE
+ecol,p-Hydroxyphenyl Acetic acid,4hphac,cpd00489,FALSE
+ecol,L-Arabitol,abt__L;abt,cpd00417,FALSE
+ecol,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+ecol,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,FALSE
+ecol,Acetamide,ad,cpd03734,FALSE
+ecol,D-Arabinose,arab__D,cpd00185,FALSE
+ecol,Arbutin,arbt,cpd03696,FALSE
+ecol,D-Aspartate,asp__D,cpd00320,FALSE
+ecol,"2,3-Butanediol",btd_RR,cpd01947,FALSE
+ecol,Palatinose,pala,cpd01200,FALSE
+ecol,5-Aminopentanoate,5aptn,cpd00339,FALSE
+ecol,D-Arabitol,abt__D,cpd01307,FALSE
+ecol,Amygdalin,,cpd01356,FALSE
+ecol,Citraconic acid,citac,cpd01502,FALSE
+ecol,L-Pyroglutamic acid,5oxpro,cpd01293,FALSE
+ecol,D-Glucosamine,gam,cpd00276,FALSE
+ecol,D-Psicose,,cpd03884,TRUE
+ecol,Lactulose,,cpd04349,TRUE
+ecol,D-Cellobiose,cellb,cpd03845,FALSE
+ecol,Citramalic acid,citm,cpd00607,FALSE
+ecol,Chondroitin Sulfate C,cs_c,cpd11717;cpd26720,FALSE
+ecol,Dihydroxyfumarate,,cpd00718,FALSE
+ecol,2-Deoxy-D-Ribose,drib,cpd01242,FALSE
+ecol,Dextrin,dextrin;dxtrn,cpd11594,TRUE
+ecol,i-Erythritol,,cpd00392,FALSE
+ecol,D-Fucose,,cpd00750,FALSE
+ecol,Gelatin,,cpd11879,FALSE
+ecol,L-Glucose,,cpd24421,FALSE
+ecol,Glyoxylate,glx,cpd00040,TRUE
+ecol,Glycogen,glycogen,cpd00155,TRUE
+ecol,Inulin,,cpd11602,FALSE
+ecol,Itaconic acid,itacon,cpd00380,FALSE
+ecol,Hydroxy-L-Proline,4hpro_LT,cpd00851,FALSE
+ecol,Laminarin,,cpd11748,FALSE
+ecol,D-Lyxose,,cpd00368,FALSE
+ecol,Malonate,malon,cpd00308,FALSE
+ecol,Mannan,mannan,cpd11685,FALSE
+ecol,N-Acetyl-D-Galactosamine,acgal;acgala,cpd00832;cpd27607,FALSE
+ecol,Oxalate,oxa,cpd00180,FALSE
+ecol,Pectin,pectin,cpd11601;cpd27835,TRUE
+ecol,Quinate,quin,cpd00248,FALSE
+ecol,D-Raffinose,raffin,cpd00382,FALSE
+ecol,Adonitol,rbt,cpd00366,FALSE
+ecol,Salicylate,salc,cpd00599,FALSE
+ecol,Salicin,salcn;rbl_B,cpd01030,FALSE
+ecol,Sedoheptulosan,,cpd24426,FALSE
+ecol,L-Sorbose,srb__L,cpd00212,FALSE
+ecol,Stachyose,stys;stchs,cpd01133,FALSE
+ecol,D-Tagatose,tgt;tag__D,cpd00589,FALSE
+ecol,D-Tartrate,tartr__D,cpd19018,FALSE
+ecol,m-Tartaric acid,tartr__M,cpd00432,FALSE
+ecol,Tricarballylate,tcb,cpd16654,FALSE
+ecol,D-Threonine,,cpd00611,FALSE
+ecol,L-Xylose,,cpd01068,FALSE
+ecol,Xylitol,xylt,cpd00306,FALSE
+abau,L-Arabinose,arab__L,cpd19109,TRUE
+abau,N-Acetyl-D-Glucosamine,acgam,cpd00122,FALSE
+abau,D-Glucarate,glcr,cpd00571;cpd00609,FALSE
+abau,Succinate,succ,cpd00036,TRUE
+abau,D-Galactose,gal,cpd00108,FALSE
+abau,L-Aspartate,asp__L,cpd00041,TRUE
+abau,L-Proline,pro__L,cpd00129,FALSE
+abau,D-Alanine,ala__D,cpd00117,TRUE
+abau,D-Trehalose,tre,cpd00794,FALSE
+abau,D-Mannose,man,cpd00138,FALSE
+abau,Galactitol,galt,cpd01171,FALSE
+abau,D-Serine,ser__D,cpd00550,FALSE
+abau,D-Sorbitol,sbt__D,cpd00588,FALSE
+abau,Glycerol,glyc,cpd00100,FALSE
+abau,L-Fucose,fuc__L,cpd00751,FALSE
+abau,D-Glucuronate,glcur,cpd00164,FALSE
+abau,D-Gluconate,glcn__D;glcn,cpd00222,FALSE
+abau,Glycerol-3-phosphate,glyc3p,cpd00080,FALSE
+abau,D-Xylose,xyl__D,cpd00154,TRUE
+abau,L-Lactate,lac__L,cpd00159,TRUE
+abau,Formate,for,cpd00047,FALSE
+abau,D-Mannitol,mnl,cpd00314,FALSE
+abau,L-Glutamate,glu__L,cpd00023,TRUE
+abau,D-Glucose-6-phosphate,g6p,cpd00079,FALSE
+abau,D-Galactonic acid-g-Lactone,galctn__D,cpd00653,FALSE
+abau,"D,L-Malate",mal__L;mal__D,cpd00130;cpd00386,TRUE
+abau,D-Ribose,rib__D,cpd00105,FALSE
+abau,Tween 20,,cpd13391,TRUE
+abau,L-Rhamnose,rmn,cpd00396,FALSE
+abau,D-Fructose,fru,cpd00082,FALSE
+abau,Acetate,ac,cpd00029,TRUE
+abau,D-Glucose,glc__D,cpd00027,TRUE
+abau,Maltose,malt,cpd00179,FALSE
+abau,D-Melibiose,melib,cpd03198,FALSE
+abau,Thymidine,thymd,cpd00184,FALSE
+abau,L-Asparagine,asn__L,cpd00132,TRUE
+abau,D-Aspartate,asp__D,cpd00320,FALSE
+abau,D-Glucosamine,gam,cpd00276,FALSE
+abau,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,FALSE
+abau,Tween 40,,cpd24417,TRUE
+abau,a-Ketoglutarate,akg,cpd00024,TRUE
+abau,a-Ketobutyrate,2obut,cpd00094,TRUE
+abau,a-Methyl-D-Galactoside,,cpd24416,FALSE
+abau,D-Lactose,lcts,cpd00208,FALSE
+abau,Lactulose,,cpd04349,FALSE
+abau,Sucrose,sucr,cpd00076,FALSE
+abau,Uridine,uri,cpd00249,FALSE
+abau,L-Glutamine,gln__L,cpd00053,TRUE
+abau,m-Tartaric acid,tartr__M,cpd00432,FALSE
+abau,D-Glucose-1-phosphate,g1p,cpd00089,FALSE
+abau,D-Fructose-6-phosphate,f6p,cpd19035,FALSE
+abau,Tween 80,,cpd13392,TRUE
+abau,a-Hydroxyglutaric acid-g-Lactone,S2hglut,cpd02041,FALSE
+abau,a-Hydroxybutyrate,2hbut,cpd03561,TRUE
+abau,Methyl-D-Glucoside,mbdg,cpd15585,FALSE
+abau,Adonitol,rbt,cpd00366,FALSE
+abau,Maltotriose,malttr,cpd01262,FALSE
+abau,2`-Deoxyadenosine,dad_2,cpd00438,FALSE
+abau,Adenosine,adn,cpd00182,FALSE
+abau,Gly-Asp,gly_asp__L,cpd11589,FALSE
+abau,Citrate,cit,cpd00137,TRUE
+abau,m-Inositol,inost,cpd00121,FALSE
+abau,D-Threonine,,cpd00611,FALSE
+abau,Fumarate,fum,cpd00106,TRUE
+abau,Bromosuccinate,,cpd23859,TRUE
+abau,Propionate,ppa,cpd00141,TRUE
+abau,D-Galactarate,galctr__D;galct__D,cpd00652,FALSE
+abau,Glycolate,glyclt,cpd00139,FALSE
+abau,Glyoxylate,glx,cpd00040,FALSE
+abau,D-Cellobiose,cellb,cpd03845,FALSE
+abau,Inosine,ins,cpd00246,FALSE
+abau,Gly-Glu,gly_glu__L,cpd11592,FALSE
+abau,Tricarballylate,tcb,cpd16654,TRUE
+abau,L-Serine,ser__L,cpd00054,FALSE
+abau,L-Threonine,thr__L,cpd00161,TRUE
+abau,L-Alanine,ala__L,cpd00035,TRUE
+abau,Ala-Gly,alagly;L_alagly,cpd11585,FALSE
+abau,Acetoacetate,acac,cpd00142,FALSE
+abau,N-Acetyl-D-Mannosamine,acmana,cpd00492,FALSE
+abau,Mono-Methylsuccinate,,cpd24419,TRUE
+abau,Methylpyruvate,,cpd24420,TRUE
+abau,D-Malate,mal__D,cpd00386,TRUE
+abau,L-Malate,mal__L,cpd00130,TRUE
+abau,Gly-Pro,gly_pro__L,cpd11588,FALSE
+abau,p-Hydroxyphenyl Acetic acid,4hphac,cpd00489,FALSE
+abau,m-Hydroxyphenyl Acetic acid,3hoxpac,cpd03320,FALSE
+abau,Tyramine,tym,cpd00374,FALSE
+abau,D-Psicose,,cpd03884,FALSE
+abau,L-Lyxose,lyx__L,cpd01067,FALSE
+abau,Glucuronamide,,cpd26269,FALSE
+abau,Pyruvate,pyr,cpd00020,TRUE
+abau,L-Galactonic acid-g-Lactone,galctn__L,cpd00820,FALSE
+abau,D-Galacturonate,galur,cpd00280,FALSE
+abau,Phenylethylamine,peamn,cpd03161,FALSE
+abau,Ethanolamine,etha,cpd00162,FALSE
+abau,Chondroitin Sulfate C,cs_c,cpd11717;cpd26720,FALSE
+abau,a-Cyclodextrin,,cpd24451,FALSE
+abau,b-Cyclodextrin,,cpd09394,FALSE
+abau,g-Cyclodextrin,,cpd24452,FALSE
+abau,Dextrin,dextrin;dxtrn,cpd11594,TRUE
+abau,Gelatin,,cpd11879,FALSE
+abau,Glycogen,glycogen,cpd00155,FALSE
+abau,Inulin,,cpd11602,FALSE
+abau,Laminarin,,cpd11748,FALSE
+abau,Mannan,mannan,cpd11685,FALSE
+abau,Pectin,pectin,cpd11601;cpd27835,FALSE
+abau,N-Acetyl-D-Galactosamine,acgal;acgala,cpd00832;cpd27607,FALSE
+abau,N-Acetylneuraminate,acnam,cpd00232,FALSE
+abau,D-Allose,all__D,cpd01055,FALSE
+abau,Amygdalin,,cpd01356,FALSE
+abau,D-Arabinose,arab__D,cpd00185,FALSE
+abau,D-Arabitol,abt__D,cpd01307,FALSE
+abau,L-Arabitol,abt__L;abt,cpd00417,FALSE
+abau,Arbutin,arbt,cpd03696,FALSE
+abau,2-Deoxy-D-Ribose,drib,cpd01242,FALSE
+abau,i-Erythritol,,cpd00392,FALSE
+abau,D-Fucose,,cpd00750,FALSE
+abau,3-O-b-D-Galactopyranosyl-D-Arabinose,,cpd24453,FALSE
+abau,Gentiobiose,,cpd05158,FALSE
+abau,L-Glucose,,cpd24421,FALSE
+abau,D-Lactitol,,cpd00382,FALSE
+abau,D-Melezitose,,cpd05161,FALSE
+abau,Maltitol,,cpd37280,FALSE
+abau,a-Methyl-D-Glucoside,amdglc;madg,cpd15584,FALSE
+abau,b-Methyl-D-Galactoside,,cpd02274,FALSE
+abau,3-Methylglucose,,cpd26351,FALSE
+abau,b-Methyl-D-Glucuronate,,cpd24423,FALSE
+abau,a-Methyl-D-Mannoside,,cpd24424,FALSE
+abau,b-Methyl-D-Xyloside,,cpd24425,FALSE
+abau,Palatinose,pala,cpd01200,FALSE
+abau,D-Raffinose,raffin,cpd00382,FALSE
+abau,Salicin,salcn;rbl_B,cpd01030,FALSE
+abau,Sedoheptulosan,,cpd24426,FALSE
+abau,L-Sorbose,srb__L,cpd00212,FALSE
+abau,Stachyose,stys;stchs,cpd01133,FALSE
+abau,D-Tagatose,tgt;tag__D,cpd00589,FALSE
+abau,Turanose,,cpd20885,FALSE
+abau,Xylitol,xylt,cpd00306,FALSE
+abau,N-Acetyl-D-Glucosaminitol,,cpd24427,FALSE
+abau,4-Aminobutyrate,4abut,cpd00281,TRUE
+abau,5-Aminopentanoate,5aptn,cpd00339,FALSE
+abau,Butyrate,but,cpd00211,TRUE
+abau,Caprate,dca,cpd01107,FALSE
+abau,Hexanoate,hxa,cpd01113,TRUE
+abau,Citraconic acid,citac,cpd01502,TRUE
+abau,Citramalic acid,citm,cpd00607,TRUE
+abau,D-Glucosamine,gam,cpd00276,FALSE
+abau,Salicylate,salc,cpd00599,FALSE
+abau,4-Hydroxybenzoate,4hbz,cpd00136,TRUE
+abau,b-Hydroxybutyric acid,bhb,cpd00797,TRUE
+abau,g-Hydroxybutyric acid,ghb;h4but,cpd00728,FALSE
+abau,a-Keto-Valeric acid,,cpd03737,TRUE
+abau,Itaconic acid,itacon,cpd00380,FALSE
+abau,5-Keto-D-Gluconate,5dglcn,cpd00781,FALSE
+abau,D-Lactic acid Methyl Ester,,cpd24428,TRUE
+abau,Malonate,malon,cpd00308,TRUE
+abau,Melibionic acid,,cpd24454,FALSE
+abau,Oxalate,oxa,cpd00180,FALSE
+abau,Oxalomalate,,cpd01363,FALSE
+abau,Quinate,quin,cpd00248,TRUE
+abau,"D-Ribono-1,4-Lactone",,cpd23861,FALSE
+abau,Sebacic acid,sebacid,cpd05192,TRUE
+abau,Sorbic acid,,cpd16648,TRUE
+abau,Succinamic acid,,cpd25518,TRUE
+abau,D-Tartrate,tartr__D,cpd19018,FALSE
+abau,L-Tartrate,tartr__L,cpd00666,FALSE
+abau,Acetamide,ad,cpd03734,FALSE
+abau,L-Alaninamide,,cpd23030,FALSE
+abau,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+abau,L-Arginine,arg__L,cpd00051,TRUE
+abau,Glycine,gly,cpd00033,FALSE
+abau,L-Histidine,his__L,cpd00119,TRUE
+abau,L-Homoserine,hom__L,cpd00227,FALSE
+abau,Hydroxy-L-Proline,4hpro_LT,cpd00851,TRUE
+abau,L-Isoleucine,ile__L,cpd00322,FALSE
+abau,L-Leucine,leu__L,cpd00107,TRUE
+abau,L-Lysine,lys__L,cpd00039,FALSE
+abau,L-Methionine,met__L,cpd00060,FALSE
+abau,L-Ornithine,orn__L;orn,cpd00064,FALSE
+abau,L-Phenylalanine,phe__L,cpd00066,TRUE
+abau,L-Pyroglutamic acid,5oxpro,cpd01293,TRUE
+abau,L-Valine,val__L,cpd00156,FALSE
+abau,"D,L-Carnitine",crn,cpd00266,FALSE
+abau,sec-Butylamine,,cpd24429,FALSE
+abau,"D,L-Octopamine",,cpd02599,FALSE
+abau,Putrescine,ptrc,cpd00118,FALSE
+abau,Dihydroxyacetone,dha,cpd00157,FALSE
+abau,"2,3-Butanediol",btd_RR,cpd01947,TRUE
+abau,"2,3-Butanedione",diact,cpd00551,FALSE
+abau,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,FALSE
+bsub,L-Leucine,leu__L,cpd00107,FALSE
+bsub,L-Lysine,lys__L,cpd00039,FALSE
+bsub,L-Methionine,met__L,cpd00060,FALSE
+bsub,L-Phenylalanine,phe__L,cpd00066,FALSE
+bsub,"D,L-Carnitine",crn,cpd00266,FALSE
+bsub,"2,3-Butanediol",btd_RR,cpd01947,FALSE
+bsub,4-Aminobutyrate,4abut,cpd00281,FALSE
+bsub,Glycine,gly,cpd00033,FALSE
+bsub,L-Isoleucine,ile__L,cpd00322,FALSE
+bsub,L-Valine,val__L,cpd00156,FALSE
+bsub,Tween 20,,cpd13391,FALSE
+bsub,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,FALSE
+bsub,Tween 40,,cpd24417,FALSE
+bsub,Tween 80,,cpd13392,FALSE
+bsub,a-Hydroxyglutaric acid-g-Lactone,S2hglut,cpd02041,FALSE
+bsub,D-Threonine,,cpd00611,FALSE
+bsub,Tricarballylate,tcb,cpd16654,FALSE
+bsub,Tyramine,tym,cpd00374,FALSE
+bsub,Chondroitin Sulfate C,cs_c,cpd11717;cpd26720,FALSE
+bsub,Gelatin,,cpd11879,FALSE
+bsub,Laminarin,,cpd11748,FALSE
+bsub,Mannan,mannan,cpd11685,FALSE
+bsub,D-Arabitol,abt__D,cpd01307,FALSE
+bsub,i-Erythritol,,cpd00392,FALSE
+bsub,a-Methyl-D-Mannoside,,cpd24424,FALSE
+bsub,b-Methyl-D-Xyloside,,cpd24425,FALSE
+bsub,Xylitol,xylt,cpd00306,FALSE
+bsub,5-Aminopentanoate,5aptn,cpd00339,FALSE
+bsub,Hexanoate,hxa,cpd01113,FALSE
+bsub,Citraconic acid,citac,cpd01502,FALSE
+bsub,Citramalic acid,citm,cpd00607,FALSE
+bsub,Salicylate,salc,cpd00599,FALSE
+bsub,4-Hydroxybenzoate,4hbz,cpd00136,FALSE
+bsub,b-Hydroxybutyric acid,bhb,cpd00797,FALSE
+bsub,g-Hydroxybutyric acid,ghb;h4but,cpd00728,FALSE
+bsub,a-Keto-Valeric acid,,cpd03737,FALSE
+bsub,Itaconic acid,itacon,cpd00380,FALSE
+bsub,D-Lactic acid Methyl Ester,,cpd24428,FALSE
+bsub,Malonate,malon,cpd00308,FALSE
+bsub,Oxalate,oxa,cpd00180,FALSE
+bsub,Quinate,quin,cpd00248,FALSE
+bsub,"D-Ribono-1,4-Lactone",,cpd23861,FALSE
+bsub,Sebacic acid,sebacid,cpd05192,FALSE
+bsub,Sorbic acid,,cpd16648,FALSE
+bsub,Succinamic acid,,cpd25518,FALSE
+bsub,D-Tartrate,tartr__D,cpd19018,FALSE
+bsub,L-Tartrate,tartr__L,cpd00666,FALSE
+bsub,Acetamide,ad,cpd03734,FALSE
+bsub,L-Alaninamide,,cpd23030,FALSE
+bsub,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+bsub,L-Homoserine,hom__L,cpd00227,FALSE
+bsub,Hydroxy-L-Proline,4hpro_LT,cpd00851,FALSE
+bsub,L-Pyroglutamic acid,5oxpro,cpd01293,FALSE
+bsub,sec-Butylamine,,cpd24429,FALSE
+bsub,"D,L-Octopamine",,cpd02599,FALSE
+bsub,Putrescine,ptrc,cpd00118,FALSE
+bsub,"2,3-Butanedione",diact,cpd00551,FALSE
+bsub,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,FALSE
+bsub,Formate,for,cpd00047,TRUE
+bsub,Acetate,ac,cpd00029,TRUE
+bsub,Acetoacetate,acac,cpd00142,TRUE
+bsub,L-Arabinose,arab__L,cpd19109,TRUE
+bsub,N-Acetyl-D-Glucosamine,acgam,cpd00122,TRUE
+bsub,D-Glucarate,glcr,cpd00571;cpd00609,TRUE
+bsub,Succinate,succ,cpd00036,TRUE
+bsub,D-Galactose,gal,cpd00108,TRUE
+bsub,L-Aspartate,asp__L,cpd00041,TRUE
+bsub,L-Proline,pro__L,cpd00129,TRUE
+bsub,D-Alanine,ala__D,cpd00117,TRUE
+bsub,D-Trehalose,tre,cpd00794,TRUE
+bsub,D-Mannose,man,cpd00138,TRUE
+bsub,Galactitol,galt,cpd01171,TRUE
+bsub,D-Serine,ser__D,cpd00550,TRUE
+bsub,D-Sorbitol,sbt__D,cpd00588,TRUE
+bsub,Glycerol,glyc,cpd00100,TRUE
+bsub,D-Glucuronate,glcur,cpd00164,TRUE
+bsub,D-Gluconate,glcn__D;glcn,cpd00222,TRUE
+bsub,Glycerol-3-phosphate,glyc3p,cpd00080,TRUE
+bsub,D-Xylose,xyl__D,cpd00154,TRUE
+bsub,L-Lactate,lac__L,cpd00159,TRUE
+bsub,D-Mannitol,mnl,cpd00314,TRUE
+bsub,L-Glutamate,glu__L,cpd00023,TRUE
+bsub,D-Glucose-6-phosphate,g6p,cpd00079,TRUE
+bsub,"D,L-Malate",mal__L;mal__D,cpd00130;cpd00386,TRUE
+bsub,D-Ribose,rib__D,cpd00105,TRUE
+bsub,L-Rhamnose,rmn,cpd00396,TRUE
+bsub,D-Fructose,fru,cpd00082,TRUE
+bsub,D-Glucose,glc__D,cpd00027,TRUE
+bsub,Maltose,malt,cpd00179,TRUE
+bsub,D-Melibiose,melib,cpd03198,TRUE
+bsub,Thymidine,thymd,cpd00184,TRUE
+bsub,L-Asparagine,asn__L,cpd00132,TRUE
+bsub,a-Ketoglutarate,akg,cpd00024,TRUE
+bsub,Sucrose,sucr,cpd00076,TRUE
+bsub,Uridine,uri,cpd00249,TRUE
+bsub,L-Glutamine,gln__L,cpd00053,TRUE
+bsub,D-Glucose-1-phosphate,g1p,cpd00089,TRUE
+bsub,D-Fructose-6-phosphate,f6p,cpd19035,TRUE
+bsub,Methyl-D-Glucoside,mbdg,cpd15585,TRUE
+bsub,Maltotriose,malttr,cpd01262,TRUE
+bsub,2`-Deoxyadenosine,dad_2,cpd00438,TRUE
+bsub,Adenosine,adn,cpd00182,TRUE
+bsub,Citrate,cit,cpd00137,TRUE
+bsub,Fumarate,fum,cpd00106,TRUE
+bsub,Propionate,ppa,cpd00141,TRUE
+bsub,D-Galactarate,galctr__D;galct__D,cpd00652,TRUE
+bsub,Glycolate,glyclt,cpd00139,TRUE
+bsub,Glyoxylate,glx,cpd00040,TRUE
+bsub,D-Cellobiose,cellb,cpd03845,TRUE
+bsub,Inosine,ins,cpd00246,TRUE
+bsub,L-Serine,ser__L,cpd00054,TRUE
+bsub,L-Threonine,thr__L,cpd00161,TRUE
+bsub,L-Alanine,ala__L,cpd00035,TRUE
+bsub,N-Acetyl-D-Mannosamine,acmana,cpd00492,TRUE
+bsub,D-Malate,mal__D,cpd00386,TRUE
+bsub,L-Malate,mal__L,cpd00130,TRUE
+bsub,Pyruvate,pyr,cpd00020,TRUE
+bsub,D-Galacturonate,galur,cpd00280,TRUE
+bsub,Dextrin,dextrin;dxtrn,cpd11594,TRUE
+bsub,Glycogen,glycogen,cpd00155,TRUE
+bsub,N-Acetylneuraminate,acnam,cpd00232,TRUE
+bsub,D-Arabinose,arab__D,cpd00185,TRUE
+bsub,L-Arabitol,abt__L;abt,cpd00417,TRUE
+bsub,Arbutin,arbt,cpd03696,TRUE
+bsub,2-Deoxy-D-Ribose,drib,cpd01242,TRUE
+bsub,Palatinose,pala,cpd01200,TRUE
+bsub,D-Raffinose,raffin,cpd00382,TRUE
+bsub,Salicin,salcn;rbl_B,cpd01030,TRUE
+bsub,L-Sorbose,srb__L,cpd00212,TRUE
+bsub,D-Glucosamine,gam,cpd00276,TRUE
+bsub,L-Ornithine,orn__L;orn,cpd00064,TRUE
+bsub,Dihydroxyacetone,dha,cpd00157,TRUE
+bsub,L-Fucose,fuc__L,cpd00751,TRUE
+bsub,D-Galactonic acid-g-Lactone,galctn__D,cpd00653,TRUE
+bsub,a-Methyl-D-Galactoside,,cpd24416,TRUE
+bsub,m-Tartaric acid,tartr__M,cpd00432,TRUE
+bsub,Gly-Asp,gly_asp__L,cpd11589,TRUE
+bsub,Gly-Glu,gly_glu__L,cpd11592,TRUE
+bsub,Ala-Gly,alagly;L_alagly,cpd11585,TRUE
+bsub,Gly-Pro,gly_pro__L,cpd11588,TRUE
+bsub,D-Psicose,,cpd03884,TRUE
+bsub,Glucuronamide,,cpd26269,TRUE
+bsub,L-Galactonic acid-g-Lactone,galctn__L,cpd00820,TRUE
+bsub,a-Cyclodextrin,,cpd24451,TRUE
+bsub,g-Cyclodextrin,,cpd24452,TRUE
+bsub,D-Allose,all__D,cpd01055,TRUE
+bsub,Amygdalin,,cpd01356,TRUE
+bsub,3-O-b-D-Galactopyranosyl-D-Arabinose,,cpd24453,TRUE
+bsub,Gentiobiose,,cpd05158,TRUE
+bsub,Maltitol,,cpd37280,TRUE
+bsub,b-Methyl-D-Glucuronate,,cpd24423,TRUE
+bsub,Turanose,,cpd20885,TRUE
+bsub,5-Keto-D-Gluconate,5dglcn,cpd00781,TRUE
+bsub,D-Lactose,lcts,cpd00208,TRUE
+bsub,m-Inositol,inost,cpd00121,TRUE
+bsub,L-Arginine,arg__L,cpd00051,TRUE
+bsub,L-Histidine,his__L,cpd00119,TRUE
+cdif,Maltotriose,malttr,cpd01262,TRUE
+cdif,D-Cellobiose,cellb,cpd03845,TRUE
+cdif,Maltose,malt,cpd00179,TRUE
+cdif,D-Glucose,glc__D,cpd00027,TRUE
+cdif,D-Trehalose,tre,cpd00794,TRUE
+cdif,D-Fructose,fru,cpd00082,TRUE
+cdif,D-Mannose,man,cpd00138,TRUE
+cdif,N-Acetyl-D-Glucosamine,acgam,cpd00122,TRUE
+cdif,D-Mannitol,mnl,cpd00314,TRUE
+cdif,D-Sorbitol,sbt__D,cpd00588,TRUE
+cdif,N-Acetyl-D-Mannosamine,acmana,cpd00492,TRUE
+cdif,Adenosine,adn,cpd00182,TRUE
+cdif,a-Hydroxyglutaric acid-g-Lactone,S2hglut,cpd02041,TRUE
+cdif,Uridine,uri,cpd00249,TRUE
+cdif,D-Lactose,lcts,cpd00208,TRUE
+cdif,Methyl-D-Glucoside,mbdg,cpd15585,TRUE
+cdif,a-Hydroxybutyrate,2hbut,cpd03561,TRUE
+cdif,Inosine,ins,cpd00246,TRUE
+cdif,Ethanolamine,etha,cpd00162,TRUE
+cdif,D-Xylose,xyl__D,cpd00154,TRUE
+cdif,L-Serine,ser__L,cpd00054,TRUE
+cdif,Thymidine,thymd,cpd00184,TRUE
+cdif,Sucrose,sucr,cpd00076,TRUE
+cdif,2`-Deoxyadenosine,dad_2,cpd00438,TRUE
+cdif,D-Ribose,rib__D,cpd00105,TRUE
+cdif,Lactulose,,cpd04349,TRUE
+cdif,D-Alanine,ala__D,cpd00117,FALSE
+cdif,L-Alanine,ala__L,cpd00035,FALSE
+cdif,D-Fructose-6-phosphate,f6p,cpd19035,FALSE
+cdif,Mono-Methylsuccinate,,cpd24419,FALSE
+cdif,D-Malate,mal__D,cpd00386,FALSE
+cdif,D-Melibiose,melib,cpd03198,FALSE
+cdif,Methylpyruvate,,cpd24420,FALSE
+cdif,a-Ketoglutarate,akg,cpd00024,FALSE
+cdif,a-Methyl-D-Galactoside,,cpd24416,FALSE
+cdif,Adonitol,rbt,cpd00366,FALSE
+cdif,"1,2-Propanediol",12ppd__S;12ppd__R,cpd19024;cpd01861,FALSE
+cdif,Galactitol,galt,cpd01171,FALSE
+cdif,L-Malate,mal__L,cpd00130,FALSE
+cdif,D-Galactarate,galctr__D;galct__D,cpd00652,FALSE
+cdif,a-Ketobutyrate,2obut,cpd00094,FALSE
+cdif,L-Galactonic acid-g-Lactone,galctn__L,cpd00820,FALSE
+cdif,Glycolate,glyclt,cpd00139,FALSE
+cdif,Tween 80,,cpd13392,FALSE
+cdif,Ala-Gly,alagly;L_alagly,cpd11585,FALSE
+cdif,Propionate,ppa,cpd00141,FALSE
+cdif,Glyoxylate,glx,cpd00040,FALSE
+cdif,D-Threonine,,cpd00611,FALSE
+cdif,L-Glutamate,glu__L,cpd00023,FALSE
+cdif,D-Galacturonate,galur,cpd00280,FALSE
+cdif,D-Glucose-1-phosphate,g1p,cpd00089,FALSE
+cdif,Tween 40,,cpd24417,FALSE
+cdif,L-Rhamnose,rmn,cpd00396,FALSE
+cdif,L-Threonine,thr__L,cpd00161,FALSE
+cdif,L-Lactate,lac__L,cpd00159,FALSE
+cdif,Phenylethylamine,peamn,cpd03161,FALSE
+cdif,Gly-Pro,gly_pro__L,cpd11588,FALSE
+cdif,L-Asparagine,asn__L,cpd00132,FALSE
+cdif,Glucuronamide,,cpd26269,FALSE
+cdif,m-Inositol,inost,cpd00121,FALSE
+cdif,D-Psicose,,cpd03884,FALSE
+cdif,Tricarballylate,tcb,cpd16654,FALSE
+cdif,Bromosuccinate,,cpd23859,FALSE
+cdif,D-Glucose-6-phosphate,g6p,cpd00079,FALSE
+cdif,Pyruvate,pyr,cpd00020,FALSE
+cdif,Tyramine,tym,cpd00374,FALSE
+cdif,Glycerol-3-phosphate,glyc3p,cpd00080,FALSE
+cdif,D-Gluconate,glcn__D;glcn,cpd00222,FALSE
+cdif,Acetate,ac,cpd00029,FALSE
+cdif,Succinate,succ,cpd00036,FALSE
+cdif,D-Galactonic acid-g-Lactone,galctn__D,cpd00653,FALSE
+cdif,Formate,for,cpd00047,FALSE
+cdif,D-Glucarate,glcr,cpd00571;cpd00609,FALSE
+cdif,m-Tartaric acid,tartr__M,cpd00432,FALSE
+cdif,Gly-Asp,gly_asp__L,cpd11589,FALSE
+cdif,D-Galactose,gal,cpd00108,FALSE
+cdif,L-Fucose,fuc__L,cpd00751,FALSE
+cdif,D-Serine,ser__D,cpd00550,FALSE
+cdif,m-Hydroxyphenyl Acetic acid,3hoxpac,cpd03320,FALSE
+cdif,D-Glucuronate,glcur,cpd00164,FALSE
+cdif,Acetoacetate,acac,cpd00142,FALSE
+cdif,Gly-Glu,gly_glu__L,cpd11592,FALSE
+cdif,Citrate,cit,cpd00137,FALSE
+cdif,L-Arabinose,arab__L,cpd19109,FALSE
+cdif,D-Glucosamine,gam,cpd00276,FALSE
+cdif,Glycerol,glyc,cpd00100,FALSE
+cdif,L-Glutamine,gln__L,cpd00053,FALSE
+cdif,Fumarate,fum,cpd00106,FALSE
+cdif,p-Hydroxyphenyl Acetic acid,4hphac,cpd00489,FALSE
+cdif,L-Proline,pro__L,cpd00129,FALSE
+cdif,L-Lyxose,lyx__L,cpd01067,FALSE
+cdif,L-Aspartate,asp__L,cpd00041,FALSE
+cdif,D-Aspartate,asp__D,cpd00320,FALSE
+cdif,"D,L-Malate",mal__L;mal__D,cpd00130;cpd00386,FALSE
+cdif,Tween 20,,cpd13391,FALSE
+cdif,Pectin,pectin,cpd11601;cpd27835,TRUE
+cdif,D-Glucosamine,gam,cpd00276,TRUE
+cdif,a-Keto-Valeric acid,,cpd03737,TRUE
+cdif,D-Tagatose,tgt;tag__D,cpd00589,TRUE
+cdif,L-Methionine,met__L,cpd00060,TRUE
+cdif,D-Melezitose,,cpd05161,TRUE
+cdif,L-Isoleucine,ile__L,cpd00322,TRUE
+cdif,a-Methyl-D-Mannoside,,cpd24424,TRUE
+cdif,D-Arabitol,abt__D,cpd01307,TRUE
+cdif,g-Hydroxybutyric acid,ghb;h4but,cpd00728,TRUE
+cdif,L-Leucine,leu__L,cpd00107,TRUE
+cdif,Salicin,salcn;rbl_B,cpd01030,TRUE
+cdif,Arbutin,arbt,cpd03696,TRUE
+cdif,L-Tartrate,tartr__L,cpd00666,TRUE
+cdif,5-Keto-D-Gluconate,5dglcn,cpd00781,TRUE
+cdif,Butyrate,but,cpd00211,FALSE
+cdif,N-Acetylneuraminate,acnam,cpd00232,TRUE
+cdif,Itaconic acid,itacon,cpd00380,FALSE
+cdif,5-Aminopentanoate,5aptn,cpd00339,FALSE
+cdif,Palatinose,pala,cpd01200,TRUE
+cdif,b-Hydroxybutyric acid,bhb,cpd00797,TRUE
+cdif,D-Tartrate,tartr__D,cpd19018,FALSE
+cdif,Salicylate,salc,cpd00599,FALSE
+cdif,L-Lysine,lys__L,cpd00039,FALSE
+cdif,Turanose,,cpd20885,TRUE
+cdif,Succinamic acid,,cpd25518,FALSE
+cdif,L-Valine,val__L,cpd00156,FALSE
+cdif,4-Hydroxybenzoate,4hbz,cpd00136,FALSE
+cdif,"D-Ribono-1,4-Lactone",,cpd23861,FALSE
+cdif,4-Aminobutyrate,4abut,cpd00281,FALSE
+cdif,L-Alaninamide,,cpd23030,TRUE
+cdif,D-Fucose,,cpd00750,FALSE
+cdif,b-Methyl-D-Xyloside,,cpd24425,FALSE
+cdif,Dihydroxyacetone,dha,cpd00157,FALSE
+cdif,N-Acetyl-D-Glucosaminitol,,cpd24427,FALSE
+cdif,Xylitol,xylt,cpd00306,FALSE
+cdif,3-O-b-D-Galactopyranosyl-D-Arabinose,,cpd24453,FALSE
+cdif,Sebacic acid,sebacid,cpd05192,FALSE
+cdif,3-Hydroxy-2-butanone,actn__S;actn__R,cpd00361;cpd19008,FALSE
+cdif,Mannan,mannan,cpd11685,FALSE
+cdif,L-Phenylalanine,phe__L,cpd00066,FALSE
+cdif,Quinate,quin,cpd00248,FALSE
+cdif,Gentiobiose,,cpd05158,FALSE
+cdif,Hydroxy-L-Proline,4hpro_LT,cpd00851,FALSE
+cdif,Stachyose,stys;stchs,cpd01133,FALSE
+cdif,"2,3-Butanediol",btd_RR,cpd01947,FALSE
+cdif,L-Arabitol,abt__L;abt,cpd00417,TRUE
+cdif,"2,3-Butanedione",diact,cpd00551,FALSE
+cdif,i-Erythritol,,cpd00392,FALSE
+cdif,Acetamide,ad,cpd03734,FALSE
+cdif,3-Methylglucose,,cpd26351,FALSE
+cdif,L-Ornithine,orn__L;orn,cpd00064,FALSE
+cdif,Dextrin,dextrin;dxtrn,cpd11594,FALSE
+cdif,L-Sorbose,srb__L,cpd00212,FALSE
+cdif,Putrescine,ptrc,cpd00118,FALSE
+cdif,Citraconic acid,citac,cpd01502,FALSE
+cdif,Laminarin,,cpd11748,FALSE
+cdif,b-Methyl-D-Glucuronate,,cpd24423,FALSE
+cdif,Sorbic acid,,cpd16648,FALSE
+cdif,L-Histidine,his__L,cpd00119,FALSE
+cdif,Glycine,gly,cpd00033,FALSE
+cdif,"D,L-Octopamine",,cpd02599,FALSE
+cdif,Sedoheptulosan,,cpd24426,FALSE
+cdif,Melibionic acid,,cpd24454,FALSE
+cdif,N-Acetyl-D-Galactosamine,acgal;acgala,cpd00832;cpd27607,TRUE
+cdif,L-Arginine,arg__L,cpd00051,FALSE
+cdif,"D,L-Carnitine",crn,cpd00266,FALSE
+cdif,Oxalomalate,,cpd01363,FALSE
+cdif,Glycogen,glycogen,cpd00155,FALSE
+cdif,b-Methyl-D-Galactoside,,cpd02274,FALSE
+cdif,a-Methyl-D-Glucoside,amdglc;madg,cpd15584,FALSE
+cdif,2-Deoxy-D-Ribose,drib,cpd01242,FALSE
+cdif,N-Acetyl-L-Glutamate,acglu,cpd00477,FALSE
+cdif,L-Homoserine,hom__L,cpd00227,FALSE
+cdif,Inulin,,cpd11602,TRUE
+cdif,Gelatin,,cpd11879,FALSE
+cdif,g-Cyclodextrin,,cpd24452,FALSE
+cdif,sec-Butylamine,,cpd24429,FALSE
+cdif,Maltitol,,cpd37280,FALSE
+cdif,Citramalic acid,citm,cpd00607,FALSE
+cdif,L-Pyroglutamic acid,5oxpro,cpd01293,FALSE
+cdif,Hexanoate,hxa,cpd01113,FALSE
+cdif,Oxalate,oxa,cpd00180,FALSE
+cdif,Amygdalin,,cpd01356,FALSE
+cdif,Chondroitin Sulfate C,cs_c,cpd11717;cpd26720,FALSE
+cdif,D-Lactic acid Methyl Ester,,cpd24428,FALSE
+cdif,D-Lactitol,,cpd00382,FALSE
+cdif,D-Raffinose,raffin,cpd00382,FALSE
+cdif,Malonate,malon,cpd00308,FALSE
+cdif,D-Arabinose,arab__D,cpd00185,FALSE
+cdif,a-Cyclodextrin,,cpd24451,FALSE
+cdif,L-Glucose,,cpd24421,FALSE
+cdif,b-Cyclodextrin,,cpd09394,FALSE
+cdif,D-Allose,all__D,cpd01055,FALSE
+cdif,Caprate,dca,cpd01107,FALSE
