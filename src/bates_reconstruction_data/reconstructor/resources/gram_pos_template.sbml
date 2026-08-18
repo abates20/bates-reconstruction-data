@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level3/version1/core" xmlns:fbc="http://www.sbml.org/sbml/level3/version1/fbc/version2" sboTerm="SBO:0000624" level="3" version="1" fbc:required="false">
+  <model metaid="meta_gram_pos" id="gram_pos" name="Gram positive template" fbc:strict="true">
+    <listOfUnitDefinitions>
+      <unitDefinition id="mmol_per_gDW_per_hr">
+        <listOfUnits>
+          <unit kind="mole" exponent="1" scale="-3" multiplier="1"/>
+          <unit kind="gram" exponent="-1" scale="0" multiplier="1"/>
+          <unit kind="second" exponent="-1" scale="0" multiplier="3600"/>
+        </listOfUnits>
+      </unitDefinition>
+    </listOfUnitDefinitions>
+    <listOfCompartments>
+      <compartment id="c" name="cytosol" constant="true"/>
+    </listOfCompartments>
+    <listOfSpecies>
+      <species id="M_cellwall_c" name="Cell Wall polymer" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cofactor_c" name="Cofactor Pool" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd00001_c" name="H2O" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="H2O"/>
+      <species id="M_cpd00002_c" name="Atp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O13P3"/>
+      <species id="M_cpd11852_c" name="Lipid" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd17041_c" name="Protein Biosynthesis" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd17042_c" name="Dna Replication" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd17043_c" name="Rna Transcription" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd00008_c" name="Adp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O10P2"/>
+      <species id="M_cpd00009_c" name="Phosphate" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="HO4P"/>
+      <species id="M_cpd11416_c" name="Biomass" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd00003_c" name="Nad" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C21H26N7O14P2"/>
+      <species id="M_cpd00004_c" name="Nadh" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C21H27N7O14P2"/>
+      <species id="M_cpd00005_c" name="Nadph" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C21H26N7O17P3"/>
+      <species id="M_cpd00006_c" name="Nadp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C21H25N7O17P3"/>
+      <species id="M_cpd00010_c" name="Coa" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C21H32N7O16P3S"/>
+      <species id="M_cpd00012_c" name="Ppi" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="HO7P2"/>
+      <species id="M_cpd00015_c" name="Fad" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C27H31N9O15P2"/>
+      <species id="M_cpd00022_c" name="Acetyl-Coa" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C23H34N7O17P3S"/>
+      <species id="M_cpd00030_c" name="Mn2+" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Mn"/>
+      <species id="M_cpd00031_c" name="Gdp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O11P2"/>
+      <species id="M_cpd00038_c" name="Gtp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O14P3"/>
+      <species id="M_cpd00063_c" name="Ca2+" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Ca"/>
+      <species id="M_cpd00099_c" name="Cl-" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Cl"/>
+      <species id="M_cpd00104_c" name="Biot" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H15N2O3S"/>
+      <species id="M_cpd00133_c" name="Nicotinamide" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H6N2O"/>
+      <species id="M_cpd00149_c" name="Co2+" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Co"/>
+      <species id="M_cpd00205_c" name="K+" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="K"/>
+      <species id="M_cpd00220_c" name="Riboflavin" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C17H19N4O6"/>
+      <species id="M_cpd00254_c" name="Mg" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Mg"/>
+      <species id="M_cpd00263_c" name="Pyridoxol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C8H11NO3"/>
+      <species id="M_cpd00305_c" name="Thiamin" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H17N4OS"/>
+      <species id="M_cpd00393_c" name="Folate" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C19H17N7O6"/>
+      <species id="M_cpd00443_c" name="Abee" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C7H6NO2"/>
+      <species id="M_cpd00644_c" name="Pan" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H16NO5"/>
+      <species id="M_cpd00971_c" name="Na+" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Na"/>
+      <species id="M_cpd10515_c" name="Fe+2" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="Fe"/>
+      <species id="M_cpd15540_c" name="Phosphatidylglycerol Dioctadecanoyl" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C42H82O10P"/>
+      <species id="M_cpd15543_c" name="Phosphatidylglycerophosphate Ditetradecanoyl" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C34H66O13P2"/>
+      <species id="M_cpd15545_c" name="Phosphatidylglycerophosphate Dihexadecanoyl" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C38H74O13P2"/>
+      <species id="M_cpd15728_c" name="Diglucosyl-1,2 Dipalmitoylglycerol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C47H88O15"/>
+      <species id="M_cpd15729_c" name="Diglucosyl-1,2 Dimyristoylglycerol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C43H80O15"/>
+      <species id="M_cpd15737_c" name="Monoglucosyl-1,2 Dipalmitoylglycerol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C41H78O10"/>
+      <species id="M_cpd15738_c" name="Monoglucosyl-1,2 Dimyristoylglycerol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C37H70O10"/>
+      <species id="M_cpd00023_c" name="L-Glutamate" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H8NO4"/>
+      <species id="M_cpd00033_c" name="Glycine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C2H5NO2"/>
+      <species id="M_cpd00035_c" name="L-Alanine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H7NO2"/>
+      <species id="M_cpd00039_c" name="L-Lysine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H15N2O2"/>
+      <species id="M_cpd00041_c" name="L-Aspartate" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H6NO4"/>
+      <species id="M_cpd00051_c" name="L-Arginine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H15N4O2"/>
+      <species id="M_cpd00053_c" name="L-Glutamine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H10N2O3"/>
+      <species id="M_cpd00054_c" name="L-Serine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H7NO3"/>
+      <species id="M_cpd00060_c" name="L-Methionine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H11NO2S"/>
+      <species id="M_cpd00065_c" name="L-Tryptophan" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C11H12N2O2"/>
+      <species id="M_cpd00066_c" name="L-Phenylalanine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11NO2"/>
+      <species id="M_cpd00069_c" name="L-Tyrosine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H11NO3"/>
+      <species id="M_cpd00084_c" name="L-Cysteine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H7NO2S"/>
+      <species id="M_cpd00107_c" name="L-Leucine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H13NO2"/>
+      <species id="M_cpd00119_c" name="L-Histidine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H9N3O2"/>
+      <species id="M_cpd00129_c" name="L-Proline" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H9NO2"/>
+      <species id="M_cpd00132_c" name="L-Asparagine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H8N2O3"/>
+      <species id="M_cpd00156_c" name="L-Valine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C5H11NO2"/>
+      <species id="M_cpd00161_c" name="L-Threonine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C4H9NO3"/>
+      <species id="M_cpd00322_c" name="L-Isoleucine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C6H13NO2"/>
+      <species id="M_cpd00115_c" name="Datp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O12P3"/>
+      <species id="M_cpd00241_c" name="Dgtp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H13N5O13P3"/>
+      <species id="M_cpd00356_c" name="Dctp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H13N3O13P3"/>
+      <species id="M_cpd00357_c" name="Ttp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C10H14N2O14P3"/>
+      <species id="M_cpd00052_c" name="Ctp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H13N3O14P3"/>
+      <species id="M_cpd00062_c" name="Utp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N2O15P3"/>
+      <species id="M_cpd12894_c" name="Teichoic acid" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd16661_c" name="Generic Peptidoglycan (Mass)" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0"/>
+      <species id="M_cpd00402_c" name="Cdpglycerol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C12H19N3O13P2"/>
+      <species id="M_cpd02967_c" name="N-Acetyl-Beta-D-Mannosaminyl-1,4-N-Acetyl-D- Glucosaminyldiphosphoundecaprenol" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C71H116N2O17P2"/>
+      <species id="M_cpd00046_c" name="Cmp" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C9H12N3O8P"/>
+      <species id="M_cpd03491_c" name="Undecaprenyl-Diphospho-N-Acetylmuramoyl-(N-Acetylglucosamine)-L-Alanyl-Gamma-D-Glutamyl-L-Lysyl-D-Alanyl-D-Alanine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C94H153N8O26P2"/>
+      <species id="M_cpd03495_c" name="Undecaprenyl-Diphospho-N-Acetylmuramoyl--N-Acetylglucosamine-L-Ala-D-Glu-Meso-2-6-Diaminopimeloyl-D-Ala-D-Ala" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C95H152N8O28P2"/>
+      <species id="M_cpd00117_c" name="D-Alanine" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C3H7NO2"/>
+      <species id="M_cpd02229_c" name="Bactoprenyl Diphosphate" compartment="c" hasOnlySubstanceUnits="false" boundaryCondition="false" constant="false" fbc:charge="0" fbc:chemicalFormula="C55H90O7P2"/>
+    </listOfSpecies>
+    <listOfParameters>
+      <parameter sboTerm="SBO:0000626" id="cobra_default_lb" value="-1000" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="cobra_default_ub" value="1000" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="cobra_0_bound" value="0" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="minus_inf" value="-INF" constant="true"/>
+      <parameter sboTerm="SBO:0000626" id="plus_inf" value="INF" constant="true"/>
+    </listOfParameters>
+    <listOfReactions>
+      <reaction metaid="meta_R_biomass_GmPos" sboTerm="SBO:0000629" id="R_biomass_GmPos" name="Biomass Reaction" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cellwall_c" stoichiometry="0.2" constant="true"/>
+          <speciesReference species="M_cofactor_c" stoichiometry="0.2" constant="true"/>
+          <speciesReference species="M_cpd00001_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd11852_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd17041_c" stoichiometry="0.4" constant="true"/>
+          <speciesReference species="M_cpd17042_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd17043_c" stoichiometry="0.15" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00008_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd11416_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_EX_biomass" sboTerm="SBO:0000629" id="R_EX_biomass" name="Biomass sink" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd11416_c" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+      </reaction>
+      <reaction metaid="meta_R_cofactor_rxn" sboTerm="SBO:0000629" id="R_cofactor_rxn" name="Cofactor Pool" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd00003_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00004_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00005_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00006_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00010_c" stoichiometry="0.0005" constant="true"/>
+          <speciesReference species="M_cpd00012_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00015_c" stoichiometry="0.0005" constant="true"/>
+          <speciesReference species="M_cpd00022_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00030_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00031_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00038_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00063_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00099_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00104_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00133_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00149_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00205_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00220_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00254_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00263_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00305_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00393_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00443_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00644_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00971_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd10515_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00008_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="0.5" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cofactor_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_lipid_rxn" sboTerm="SBO:0000629" id="R_lipid_rxn" name="Lipid composition" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd15540_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15543_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15545_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15728_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15729_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15737_c" stoichiometry="0.005" constant="true"/>
+          <speciesReference species="M_cpd15738_c" stoichiometry="0.005" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd11852_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_protein_rxn" sboTerm="SBO:0000629" id="R_protein_rxn" name="Protein biosynthesis" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd00023_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00033_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00035_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00039_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00041_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00051_c" stoichiometry="0.25" constant="true"/>
+          <speciesReference species="M_cpd00053_c" stoichiometry="0.25" constant="true"/>
+          <speciesReference species="M_cpd00054_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00060_c" stoichiometry="0.25" constant="true"/>
+          <speciesReference species="M_cpd00065_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd00066_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00069_c" stoichiometry="0.25" constant="true"/>
+          <speciesReference species="M_cpd00084_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd00107_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00119_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd00129_c" stoichiometry="0.25" constant="true"/>
+          <speciesReference species="M_cpd00132_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00156_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00161_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00322_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00001_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="20" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00008_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="20" constant="true"/>
+          <speciesReference species="M_cpd17041_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_dna_rxn" sboTerm="SBO:0000629" id="R_dna_rxn" name="DNA replication" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd00115_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00241_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00356_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00357_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00001_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="4" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00008_c" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_cpd00012_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd17042_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_rna_rxn" sboTerm="SBO:0000629" id="R_rna_rxn" name="RNA transcription" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd00052_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00062_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd00001_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_cpd00038_c" stoichiometry="0.5" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00008_c" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="2" constant="true"/>
+          <speciesReference species="M_cpd00012_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd17043_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_GmPos_cellwall" sboTerm="SBO:0000629" id="R_GmPos_cellwall" name="Gram positive cell wall biosynthesis" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd12894_c" stoichiometry="0.05" constant="true"/>
+          <speciesReference species="M_cpd16661_c" stoichiometry="1.5" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cellwall_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_teichoicacid_rxn" sboTerm="SBO:0000629" id="R_teichoicacid_rxn" name="Teichoic acid biosynthesis" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd00402_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd02967_c" stoichiometry="1" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00046_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd12894_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+      <reaction metaid="meta_R_peptidoglycan_rxn" sboTerm="SBO:0000629" id="R_peptidoglycan_rxn" name="Peptidoglycan synthesis" reversible="false" fast="false" fbc:lowerFluxBound="cobra_0_bound" fbc:upperFluxBound="cobra_default_ub">
+        <listOfReactants>
+          <speciesReference species="M_cpd03491_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd03495_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00001_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00002_c" stoichiometry="4" constant="true"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="M_cpd00117_c" stoichiometry="0.5" constant="true"/>
+          <speciesReference species="M_cpd02229_c" stoichiometry="1" constant="true"/>
+          <speciesReference species="M_cpd00008_c" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_cpd00009_c" stoichiometry="4" constant="true"/>
+          <speciesReference species="M_cpd16661_c" stoichiometry="1" constant="true"/>
+        </listOfProducts>
+      </reaction>
+    </listOfReactions>
+    <fbc:listOfObjectives fbc:activeObjective="obj">
+      <fbc:objective fbc:id="obj" fbc:type="maximize">
+        <fbc:listOfFluxObjectives>
+          <fbc:fluxObjective fbc:reaction="R_biomass_GmPos" fbc:coefficient="1"/>
+        </fbc:listOfFluxObjectives>
+      </fbc:objective>
+    </fbc:listOfObjectives>
+  </model>
+</sbml>
