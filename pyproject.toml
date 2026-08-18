@@ -1,0 +1,22 @@
+[project]
+name = "bates-reconstruction-data"
+version = "0.1.0"
+description = "Code associated with the reconstruction data paper."
+readme = "README.md"
+authors = [
+    { name = "abates20", email = "131566916+abates20@users.noreply.github.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "cobra==0.32.1",
+    "numpy==2.4.6",
+    "pandas==2.3.3",
+    "polars==1.43.2",
+    "pydantic==2.13.4",
+    "requests==2.34.2",
+    "strenum==0.4.15",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13.0"]
+build-backend = "uv_build"
