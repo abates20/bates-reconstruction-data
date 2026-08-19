@@ -104,7 +104,7 @@ class NCBIDataPackage:
     pulling data out of an NCBI dataset archive easier.
     """
     
-    def __init__(self, path: os.PathLike, *, scan: bool = True, validate: bool = False):
+    def __init__(self, path: Union[str, os.PathLike], *, scan: bool = True, validate: bool = False):
         self.path = Path(path)
         self.datasets: list[NCBIDataset] = []
         
