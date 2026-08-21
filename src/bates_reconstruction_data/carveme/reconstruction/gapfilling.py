@@ -1,4 +1,4 @@
-from model_reconstruction.carveme.reconstruction.utils import medium_to_constraints
+from bates_reconstruction_data.carveme.reconstruction.utils import medium_to_constraints
 from reframed.core.transformation import disconnected_metabolites
 from reframed.solvers import solver_instance
 from reframed.solvers.solver import VarType

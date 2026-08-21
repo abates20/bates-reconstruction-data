@@ -1,14 +1,14 @@
 # This file was updated from original version in CarveMe by Adam Bates on 7/7/26
 
-from model_reconstruction.carveme import config, project_dir
-from model_reconstruction.carveme import __version__ as version
-from model_reconstruction.carveme.reconstruction.carving import carve_model, build_ensemble
-from model_reconstruction.carveme.reconstruction.eggnog import load_eggnog_data
-from model_reconstruction.carveme.reconstruction.gapfilling import multiGapFill
-from model_reconstruction.carveme.reconstruction.utils import load_media_db, load_soft_constraints, load_hard_constraints, annotate_genes
-from model_reconstruction.carveme.reconstruction.ncbi_download import load_ncbi_table, download_ncbi_genome
-from model_reconstruction.carveme.reconstruction.scoring import reaction_scoring_pl
-from model_reconstruction.carveme.reconstruction.diamond import run_blast, load_diamond_results
+from bates_reconstruction_data.carveme import config, project_dir
+from bates_reconstruction_data.carveme import __version__ as version
+from bates_reconstruction_data.carveme.reconstruction.carving import carve_model, build_ensemble
+from bates_reconstruction_data.carveme.reconstruction.eggnog import load_eggnog_data
+from bates_reconstruction_data.carveme.reconstruction.gapfilling import multiGapFill
+from bates_reconstruction_data.carveme.reconstruction.utils import load_media_db, load_soft_constraints, load_hard_constraints, annotate_genes
+from bates_reconstruction_data.carveme.reconstruction.ncbi_download import load_ncbi_table, download_ncbi_genome
+from bates_reconstruction_data.carveme.reconstruction.scoring import reaction_scoring_pl
+from bates_reconstruction_data.carveme.reconstruction.diamond import run_blast, load_diamond_results
 from reframed.cobra.ensemble import save_ensemble
 from reframed import load_cbmodel, save_cbmodel, Environment, set_default_solver
 from reframed.io.sbml import sanitize_id
