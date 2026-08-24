@@ -28,7 +28,7 @@ echo "*" > "${RESULTS}/.gitignore"
 
 # Load .env variables (if .env exists)
 ENV_FILE="${PROJECT_DIR}/.env"
-if [ -f "$env" ]; then
+if [ -f "$ENV_FILE" ]; then
     set -a
     source "$ENV_FILE"
     set +a
@@ -288,22 +288,24 @@ fi
 
 job_ids+=($(cat "$cb_flag"))
 
+
+# Prepare dependencies
+deps=""
+for job_id in "${job_ids[@]}"; do
+    if squeue -j "$job_id" -h &>/dev/null; then
+        deps+=":$job_id"
+    fi
+done
+
+if [ -n "$deps" ]; then
+    deps="afterok${deps}"
+fi
+
+
 # Queue job to process generated models
 rxn_matrix="${RESULTS}/reaction_matrix.csv"
 if [ ! -f "$rxn_matrix" ]; then
     echo "Queuing job to process generated models and create reaction matrix..."
-
-    # Prepare dependencies
-    deps=""
-    for job_id in "${job_ids[@]}"; do
-        if squeue -j "$job_id" -h &>/dev/null; then
-            deps+=":$job_id"
-        fi
-    done
-
-    if [ -n "$deps" ]; then
-        deps="afterok${deps}"
-    fi
 
     # Command arguments
     CMD=(
@@ -322,6 +324,33 @@ if [ ! -f "$rxn_matrix" ]; then
         --output="${LOGS}/reaction-matrix_%j.out" \
         --dependency="$deps" \
         --time=0:15:00 \
+        --partition=standard \
+        --wrap="${CMD[*]}"
+fi
+
+
+# Queue job to run substrate utilization predictions
+growth_data="${RESULTS}/growth_data.csv"
+if [ ! -f "$growth_data" ]; then
+    echo "Queuing job to run substrate utilization predictions..."
+
+    # Command arguments
+    CMD=(
+        "$PYTHON"
+        "${BIN}/substrate_utilization.py"
+        --model-info "${DATA}/model_info.csv"
+        --set-info "${SCRIPT_DIR}/datasets.csv"
+        --models "$MODELS"
+        --data "${DATA}/substrate_utilization_data.csv"
+        --media-db "${DATA}/mediadb.tsv"
+        --out "$growth_data"
+    )
+    
+    # Submit job
+    sbatch \
+        --output="${LOGS}/substrate-utilization_%j.out" \
+        --dependency="$deps" \
+        --time=0:20:00 \
         --partition=standard \
         --wrap="${CMD[*]}"
 fi
