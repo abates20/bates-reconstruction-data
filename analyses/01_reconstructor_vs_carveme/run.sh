@@ -11,6 +11,7 @@ GENOMES="${DATA}/annotated_genomes"
 MODELS="${SCRIPT_DIR}/models"
 RECONSTRUCTION="${SCRIPT_DIR}/reconstruction"
 LOGS="${SCRIPT_DIR}/logs"
+RESULTS="${SCRIPT_DIR}/results"
 
 # Make sure needed directories exist
 mkdir -p "$FIGURES"
@@ -18,11 +19,13 @@ mkdir -p "$GENOMES"
 mkdir -p "$MODELS"
 mkdir -p "$RECONSTRUCTION"
 mkdir -p "$LOGS"
+mkdir -p "$RESULTS"
 
 # Ignore generated files in git
 echo "*" > "${MODELS}/.gitignore"
 echo "*" > "${RECONSTRUCTION}/.gitignore"
 echo "*" > "${LOGS}/.gitignore"
+echo "*" > "${RESULTS}/.gitignore"
 
 # Load .env variables (if .env exists)
 ENV_FILE="${PROJECT_DIR}/.env"
@@ -173,6 +176,7 @@ array_job="${BIN}/slurm/job_array.sh"
 reconstructor_job="${BIN}/slurm/reconstructor.sh"
 carveme_job="${BIN}/slurm/carveme.sh"
 
+job_ids=()
 
 # Queue jobs to build models with Reconstructor + KEGG/ModelSEED data
 rks_flag="${RECONSTRUCTION}/reconstructor_kegg_seed/submitted.jobid"
@@ -201,7 +205,7 @@ if [ ! -f "$rks_flag" ]; then
         --save-jobid "$rks_flag"
 fi
 
-rks_jobid=$(cat "$rks_flag")
+job_ids+=($(cat "$rks_flag"))
 
 
 # Queue jobs to build models with CarveMe + KEGG/ModelSEED data
@@ -228,7 +232,7 @@ if [ ! -f "$cks_flag" ]; then
         --save-jobid "$cks_flag"
 fi
 
-cks_jobid=$(cat "$cks_flag")
+job_ids+=($(cat "$cks_flag"))
 
 
 # Queue jobs to build models with Reconstructor + BiGG data
@@ -258,7 +262,7 @@ if [ ! -f "$rb_flag" ]; then
         --save-jobid "$rb_flag"
 fi
 
-rb_jobid=$(cat "$rb_flag")
+job_ids+=($(cat "$rb_flag"))
 
 
 # Queue jobs to build models with CarveMe + BiGG data
@@ -285,4 +289,37 @@ if [ ! -f "$cb_flag" ]; then
         --save-jobid "$cb_flag"
 fi
 
-cb_jobid=$(cat "$cb_flag")
+job_ids+=($(cat "$cb_flag"))
+
+# Queue job to process generated models
+rxn_matrix="${RESULTS}/reaction_matrix.csv"
+if [ ! -f "$rxn_matrix" ]; then
+    echo "Queuing job to process generated models and create reaction matrix..."
+
+    # Prepare dependencies
+    deps=""
+    for job_id in "${job_ids[@]}"; do
+        if squeue -j "$job_id" -h &>/dev/null; then
+            deps+=":$job_id"
+        fi
+    done
+
+    if [ -n "$deps" ]; then
+        deps="afterok${deps}"
+    fi
+    
+    # Submit job
+    sbatch \
+        --export="ENV=${VENV}/bin/activate" \
+        --output="${LOGS}/reaction-matrix_%j.out" \
+        --dependency="$deps" \
+        --time=0:15:00 \
+        "${BIN}/slurm/python.sh" \
+        "${BIN}/reaction_matrix.py" \
+        --model-info "${DATA}/model_info.csv" \
+        --set-info "${SCRIPT_DIR}/datasets.csv" \
+        --models "$MODELS" \
+        --out "$rxn_matrix" \
+        --include-bigg \
+        --to-mnx
+fi
