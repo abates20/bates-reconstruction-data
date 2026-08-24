@@ -1,5 +1,5 @@
 source_id,reconstruction_tool,data_source,namespace
-reconstructor_kegg-seed,Reconstructor,KEGG/ModelSEED,ModelSEED
+reconstructor_kegg_seed,Reconstructor,KEGG/ModelSEED,ModelSEED
 reconstructor_bigg,Reconstructor,BiGG,BiGG
-carveme_kegg-seed,CarveMe,KEGG/ModelSEED,ModelSEED
+carveme_kegg_seed,CarveMe,KEGG/ModelSEED,ModelSEED
 carveme_bigg,CarveMe,BiGG,BiGG
