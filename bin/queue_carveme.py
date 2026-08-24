@@ -146,7 +146,7 @@ with open(command_file, "w") as f:
 if n_jobs > 0:
     log_path = args.logs / f"carveme-%A_%a.out"
     slurm_cmd = [
-        f"--export=PYTHON={sys.executable}",
+        f"--export=ALL,PYTHON={sys.executable}",
         f"--output={log_path}",
         "--time=1:00:00",
         "--nodes=1",

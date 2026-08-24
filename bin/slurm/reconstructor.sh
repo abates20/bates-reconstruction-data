@@ -14,7 +14,7 @@
 
 
 module purge
-module load diamond/2.1.6 gurobi/13.0.0
+module load diamond/2.1.6
 
 # Run reconstructor
 "$PYTHON" -m bates_reconstruction_data.reconstructor "$@"
