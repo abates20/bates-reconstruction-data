@@ -13,6 +13,7 @@ dependencies = [
     "numpy==2.4.6",
     "pandas==2.3.3",
     "polars==1.43.2",
+    "pyarrow==25.0.1",
     "pydantic==2.13.4",
     "reframed==1.6.0",
     "requests==2.34.2",
