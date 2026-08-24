@@ -4,7 +4,6 @@
 SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 PROJECT_DIR=$(cd "${SCRIPT_DIR}/../../" && pwd)
 FIGURES="${PROJECT_DIR}/dist/figures"
-VENV="${PROJECT_DIR}/.venv"
 BIN="${PROJECT_DIR}/bin"
 DATA="${PROJECT_DIR}/data"
 GENOMES="${DATA}/annotated_genomes"
@@ -35,8 +34,10 @@ if [ -f "$env" ]; then
     set +a
 fi
 
-# Activate python venv
-source "${VENV}/bin/activate"
+# Set default python path if not set in .env
+if [ -z "$PYTHON" ]; then
+    PYTHON="${PROJECT_DIR}/.venv/bin/python"
+fi
 
 
 # Download annotated genomes
@@ -47,7 +48,7 @@ for accession in $accessions; do
     genome_path="${GENOMES}/${accession}.faa"
     if [ ! -f "$genome_path" ]; then
         echo "Downloading annotated genome - ${accession}..."
-        python "${BIN}/download_genome.py" "$accession" --out "$genome_path"
+        "$PYTHON" "${BIN}/download_genome.py" "$accession" --out "$genome_path"
     fi
 done
 
@@ -57,7 +58,7 @@ seed_gramneg_universe="${RECONSTRUCTION}/seed_gramneg_universe.sbml.gz"
 seed_grampos_universe="${RECONSTRUCTION}/seed_grampos_universe.sbml.gz"
 if [[ ! -f "$seed_gramneg_universe" || ! -f "$seed_grampos_universe" ]]; then
     echo "Getting ModelSEED universal models from Reconstructor..."
-    python "${BIN}/get_reconstructor_universe.py" \
+    "$PYTHON" "${BIN}/get_reconstructor_universe.py" \
         --gramneg "$seed_gramneg_universe" \
         --grampos "$seed_grampos_universe"
 fi
@@ -68,7 +69,7 @@ seed_gramneg_template="${RECONSTRUCTION}/seed_gramneg_template.sbml"
 seed_grampos_template="${RECONSTRUCTION}/seed_grampos_template.sbml"
 if [[ ! -f "$seed_gramneg_template" || ! -f "$seed_grampos_template" ]]; then
     echo "Preparing template models for ModelSEED namespace..."
-    python "${BIN}/get_reconstructor_templates.py" \
+    "$PYTHON" "${BIN}/get_reconstructor_templates.py" \
         "$seed_universe" \
         --gramneg "$seed_gramneg_template" \
         --grampos "$seed_grampos_template"
@@ -104,7 +105,7 @@ echo "Getting BiGG universal models from CarveMe..."
 get_carveme_universe() {
     # Arg 1: url for universal model
     # Arg 2: output path
-    python "${BIN}/get_carveme_universe.py" "$1" --out "$2"
+    "$PYTHON" "${BIN}/get_carveme_universe.py" "$1" --out "$2"
 }
 
 bigg_generic_universe="${RECONSTRUCTION}/bigg_universe_bacteria.xml.gz"
@@ -123,7 +124,7 @@ grampos_url="https://github.com/cdanielmachado/carveme/raw/refs/heads/master/car
 # Create template models for BiGG namespace
 echo "Preparing template models for BiGG namespace..."
 make_bigg_template () {
-    python "${BIN}/make_bigg_template.py" "${DATA}/biomass_db.tsv" --out "$1" --biomass $2 --template-id $3 --threads 5
+    "$PYTHON" "${BIN}/make_bigg_template.py" "${DATA}/biomass_db.tsv" --out "$1" --biomass $2 --template-id $3 --threads 5
 }
 
 bigg_gramneg_template="${RECONSTRUCTION}/bigg_gramneg_template.sbml"
@@ -152,7 +153,7 @@ kegg_gprs="${RECONSTRUCTION}/kegg_seed_gprs.csv"
 kegg_gene_rxn_map="${RECONSTRUCTION}/kegg_gene_rxn_map.json.gz"
 if [[ ! ( -f "$bigg_gprs" && -f "$bigg_gene_rxn_map" && -f "$kegg_gprs" && -f "$kegg_gene_rxn_map" ) ]]; then
     echo "Preparing GPR files..."
-    python "${BIN}/prep_GPR_files.py" \
+    "$PYTHON" "${BIN}/prep_GPR_files.py" \
         --bigg-gprs "$bigg_gprs" \
         --bigg-map "$bigg_gene_rxn_map" \
         --kegg-gprs "$kegg_gprs" \
@@ -182,13 +183,12 @@ job_ids=()
 rks_flag="${RECONSTRUCTION}/reconstructor_kegg_seed/submitted.jobid"
 if [ ! -f "$rks_flag" ]; then
     echo "Queuing jobs to build models with Reconstructor + KEGG/ModelSEED data..."
-    python "$queue_reconstructor" \
+    "$PYTHON" "$queue_reconstructor" \
         "${DATA}/model_info.csv" \
         --genomes "$GENOMES" \
         --reconstruction "${RECONSTRUCTION}/reconstructor_kegg_seed" \
         --models "${MODELS}/reconstructor_kegg_seed" \
         --logs "${LOGS}/reconstructor_kegg_seed" \
-        --venv "${VENV}/bin/activate" \
         --gene-rxn-map "$kegg_gene_rxn_map" \
         --diamond-db "$kegg_seqs" \
         --media-db "${DATA}/mediadb.tsv" \
@@ -212,13 +212,12 @@ job_ids+=($(cat "$rks_flag"))
 cks_flag="${RECONSTRUCTION}/carveme_kegg_seed/submitted.jobid"
 if [ ! -f "$cks_flag" ]; then
     echo "Queuing jobs to build models with CarveMe + KEGG/ModelSEED data..."
-    python "$queue_carveme" \
+    "$PYTHON" "$queue_carveme" \
         "${DATA}/model_info.csv" \
         --genomes "$GENOMES" \
         --reconstruction "${RECONSTRUCTION}/carveme_kegg_seed" \
         --models "${MODELS}/carveme_kegg_seed" \
         --logs "${LOGS}/carveme_kegg_seed" \
-        --venv "${VENV}/bin/activate" \
         --gprs "$kegg_gprs" \
         --annotations "$annotation_file" \
         --diamond-db "$kegg_seqs" \
@@ -239,13 +238,12 @@ job_ids+=($(cat "$cks_flag"))
 rb_flag="${RECONSTRUCTION}/reconstructor_bigg/submitted.jobid"
 if [ ! -f "$rb_flag" ]; then
     echo "Queuing jobs to build models with Reconstructor + BiGG data..."
-    python "$queue_reconstructor" \
+    "$PYTHON" "$queue_reconstructor" \
         "${DATA}/model_info.csv" \
         --genomes "$GENOMES" \
         --reconstruction "${RECONSTRUCTION}/reconstructor_bigg" \
         --models "${MODELS}/reconstructor_bigg" \
         --logs "${LOGS}/reconstructor_bigg" \
-        --venv "${VENV}/bin/activate" \
         --gene-rxn-map "$bigg_gene_rxn_map" \
         --diamond-db "$bigg_seqs" \
         --media-db "${DATA}/mediadb.tsv" \
@@ -269,13 +267,12 @@ job_ids+=($(cat "$rb_flag"))
 cb_flag="${RECONSTRUCTION}/carveme_bigg/submitted.jobid"
 if [ ! -f "$cb_flag" ]; then
     echo "Queuing jobs to build models with CarveMe + BiGG data..."
-    python "$queue_carveme" \
+    "$PYTHON" "$queue_carveme" \
         "${DATA}/model_info.csv" \
         --genomes "$GENOMES" \
         --reconstruction "${RECONSTRUCTION}/carveme_bigg" \
         --models "${MODELS}/carveme_bigg" \
         --logs "${LOGS}/carveme_bigg" \
-        --venv "${VENV}/bin/activate" \
         --gprs "$bigg_gprs" \
         --annotations "$annotation_file" \
         --diamond-db "$bigg_seqs" \
@@ -307,19 +304,24 @@ if [ ! -f "$rxn_matrix" ]; then
     if [ -n "$deps" ]; then
         deps="afterok${deps}"
     fi
+
+    # Command arguments
+    CMD=(
+        "$PYTHON"
+        "${BIN}/reaction_matrix.py"
+        --model-info "${DATA}/model_info.csv"
+        --set-info "${SCRIPT_DIR}/datasets.csv"
+        --models "$MODELS"
+        --out "$rxn_matrix"
+        --include-bigg
+        --to-mnx
+    )
     
     # Submit job
     sbatch \
-        --export="ENV=${VENV}/bin/activate" \
         --output="${LOGS}/reaction-matrix_%j.out" \
         --dependency="$deps" \
         --time=0:15:00 \
-        "${BIN}/slurm/python.sh" \
-        "${BIN}/reaction_matrix.py" \
-        --model-info "${DATA}/model_info.csv" \
-        --set-info "${SCRIPT_DIR}/datasets.csv" \
-        --models "$MODELS" \
-        --out "$rxn_matrix" \
-        --include-bigg \
-        --to-mnx
+        --partition=standard \
+        --wrap="${CMD[*]}"
 fi

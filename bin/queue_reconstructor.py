@@ -16,7 +16,6 @@ parser.add_argument("--genomes", required=True, type=Path, help="Path to input g
 parser.add_argument("--reconstruction", required=True, type=Path, help="Path to reconstruction directory")
 parser.add_argument("--models", required=True, type=Path, help="Path to output models directory")
 parser.add_argument("--logs", required=True, type=Path, help="Path to logs directory")
-parser.add_argument("--venv", required=True, type=Path, help="Path to script that activates project venv")
 parser.add_argument("--gene-rxn-map", required=True, type=Path, help="Path to gene -> reaction map")
 parser.add_argument("--diamond-db", required=True, type=Path, help="Path to DIAMOND database")
 
@@ -47,6 +46,7 @@ from typing import Union, Sequence
 import subprocess
 import warnings
 from datetime import datetime
+import sys
 
 import polars as pl
 
@@ -167,7 +167,7 @@ with open(command_file, "w") as f:
 if n_jobs > 0:
     log_path = args.logs / f"reconstructor-%A_%a.out"
     slurm_cmd = [
-        f"--export=ENV={args.venv}",
+        f"--export=PYTHON={sys.executable}",
         f"--output={log_path}",
         "--time=1:00:00",
         "--nodes=1",

@@ -7,9 +7,9 @@
 #SBATCH --mem=24G
 
 # -------------------------------------------------------------------------- #
-# NOTE: when running this script, the path to the script to activate the     #
-# virtual environment needs to be set using the sbatch argument              #
-# --export=ENV="/path/to/venv/bin/activate"                                  #
+# NOTE: when running this script, the path to the python interpreter needs   #
+# to be set using the sbatch argument                                        #
+# --export=PYTHON="/path/to/venv/bin/python"                                 #
 # -------------------------------------------------------------------------- #
 
 module purge
@@ -32,17 +32,11 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-# Activate virtual environment and run CarveMe
-if source "$ENV"; then
-    echo "Carving model and saving to ${out}..."
-    echo "python -m bates_reconstruction_data.carveme.cli.carve ${args[@]}"
-    python -m bates_reconstruction_data.carveme.cli.carve "${args[@]}"
-    
-    echo "Fixing model to remove warnings when loading with cobra..."
-    sed -i 's/boundaryCondition="true"/boundaryCondition="false"/g' "$out"
-    echo "Done."
-    
-else
-    echo "Failed to run CarveMe due to error activating venv."
-    exit 1
-fi
+# Run CarveMe
+echo "Carving model and saving to ${out}..."
+echo "${PYTHON} -m bates_reconstruction_data.carveme.cli.carve ${args[@]}"
+"$PYTHON" -m bates_reconstruction_data.carveme.cli.carve "${args[@]}"
+
+echo "Fixing model to remove warnings when loading with cobra..."
+sed -i 's/boundaryCondition="true"/boundaryCondition="false"/g' "$out"
+echo "Done."
