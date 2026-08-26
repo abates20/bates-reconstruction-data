@@ -159,14 +159,16 @@ plot = (
     + pn.scale_color_manual(palettes.DATA_SOURCE_COLOR)
     + pn.scale_shape_manual(palettes.RECONSTRUCTION_TOOL_SHAPE)
     + pn.labs(
+        subtitle="Reactions",
         x="",
         y="",
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(3,2.3),
-        axis_text_x=pn.element_text(rotation="vertical")
+        figure_size=(3,2.4),
+        axis_text_x=pn.element_text(rotation="vertical"),
+        plot_subtitle=pn.element_text(weight="bold", size=10)
     )
 )
 
