@@ -76,3 +76,12 @@ if [[ "$1" == "2c" || "$1" == "all" ]]; then
         --out "${FIGURES}/figure_2c.svg" \
         --cache "$CACHE"
 fi
+
+if [[ "$1" == "2d" || "$1" == "all" ]]; then
+    echo "Generating figure 2d..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_2d.py" \
+        "${ANALYSES}/01_reconstructor_vs_carveme/results/growth_data.csv" \
+        --set-info "${ANALYSES}/01_reconstructor_vs_carveme/datasets.csv" \
+        --out "${FIGURES}/figure_2d.svg" \
+        --cache "$CACHE"
+fi
