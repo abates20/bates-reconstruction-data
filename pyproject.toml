@@ -18,6 +18,7 @@ dependencies = [
     "pydantic==2.13.4",
     "reframed==1.6.0",
     "requests==2.34.2",
+    "scikit-learn==1.9.0",
     "scipy==1.17.1",
     "strenum==0.4.15",
 ]
