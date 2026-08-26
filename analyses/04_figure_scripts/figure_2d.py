@@ -169,7 +169,7 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(3.3,2.3),
+        figure_size=(3,2.3),
         axis_text_x=pn.element_text(rotation="vertical")
     )
 )
