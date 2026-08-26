@@ -44,14 +44,14 @@ from pathlib import Path
 import polars as pl
 import plotnine as pn
 
-from bates_reconstruction_data import palettes, taxonomy, bigg
-from bates_reconstruction_data.utils import tree, parallel
+from bates_reconstruction_data import taxonomy
+from bates_reconstruction_data.utils import tree
 
 
 if args.cache is not None:
     TAXDMP = str(Path(args.cache) / "tax.dmp")
-    SEGMENTS_DATA = Path(args.cache) / "tree_segments.csv"
-    LAYOUT_DATA = Path(args.cache) / "tree_layout.csv"
+    SEGMENTS_DATA = Path(args.cache) / "figure_2a_tree_segments.csv"
+    LAYOUT_DATA = Path(args.cache) / "figure_2a_tree_layout.csv"
     DATA_EXISTS = SEGMENTS_DATA.exists() and LAYOUT_DATA.exists()
 else:
     TAXDMP = None
