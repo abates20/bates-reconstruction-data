@@ -15,11 +15,6 @@ parser.add_argument(
     help="Path to csv with reaction data"
 )
 parser.add_argument(
-    "--model-info",
-    required=True,
-    help="Path to model info csv"
-)
-parser.add_argument(
     "--set-info",
     required=True,
     help="Path to csv with resource set info"
@@ -95,21 +90,11 @@ else:
     if args.cache is not None:
         mds_data.write_csv(MDS_DATA)
 
+
 # Combine MDS results with metadata
-data = (
-    mds_data
-    .join(
-        pl.read_csv(args.model_info),
-        on="organism_id"
-    )
-    .join(
-        pl.read_csv(args.set_info),
-        on="source_id",
-        how="left"
-    )
-    .with_columns(
-        pl.col.reconstruction_tool.fill_null("Curated model (BiGG)")
-    )
+data = mds_data.join(
+    pl.read_csv(args.set_info),
+    on="source_id"
 )
 
 # Plot MDS reuslts
@@ -141,7 +126,7 @@ plot = (
         legend_position="bottom",
         legend_direction="vertical",
         legend_box_spacing=0.1,
-        legend_spacing=30
+        legend_spacing=25
     )
 )
 
