@@ -193,18 +193,19 @@ plot = (
         labels=["Selected", "Not selected"]
     )
     + pn.scale_color_manual(
-        values=["#d19602"],
+        values=["#d10202"],
         limits=[True],                          # ty:ignore[invalid-argument-type]
         labels=["Experimental data"]
     )
     + pn.labs(fill="", color="")
     + pn.coord_cartesian(xlim=(0, 32)) # prevent clipping text
-    + pn.theme_void(base_size=11)
+    + pn.theme_void()
     + pn.theme(
         figure_size=(2.7, 5),
         legend_position="bottom",
         legend_direction="vertical",
-        legend_box_spacing=-0.05
+        legend_box_spacing=-0.05,
+        legend_text=pn.element_text(size=10)
     )
 )
 
