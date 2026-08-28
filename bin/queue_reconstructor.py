@@ -18,6 +18,7 @@ parser.add_argument("--models", required=True, type=Path, help="Path to output m
 parser.add_argument("--logs", required=True, type=Path, help="Path to logs directory")
 parser.add_argument("--gene-rxn-map", required=True, type=Path, help="Path to gene -> reaction map")
 parser.add_argument("--diamond-db", required=True, type=Path, help="Path to DIAMOND database")
+parser.add_argument("--diamond", help="Path to DIAMOND executable")
 
 media_group = parser.add_argument_group("Media")
 media_group.add_argument("--media-db", required=True, type=Path, help="Path to media database tsv")
@@ -157,6 +158,9 @@ with open(command_file, "w") as f:
             "--gene-rxn-map", fmt(args.gene_rxn_map),
             "--blast-output", fmt(args.reconstruction / f"{accession}.blast.out")
         ]
+
+        if args.diamond is not None:
+            cmd_args.extend(["--diamond", fmt(args.diamond)])
 
         f.write(" ".join(cmd_args))
         f.write("\n")
