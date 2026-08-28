@@ -49,6 +49,7 @@ def maincall(
         input_type='protein',
         outputfile=None,
         diamond_db=None,
+        diamond_path=None,
         diamond_args=None,
         blast_output=None,
         universe=None,
@@ -139,7 +140,7 @@ def maincall(
         if blast_output is None:
             blast_output = os.path.splitext(inputfile)[0] + '.tsv'
         
-        exit_code = run_blast(inputfile, input_type, blast_output, diamond_db, diamond_args, verbose)
+        exit_code = run_blast(inputfile, input_type, blast_output, diamond_db, diamond_path,diamond_args, verbose)
 
         if exit_code is None:
             print('Unable to run diamond (make sure diamond is available in your PATH).')
@@ -304,7 +305,8 @@ def main():
     input_type_args.add_argument('--diamond', action='store_true', help=argparse.SUPPRESS)
     input_type_args.add_argument('--refseq', action='store_true', help="Download genome from NCBI RefSeq and build")
 
-    parser.add_argument("--diamond-db", help="Path to diamond database.")
+    parser.add_argument("--diamond-db", help="Path to diamond database")
+    parser.add_argument("--diamond", help="Path to diamond executable")
     parser.add_argument('--diamond-args', help="Additional arguments for running diamond")
 
     parser.add_argument('-r', '--recursive', action='store_true', dest='recursive',
@@ -401,6 +403,7 @@ def main():
             input_type=input_type,
             outputfile=args.output,
             diamond_db=args.diamond_db,
+            diamond_path=args.diamond,
             diamond_args=args.diamond_args,
             blast_output=args.blast_output,
             universe=args.universe,
@@ -431,6 +434,8 @@ def main():
                 inputfile=x,
                 input_type=input_type,
                 outputfile=args.output,
+                diamond_db=args.diamond_db,
+                diamond_path=args.diamond,
                 diamond_args=args.diamond_args,
                 universe=args.universe,
                 universe_file=args.universe_file,

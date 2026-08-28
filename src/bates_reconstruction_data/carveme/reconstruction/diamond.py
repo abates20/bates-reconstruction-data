@@ -27,7 +27,7 @@ def load_diamond_results(filename, drop_unused_cols=True):
     return data
 
 
-def run_blast(inputfile, input_type, outputfile, database, args=None, verbose=True):
+def run_blast(inputfile, input_type, outputfile, database, diamond_path='diamond', args=None, verbose=True):
     """ Run blast aligment with Diamond.
 
     Args:
@@ -35,6 +35,7 @@ def run_blast(inputfile, input_type, outputfile, database, args=None, verbose=Tr
         input_type (str): sequence type ('protein' or 'dna')
         outputfile (str): output file name
         database (str): path to diamond protein database file
+        diamond_path (str): path to diamond executable (default: 'diamond')
         args (str): additional arguments to be passed to diamond (optional)
         verbose (bool): allow diamond output to stdout (default: True)
 
@@ -48,7 +49,7 @@ def run_blast(inputfile, input_type, outputfile, database, args=None, verbose=Tr
 
     assert (input_type in ['protein', 'dna']), "Input type must be either 'protein' or 'dna'"
 
-    cmd = ['diamond']
+    cmd = [diamond_path]
 
     if input_type == 'protein':
         cmd += ['blastp']
