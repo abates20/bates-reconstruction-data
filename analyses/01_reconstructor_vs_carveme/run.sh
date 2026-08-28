@@ -39,6 +39,11 @@ if [ -z "$PYTHON" ]; then
     PYTHON="${PROJECT_DIR}/.venv/bin/python"
 fi
 
+# Assume diamond on path if not set in .env
+if [ -z "$DIAMOND" ]; then
+    DIAMOND="diamond"
+fi
+
 
 # Download annotated genomes
 ACCESSION_COL=4 # the column with accession numbers is the 4th column
@@ -80,7 +85,6 @@ fi
 kegg_seqs="${RECONSTRUCTION}/kegg_proteins.dmnd"
 if [ ! -f "$kegg_seqs" ]; then
     echo "Getting KEGG DIAMOND database and fixing gene IDs for CarveMe..."
-    module load diamond/2.1.6
 
     # Download DB
     db_tmp_path="${RECONSTRUCTION}/screened_kegg_prokaryotes_pep_db.dmnd"
@@ -88,15 +92,13 @@ if [ ! -f "$kegg_seqs" ]; then
     curl -L "$db_url" -o "$db_tmp_path"
 
     # Process gene IDs in DB
-    diamond getseq \
+    "$DIAMOND" getseq \
         -d "$db_tmp_path" \
         | sed -E 's/^>([a-z]+):(\w+)/>\1.\2/' \
-        | diamond makedb -d "$kegg_seqs" --quiet
+        | "$DIAMOND" makedb -d "$kegg_seqs" --quiet
 
     # Remove temporary DB
     rm "$db_tmp_path"
-
-    module unload diamond
 fi
 
 
@@ -191,6 +193,7 @@ if [ ! -f "$rks_flag" ]; then
         --logs "${LOGS}/reconstructor_kegg_seed" \
         --gene-rxn-map "$kegg_gene_rxn_map" \
         --diamond-db "$kegg_seqs" \
+        --diamond "$DIAMOND" \
         --media-db "${DATA}/mediadb.tsv" \
         --gapfill minimal[seed] \
         --base-inputs complete[seed] \
@@ -221,6 +224,7 @@ if [ ! -f "$cks_flag" ]; then
         --gprs "$kegg_gprs" \
         --annotations "$annotation_file" \
         --diamond-db "$kegg_seqs" \
+        --diamond "$DIAMOND" \
         --media-db "${DATA}/mediadb.tsv" \
         --gapfill minimal[seed] \
         --generic-universe "$seed_gramneg_universe" \
@@ -246,6 +250,7 @@ if [ ! -f "$rb_flag" ]; then
         --logs "${LOGS}/reconstructor_bigg" \
         --gene-rxn-map "$bigg_gene_rxn_map" \
         --diamond-db "$bigg_seqs" \
+        --diamond "$DIAMOND" \
         --media-db "${DATA}/mediadb.tsv" \
         --gapfill minimal[bigg] \
         --base-inputs complete[bigg] \
@@ -276,6 +281,7 @@ if [ ! -f "$cb_flag" ]; then
         --gprs "$bigg_gprs" \
         --annotations "$annotation_file" \
         --diamond-db "$bigg_seqs" \
+        --diamond "$DIAMOND" \
         --media-db "${DATA}/mediadb.tsv" \
         --gapfill minimal[bigg] \
         --generic-universe "$bigg_gramneg_universe" \
