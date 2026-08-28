@@ -120,13 +120,18 @@ parser.add_argument(
     help="Path to save blast output file (only used for annotated genome input)"
 )
 parser.add_argument(
+    "--diamond",
+    default=None,
+    help="Path to diamond executable (optional)"
+)
+parser.add_argument(
     "--test", default="no", help="do you want to perform the test suite?"
 )
 
 # Diamond download options (only used when running the test suite)
 group = parser.add_mutually_exclusive_group(required=False)
 group.add_argument(
-    "--diamond",
+    "--download-diamond",
     nargs="?",
     const=DEFAULT_DIAMOND_VERSION,
     default=None,
@@ -186,6 +191,7 @@ if __name__ == "__main__":
     gapfill = str(args.gapfill)
     exchange_arg = int(args.exchange)
     blast_output = args.blast_output
+    diamond_path = args.diamond
     test = str(args.test)
 
     # ----------------------------------------------------------------------------------------------------------------------#
@@ -193,15 +199,16 @@ if __name__ == "__main__":
         diamond_url = "https://github.com/bbuchfink/diamond/releases"
 
         # Download a diamond binary if needed
-        if args.diamond is not None:
-            print(f"Getting DIAMOND v{args.diamond} from {diamond_url}")
-            download_diamond(diamond_version=args.diamond)
-        if not args.skip_diamond:
-            if get_diamond_path() is None:
-                print(f"DIAMOND not found...getting DIAMOND from {diamond_url}")
-                download_diamond()
-            diamond = Diamond()
-            print(f"Using DIAMOND v{diamond.get_version()} at {diamond.path}")
+        if args.diamond_path is None:
+            if args.download_diamond is not None:
+                print(f"Getting DIAMOND v{args.download_diamond} from {diamond_url}")
+                download_diamond(diamond_version=args.download_diamond)
+            if not args.skip_diamond:
+                if get_diamond_path() is None:
+                    print(f"DIAMOND not found...getting DIAMOND from {diamond_url}")
+                    download_diamond()
+                diamond = Diamond()
+                print(f"Using DIAMOND v{diamond.get_version()} at {diamond.path}")
 
         # Download the diamond database file if it hasn't been downloaded yet
         diamond_db_path = resources.get_diamond_db_path()
@@ -237,6 +244,7 @@ if __name__ == "__main__":
                     file_type=input_type,
                     template="gram_negative",
                     cpu=processors,
+                    diamond_path=diamond_path
                 )
 
                 # Save model
@@ -266,6 +274,7 @@ if __name__ == "__main__":
         gapfill=(gapfill == "yes"),
         open_exchanges=(exchange_arg == 1),
         blast_output=blast_output,
+        diamond_path=diamond_path
     )
 
     # Write new model to sbml

@@ -17,6 +17,7 @@ def run_blast(
     outputfile: Union[str, os.PathLike],
     database: Union[str, os.PathLike],
     processors: Optional[int] = None,
+    diamond_path: Optional[Union[str, bytes, os.PathLike]] = None
 ) -> Union[str, os.PathLike]:
     """
     Runs protein BLAST and saves results.
@@ -27,7 +28,7 @@ def run_blast(
     else:
         options = ["-p", str(processors), "--more-sensitive", "--max-target-seqs", "1"]
 
-    diamond = Diamond()
+    diamond = Diamond(diamond_path)
     diamond.blastp(database, inputfile, outputfile, *options, capture_output=True)
 
     return outputfile

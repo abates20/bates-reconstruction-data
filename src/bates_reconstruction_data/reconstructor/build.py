@@ -35,7 +35,8 @@ def reconstruct(
     cpu: Optional[int] = None,
     gapfill: bool = True,
     open_exchanges: bool = True,
-    blast_output: Optional[Union[str, bytes, os.PathLike]] = None
+    blast_output: Optional[Union[str, bytes, os.PathLike]] = None,
+    diamond_path: Optional[Union[str, bytes, os.PathLike]] = None
 ) -> cobra.Model:
     """
     Reconstruct a genome-scale metabolic model from an input file.
@@ -118,6 +119,9 @@ def reconstruct(
         file is an annotated genome. Defaults to the path of the annotated
         genome with the stuffix '.KEGGProt.out'.
 
+    diamond_path : str | os.PathLike, optional
+        A path to the DIAMOND executable to use.
+
     Returns
     -------
     cobra.Model
@@ -171,7 +175,13 @@ def reconstruct(
             )
             if blast_output is None:
                 blast_output = input_path.with_suffix(".KEGGprot.out")
-            _funcs.run_blast(input_path, blast_output, diamond_db, cpu)
+            _funcs.run_blast(
+                input_path,
+                blast_output,
+                diamond_db,
+                cpu,
+                diamond_path
+            )
 
         else:
             blast_output = input_path
