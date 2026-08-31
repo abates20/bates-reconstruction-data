@@ -86,6 +86,16 @@ if [[ "$1" == "2d" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
+if [[ "$1" == "3b" || "$1" == "all" ]]; then
+    echo "Generating figure 3b..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_3b.py" \
+        "${ANALYSES}/02_annotation_uncertainty/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/02_annotation_uncertainty/datasets.csv" \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_3b.svg" \
+        --cache "$CACHE"
+fi
+
 if [[ "$1" == "3c" || "$1" == "all" ]]; then
     echo "Generating figure 3c..."
     "$PYTHON" "${SCRIPT_DIR}/figure_3c.py" \
