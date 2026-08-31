@@ -46,8 +46,6 @@ from scipy import stats
 from sklearn.metrics import precision_score, f1_score, recall_score
 from mizani.labels import label_percent
 
-from bates_reconstruction_data import palettes
-
 
 if args.cache is not None:
     METRICS_DATA = Path(args.cache) / "figure_3c_growth_metrics.csv"
