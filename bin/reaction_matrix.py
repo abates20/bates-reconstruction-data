@@ -33,6 +33,7 @@ import polars as pl
 import cobra
 
 from bates_reconstruction_data.utils import progress
+from bates_reconstruction_data import bigg
 
 
 # Load the reac_xref table (for mapping reactions between ModelSEED and BiGG) from MetaNetX
@@ -120,7 +121,7 @@ resource_sets = list(
 rxn_data_pieces: list[pl.DataFrame] = []
 
 for source_id in resource_sets:
-    print(f"Compiling reaction data for {source_id} models:")
+    print(f"Compiling reaction data for source_id={repr(source_id)} models:")
 
     for org_id, accession in progress.track(models):
         model = cobra.io.read_sbml_model(args.models / source_id / f"{accession}.sbml")
@@ -140,12 +141,12 @@ if args.include_bigg:
     print("Compiling reaction data for curated BiGG models...")
 
     for org_id, model_id in model_info.select("organism_id", "bigg_model_id").iter_rows():
-        model = cobra.io.load_model(model_id)
+        model = bigg.get_model(model_id)
         df = pl.DataFrame(
             {
                 "organism_id": org_id,
                 "source_id": "BiGG",
-                "rxn_id": [r.id for r in model.reactions],
+                "rxn_id": [r["id"] for r in model["reactions"]],
                 "is_present": 1
             }
         )
