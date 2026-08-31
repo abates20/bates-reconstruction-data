@@ -46,6 +46,8 @@ from scipy import stats
 from sklearn.metrics import precision_score, f1_score, recall_score
 from mizani.labels import label_percent
 
+from bates_reconstruction_data import palettes
+
 
 if args.cache is not None:
     METRICS_DATA = Path(args.cache) / "figure_3c_growth_metrics.csv"
@@ -265,56 +267,43 @@ fraction_levels = (
 baseline_data = data.join(baseline_sets, on="source_id", how="semi")
 data = data.join(baseline_sets, on="source_id", how="anti")
 
-alpha = 0.05
-
 plot = (
     pn.ggplot(
         data,
         pn.aes(
             x="factor(fraction, categories=fraction_levels)",
-            y="value"
+            y="value",
+            color="metric"
         )
     )
-    + pn.facet_grid(rows="metric", cols="species_abbrev")
-    + pn.geom_hline(
-        pn.aes(yintercept="value"),
-        baseline_data,
-        color="black",
-        linetype="dashed",
-        alpha=0.5
-    )
+    + pn.facet_grid(cols="species_abbrev")
     + pn.geom_point(data=baseline_data, shape="*")
     + pn.geom_point(
         alpha=0.3,
         size=0.7,
-        color="gray",
         position=pn.position_jitter(width=0.1)
     )
-    + pn.geom_errorbar(
-        width=0.2,
-        size=0.5,
-        stat="summary",
+    + pn.geom_path(
+        pn.aes(group="metric"),
+        pl.concat([data, baseline_data]),
+        stat="summary"
     )
-    + pn.geom_errorbar(
-        width=0.5,
-        size=1,
-        stat="summary",
-        fun_ymin=np.mean,
-        fun_ymax=np.mean,
-    )
+    + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.scale_x_discrete(labels=label_percent())
     + pn.labs(
         subtitle="Substrate utilization",
         x="Fraction of genes with random annotation",
         y="",
+        color=""
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(5,3.2),
-        strip_text_x=pn.element_text(style="italic", family="arial"),
+        figure_size=(5.3,2.2),
+        strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation="vertical"),
-        plot_subtitle=pn.element_text(weight="bold", size=10)
+        plot_subtitle=pn.element_text(weight="bold", size=10),
+        panel_spacing=0.005
     )
 )
 
