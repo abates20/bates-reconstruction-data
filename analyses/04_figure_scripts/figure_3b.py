@@ -292,7 +292,6 @@ plot = (
     + pn.theme(
         figure_size=(7,2.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        strip_text_y=pn.element_text(size=8),
         axis_text_x=pn.element_text(rotation="vertical"),
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=0.005
