@@ -269,13 +269,6 @@ plot = (
         )
     )
     + pn.facet_grid(cols="species_abbrev")
-    # + pn.geom_hline(
-    #     pn.aes(yintercept="value"),
-    #     baseline_data,
-    #     color="black",
-    #     linetype="dashed",
-    #     alpha=0.5
-    # )
     + pn.geom_point(data=baseline_data, shape="*")
     + pn.geom_point(
         alpha=0.3,
@@ -287,18 +280,6 @@ plot = (
         pl.concat([data, baseline_data]),
         stat="summary"
     )
-    # + pn.geom_errorbar(
-    #     width=0.2,
-    #     size=0.5,
-    #     stat="summary",
-    # )
-    # + pn.geom_errorbar(
-    #     width=0.5,
-    #     size=1,
-    #     stat="summary",
-    #     fun_ymin=np.mean,
-    #     fun_ymax=np.mean,
-    # )
     + pn.scale_color_manual(palettes.METRIC_COLOR, guide=None)
     + pn.scale_x_discrete(labels=label_percent())
     + pn.labs(
