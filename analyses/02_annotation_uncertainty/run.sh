@@ -256,7 +256,6 @@ if [ ! -f "$rxn_matrix" ]; then
         --models "$MODELS"
         --out "$rxn_matrix"
         --include-bigg
-        --to-mnx
     )
     
     # Submit job
