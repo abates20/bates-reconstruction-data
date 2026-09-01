@@ -273,37 +273,44 @@ plot = (
         pn.aes(
             x="factor(fraction, categories=fraction_levels)",
             y="value",
-            color="metric"
+            color="metric",
         )
     )
     + pn.facet_grid(cols="species_abbrev")
-    + pn.geom_point(data=baseline_data, shape="*")
+    + pn.geom_point(data=baseline_data, shape="*", size=2)
     + pn.geom_point(
         alpha=0.3,
         size=0.7,
         position=pn.position_jitter(width=0.1)
     )
     + pn.geom_path(
-        pn.aes(group="metric"),
+        pn.aes(group="metric", linetype="metric", size="metric"),
         pl.concat([data, baseline_data]),
         stat="summary"
     )
     + pn.scale_color_manual(palettes.METRIC_COLOR)
+    + pn.scale_linetype_manual({"F1 Score": "solid", "Precision": "dashed", "Recall": "dashed"})
+    + pn.scale_size_manual({"F1 Score": 1.25, "Precision": 0.6, "Recall": 0.6})
     + pn.scale_x_discrete(labels=label_percent())
     + pn.labs(
         subtitle="Substrate utilization",
         x="Fraction of genes with random annotation",
         y="",
-        color=""
+        color="",
+        linetype="",
+        size=""
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(5.3,2.2),
+        figure_size=(6.28,2.2),                                                     # width set to make panels same size as figure 3b
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation="vertical"),
         plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.005
+        panel_spacing=0.005,
+        legend_box_spacing=0.15,
+        legend_text=pn.element_text(size=12),
+        legend_key_spacing_y=10,
     )
 )
 
