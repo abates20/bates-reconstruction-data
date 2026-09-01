@@ -247,6 +247,21 @@ data = (
     )
 )
 
+# Set order of species so that they line up with figure 3c
+species_order = [
+    "A. baumannii",
+    "B. subtilis",
+    "C. difficile",
+    "E. coli",
+    "P. putida",
+    "S. aureus",
+    "C. ljungdahlii",
+    "L. cremoris",
+    "S. sonnei",
+    "Y. pestis"
+]
+data = data.with_columns(pl.col.species_abbrev.cast(pl.Enum(species_order)))
+
 # Get sorted fraction order
 fraction_levels = (
     data
