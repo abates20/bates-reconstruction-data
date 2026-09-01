@@ -11,5 +11,5 @@ DATA_SOURCE_COLOR = {
 METRIC_COLOR = {
     "F1 Score": "#cb5d00",
     "Recall": "#008f5d",
-    "Precision": "#7326d3"
+    "Precision": "#93be13"
 }
