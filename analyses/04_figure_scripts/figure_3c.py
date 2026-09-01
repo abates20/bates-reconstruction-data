@@ -267,6 +267,27 @@ fraction_levels = (
 baseline_data = data.join(baseline_sets, on="source_id", how="semi")
 data = data.join(baseline_sets, on="source_id", how="anti")
 
+# Set width of figure elements to ensure panels align with figure 3b
+total_width = 7.0 # in
+buffer = 0.5 / 72 # in (when svg saved, there is a 0.5pt buffer added on each edge?)
+panel_width = 0.624 # in
+legend_width = 0.98 # in
+panel_spacing = 0.005 * total_width # in
+axis_text_y_width = 22.96 / 72 # in
+plot_margin = 0.01 * total_width # in
+legend_margin = 0.7 # in
+n_panels = data.get_column("species_abbrev").unique().len()
+legend_box_spacing = (
+    total_width
+    + (2 * buffer)
+    - (2 * plot_margin) 
+    - (2 * legend_margin)
+    - legend_width
+    - (panel_width * n_panels)
+    - (panel_spacing * (n_panels - 1))
+    - axis_text_y_width
+)
+
 plot = (
     pn.ggplot(
         data,
@@ -303,14 +324,18 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(6.28,2.2),                                                     # width set to make panels same size as figure 3b
+        figure_size=(total_width,2.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation="vertical"),
+        legend_title=pn.element_blank(),
         plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.005,
-        legend_box_spacing=0.15,
+        panel_spacing=panel_spacing / total_width,                                  # convert inches to fraction
+        legend_box_spacing=legend_box_spacing / total_width,                        # convert inches to fraction (plotnine docs say pts but seems to actually be fraction)
         legend_text=pn.element_text(size=12),
         legend_key_spacing_y=10,
+        legend_box_margin=legend_margin * 72,                                       # convert inches to pts
+        plot_margin_left=plot_margin / total_width,                                 # convert inches to fraction
+        plot_margin_right=plot_margin / total_width,                                # convert inches to fraction
     )
 )
 
