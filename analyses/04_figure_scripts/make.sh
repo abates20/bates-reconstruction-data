@@ -105,3 +105,13 @@ if [[ "$1" == "3c" || "$1" == "all" ]]; then
         --out "${FIGURES}/figure_3c.svg" \
         --cache "$CACHE"
 fi
+
+if [[ "$1" == "4c" || "$1" == "all" ]]; then
+    echo "Generating figure 4c..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4c.py" \
+        "${ANALYSES}/03_taxonomic_representation/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_4c.svg" \
+        --cache "$CACHE"
+fi
