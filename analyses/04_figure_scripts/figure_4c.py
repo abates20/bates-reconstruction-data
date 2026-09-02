@@ -53,12 +53,16 @@ if args.cache is not None:
 
     DIST_DATA = Path(args.cache) / "figure_4c_taxonomic_distances.csv"
     DIST_DATA_EXISTS = DIST_DATA.exists()
+
+    TAX_DMP = Path(args.cache) / "tax.dmp"
 else:
     METRICS_DATA = None
     METRICS_DATA_EXISTS = False
 
     DIST_DATA = None
     DIST_DATA_EXISTS = False
+
+    TAX_DMP = None
 
 
 def species_abbreviation(name: str) -> pl.Expr:
@@ -161,7 +165,7 @@ if args.cache is not None and DIST_DATA_EXISTS:
 
 # Otherwise compute taxonomic distances
 else:
-    model_taxa = taxonomy.get_taxa(model_info.get_column("species"))
+    model_taxa = taxonomy.get_taxa(model_info.get_column("species"), TAX_DMP)
 
     dist_dict = {
         "source_id": [],
@@ -179,7 +183,7 @@ else:
     )
 
     for source_id, species_list in set_iter:
-        set_taxa = taxonomy.get_taxa(species_list)
+        set_taxa = taxonomy.get_taxa(species_list, TAX_DMP)
 
         for org_id, model_tx in zip(model_info.get_column("organism_id"), model_taxa):
             dist = min(taxonomy.taxonomic_distance(model_tx, tx) for tx in set_taxa)
@@ -215,7 +219,7 @@ plot = (
             color="metric"
         )
     )
-    + pn.facet_grid(cols="species_abbrev")
+    + pn.facet_wrap("species_abbrev", nrow=2)
     + pn.geom_point(
         alpha=0.3,
         size=0.7
@@ -243,10 +247,10 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(7,1.8),
+        figure_size=(3.7,2.4),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.005
+        panel_spacing=0.01
     )
 )
 
