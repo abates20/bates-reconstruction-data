@@ -300,7 +300,7 @@ plot = (
     )
     + pn.stat_summary(
         geom=pn.geom_errorbar,
-        width=0.6,
+        width=0.5,
         size=1.2,
         fun_ymin=np.mean,
         fun_ymax=np.mean,
