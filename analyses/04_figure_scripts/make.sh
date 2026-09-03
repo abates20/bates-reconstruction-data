@@ -135,3 +135,13 @@ if [[ "$1" == "4e" || "$1" == "all" ]]; then
         --out "${FIGURES}/figure_4e.svg" \
         --cache "$CACHE"
 fi
+
+if [[ "$1" == "4f" || "$1" == "all" ]]; then
+    echo "Generating figure 4f..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4f.py" \
+        "${ANALYSES}/03_taxonomic_representation/results/growth_data.csv" \
+        --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_4f.svg" \
+        --cache "$CACHE"
+fi
