@@ -116,6 +116,16 @@ if [[ "$1" == "4c" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
+if [[ "$1" == "4d" || "$1" == "all" ]]; then
+    echo "Generating figure 4d..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4d.py" \
+        "${ANALYSES}/03_taxonomic_representation/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_4d.svg" \
+        --cache "$CACHE"
+fi
+
 if [[ "$1" == "4e" || "$1" == "all" ]]; then
     echo "Generating figure 4e..."
     "$PYTHON" "${SCRIPT_DIR}/figure_4e.py" \
