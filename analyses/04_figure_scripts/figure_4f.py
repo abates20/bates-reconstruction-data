@@ -319,7 +319,7 @@ plot = (
     + pn.labs(
         subtitle="Substrate utilization",
         x="",
-        y="Effect on\nprecision/recall",
+        y="Effect on\nF1 score/precision/recall",
         color=""
     )
     + pn.theme_classic()
