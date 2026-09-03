@@ -317,12 +317,16 @@ plot = (
     )
     + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.labs(
+        subtitle="Substrate utilization",
         x="",
         y="Effect on\nprecision/recall",
         color=""
     )
     + pn.theme_classic()
-    + pn.theme(figure_size=(3,2.2))
+    + pn.theme(
+        figure_size=(3,2.2),
+        plot_subtitle=pn.element_text(weight="bold", size=10),
+    )
 )
 
 plot.save(args.out)
