@@ -71,7 +71,7 @@ def _cache_single(func: Callable[_P, _T]) -> Callable[_P, _T]:
     """
     called = False
     result = None
-    
+
     @wraps(func)
     def wrapper(*args: _P.args, **kwargs: _P.kwargs) -> _T:
         nonlocal called, result
@@ -84,7 +84,7 @@ def _cache_single(func: Callable[_P, _T]) -> Callable[_P, _T]:
     return wrapper
 
 @_cache_single
-def get_taxonomy_data(local: Optional[Union[str, bytes]] = None) -> pl.DataFrame:
+def get_taxonomy_data(local: Optional[Union[str, bytes, Path]] = None) -> pl.DataFrame:
     """
     Load the table of taxonomic lineages from NCBI.
 
@@ -165,7 +165,7 @@ def taxonomic_diversity(species: Iterable[str]) -> float:
     species = list(set(species)) # use set to get just unique species
     n = len(species)
     if n <= 1: # Prevent divide by 0 error
-        return 0 
+        return 0
 
     # Get a taxonomy object for each species
     taxa = get_taxa(species)
@@ -224,7 +224,7 @@ def weighted_coverage(species: Iterable[str], ref_species: Iterable[str], max_di
     return float(1 - (avg_dist / max_distance))
 
 
-def get_taxa(names: Iterable[str], local: Optional[Union[str, bytes]] = None) -> list["Taxonomy"]:
+def get_taxa(names: Iterable[str], local: Optional[Union[str, bytes, Path]] = None) -> list["Taxonomy"]:
     """
     Create a taxonomy object for each provided taxonomic name.
     """
@@ -268,7 +268,7 @@ def _download_taxonomy_data(buffer: IO[bytes]) -> None:
         path = tempdir / "taxdump.zip"
         download.download(url, path, download.DownloadProgress("Downloading taxonomy data..."))
 
-        
+
         with ZipFile(path) as zf:
             _clean_dmp(zf.open("rankedlineage.dmp"), buffer)
 
@@ -378,7 +378,7 @@ class Taxonomy:
         return (
             f"Taxonomy({name}, {kwargs})" if name is not None else f"Taxonomy({kwargs})"
         )
-    
+
     def __str__(self):
         elbow = "\u2514"
         hline = "\u2500"
@@ -389,7 +389,7 @@ class Taxonomy:
             if level is not None:
                 final_level = level
                 break
-        
+
         # Build lines
         for i, level in enumerate(_TAXONOMY_ORDER):
             name = self.__getattribute__(f"{level}_")
@@ -398,7 +398,7 @@ class Taxonomy:
             lines.append(line)
             if level == final_level:
                 break
-        
+
         return "\n".join(lines)
 
     def __getitem__(self, key: str):
@@ -424,7 +424,7 @@ class Taxonomy:
             return self.species_
         genus = self.genus_ if self.genus_ is not None else "[Unknown genus]"
         return f"{genus} sp."
-    
+
     @classmethod
     def from_name(cls, name: str) -> "Taxonomy":
         """
@@ -438,7 +438,7 @@ class Taxonomy:
 
         if data.is_empty():
             raise NoTaxonomyDataError(name=name)
-        
+
         if data.height > 1:
             raise TaxonomyError("Input query matched multiple rows in taxonomy data")
 
@@ -454,7 +454,7 @@ class Taxonomy:
 
         if data.is_empty():
             raise NoTaxonomyDataError(tax_id=id_)
-        
+
         if data.height > 1:
             raise TaxonomyError("Input query matched multiple rows in taxonomy data")
 
