@@ -12,8 +12,5 @@
 # -------------------------------------------------------------------------- #
 
 
-module purge
-module load diamond/2.1.6
-
 # Run reconstructor
 "$PYTHON" -m bates_reconstruction_data.reconstructor "$@"

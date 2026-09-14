@@ -11,9 +11,6 @@
 # --export=PYTHON="/path/to/venv/bin/python"                                 #
 # -------------------------------------------------------------------------- #
 
-module purge
-module load diamond/2.1.6
-
 # Pull out output path from args
 args=()
 while [[ $# -gt 0 ]]; do
