@@ -324,13 +324,12 @@ if [ ! -f "$rxn_matrix" ]; then
         --include-bigg
         --to-mnx
     )
-    
+
     # Submit job
     sbatch \
         --output="${LOGS}/reaction-matrix_%j.out" \
         --dependency="$deps" \
         --time=0:15:00 \
-        --partition=standard \
         --wrap="${CMD[*]}"
 fi
 
@@ -351,12 +350,11 @@ if [ ! -f "$growth_data" ]; then
         --media-db "${DATA}/mediadb.tsv"
         --out "$growth_data"
     )
-    
+
     # Submit job
     sbatch \
         --output="${LOGS}/substrate-utilization_%j.out" \
         --dependency="$deps" \
         --time=0:20:00 \
-        --partition=standard \
         --wrap="${CMD[*]}"
 fi

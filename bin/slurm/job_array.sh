@@ -1,7 +1,5 @@
 #!/bin/bash
 
-#SBATCH --partition=standard
-
 
 # Get the appropriate command from the supplied file
 CMD_FILE="$1"

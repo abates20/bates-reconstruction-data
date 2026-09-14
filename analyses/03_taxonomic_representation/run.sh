@@ -157,7 +157,7 @@ job_ids=()
         if [ ! -f "$submitted_flag" ]; then
 
             # Create directories
-            [ ! -d "$work_dir" ] && mkdir "$work_dir"            
+            [ ! -d "$work_dir" ] && mkdir "$work_dir"
             [ ! -d "$model_dir" ] && mkdir "$model_dir"
             [ ! -d "$log_dir" ] && mkdir "$log_dir"
 
@@ -251,13 +251,12 @@ if [ ! -f "$rxn_matrix" ]; then
         --out "$rxn_matrix"
         --include-bigg
     )
-    
+
     # Submit job
     sbatch \
         --output="${LOGS}/reaction-matrix_%j.out" \
         --dependency="$deps" \
         --time=0:25:00 \
-        --partition=standard \
         --wrap="${CMD[*]}"
 fi
 
@@ -278,13 +277,12 @@ if [ ! -f "$growth_data" ]; then
         --media-db "${DATA}/mediadb.tsv"
         --out "$growth_data"
     )
-    
+
     # Submit job
     sbatch \
         --output="${LOGS}/substrate-utilization_%j.out" \
         --dependency="$deps" \
         --time=0:30:00 \
-        --partition=standard \
         --wrap="${CMD[*]}"
 fi
 
