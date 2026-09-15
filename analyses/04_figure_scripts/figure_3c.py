@@ -326,7 +326,7 @@ plot = (
     + pn.theme(
         figure_size=(total_width,2.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        axis_text_x=pn.element_text(rotation=50, size=8, margin={"t": 0, "unit": "pt"}),
+        axis_text_x=pn.element_text(rotation=50, size=7, margin={"t": 0, "unit": "pt"}),
         legend_title=pn.element_blank(),
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=panel_spacing / total_width,                                  # convert inches to fraction
