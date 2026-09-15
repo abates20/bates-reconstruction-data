@@ -206,7 +206,7 @@ plot = (
         legend_position="bottom",
         legend_direction="vertical",
         legend_box_spacing=-0.05,
-        legend_text=pn.element_text(size=10)
+        legend_text=pn.element_text(size=10, ma="left")
     )
 )
 
