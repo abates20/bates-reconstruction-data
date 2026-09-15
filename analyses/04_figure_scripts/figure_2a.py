@@ -56,7 +56,7 @@ if args.cache is not None:
 else:
     TAXDMP = None
     SEGMENTS_DATA = None
-    LAYOUT_DATA = None 
+    LAYOUT_DATA = None
     DATA_EXISTS = None
 
 
@@ -84,7 +84,7 @@ def taxonomy_tree(taxa: list[taxonomy.Taxonomy]) -> pl.DataFrame:
                 nodes["node"].append(curr)
                 nodes["parent"].append(prev)
             prev = curr
-    
+
     return pl.DataFrame(nodes)
 
 
@@ -96,13 +96,13 @@ def format_species_name(names: Sequence[str]) -> Sequence[str]:
         sp = pieces[1]
 
         if sp == "sp.":
-            formatted_name = f"$\\it{{{genus}}}$ {sp}"
+            formatted_name = f"$\\it{{{genus}}}$ $\\text{{{sp}}}$"
         else:
             formatted_name = f"$\\it{{{genus} \\ {sp}}}$"
 
         if len(pieces) > 2:
-            formatted_name += f" {pieces[2]}"
-        
+            formatted_name += f" $\\text{{{pieces[2]}}}$"
+
         formatted.append(formatted_name)
     return formatted
 
@@ -195,7 +195,8 @@ plot = (
     + pn.scale_color_manual(
         values=["#d10202"],
         limits=[True],                          # ty:ignore[invalid-argument-type]
-        labels=["Experimental data"]
+        labels=["Substrate\nutilization data"],
+        guide=pn.guide_legend(override_aes={"size": 4})     # ty:ignore[invalid-argument-type]
     )
     + pn.labs(fill="", color="")
     + pn.coord_cartesian(xlim=(0, 32)) # prevent clipping text
