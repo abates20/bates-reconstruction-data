@@ -319,13 +319,14 @@ plot = (
     + pn.labs(
         subtitle="Substrate utilization",
         x="",
-        y="Effect on\nF1 score/precision/recall",
-        color=""
+        y="Regression coefficient",
+        color="Dependent\nvariable"
     )
     + pn.theme_classic()
     + pn.theme(
         figure_size=(3,2.2),
         plot_subtitle=pn.element_text(weight="bold", size=10),
+        legend_title=pn.element_text(ma="left")
     )
 )
 
