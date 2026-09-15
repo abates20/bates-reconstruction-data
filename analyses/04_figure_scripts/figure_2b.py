@@ -50,7 +50,7 @@ else:
 
 
 if args.cache is not None and DATA_EXISTS:
-    mds_data = pl.read_csv(MDS_DATA)
+    mds_data = pl.read_csv(MDS_DATA)        # ty:ignore[invalid-argument-type]
 
 else:
     rxn_data = (
@@ -108,7 +108,7 @@ plot = (
             shape="reconstruction_tool"
         )
     )
-    + pn.geom_point(alpha=0.5, size=4)
+    + pn.geom_point(alpha=0.7, size=4)
     + pn.scale_color_manual(palettes.DATA_SOURCE_COLOR)
     + pn.scale_shape_manual(palettes.RECONSTRUCTION_TOOL_SHAPE)
     + pn.labs(
