@@ -307,7 +307,7 @@ plot = (
     + pn.scale_x_discrete(labels=label_percent())
     + pn.labs(
         subtitle="Reactions",
-        x="Fraction of genes with random annotation",
+        x="Percent of genes with random annotation",
         y="",
         linetype="",
         size=""
@@ -317,7 +317,7 @@ plot = (
     + pn.theme(
         figure_size=(7,2.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        axis_text_x=pn.element_text(rotation="vertical"),
+        axis_text_x=pn.element_text(rotation=50, size=8, margin={"t": 0, "unit": "pt"}),
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=0.005
     )
