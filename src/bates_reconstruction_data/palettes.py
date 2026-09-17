@@ -4,8 +4,8 @@ RECONSTRUCTION_TOOL_SHAPE = {
 }
 
 DATA_SOURCE_COLOR = {
-    "BiGG": "#0099ff",
-    "KEGG/ModelSEED": "#f68511"
+    "BiGG": "#288de4",
+    "KEGG/ModelSEED": "#5d1736"
 }
 
 METRIC_COLOR = {
