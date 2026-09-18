@@ -120,12 +120,12 @@ plot = (
     + pn.coord_fixed(ratio=1)
     + pn.theme_classic(base_size=12)
     + pn.theme(
-        figure_size=(3.5, 4),
+        figure_size=(3.5, 4.5),
         axis_ticks=pn.element_blank(),
         axis_text=pn.element_blank(),
         legend_position="bottom",
         legend_direction="vertical",
-        legend_box_spacing=0.1,
+        legend_box_spacing=0.2,
         legend_spacing=25
     )
 )
