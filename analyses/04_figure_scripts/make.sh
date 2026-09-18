@@ -52,9 +52,8 @@ fi
 if [[ "$1" == "2a" || "$1" == "all" ]]; then
     echo "Generating figure 2a..."
     "$PYTHON" "${SCRIPT_DIR}/figure_2a.py" \
-        --model-info "${DATA}/model_info.csv" \
-        --bigg-data "${DATA}/bigg_bacteria.csv" \
-        --exp-data "${DATA}/substrate_utilization_data.csv" \
+        "${ANALYSES}/01_reconstructor_vs_carveme/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/01_reconstructor_vs_carveme/datasets.csv" \
         --out "${FIGURES}/figure_2a.svg" \
         --cache "$CACHE"
 fi
@@ -71,18 +70,9 @@ fi
 if [[ "$1" == "2c" || "$1" == "all" ]]; then
     echo "Generating figure 2c..."
     "$PYTHON" "${SCRIPT_DIR}/figure_2c.py" \
-        "${ANALYSES}/01_reconstructor_vs_carveme/results/reaction_matrix.csv" \
-        --set-info "${ANALYSES}/01_reconstructor_vs_carveme/datasets.csv" \
-        --out "${FIGURES}/figure_2c.svg" \
-        --cache "$CACHE"
-fi
-
-if [[ "$1" == "2d" || "$1" == "all" ]]; then
-    echo "Generating figure 2d..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_2d.py" \
         "${ANALYSES}/01_reconstructor_vs_carveme/results/growth_data.csv" \
         --set-info "${ANALYSES}/01_reconstructor_vs_carveme/datasets.csv" \
-        --out "${FIGURES}/figure_2d.svg" \
+        --out "${FIGURES}/figure_2c.svg" \
         --cache "$CACHE"
 fi
 

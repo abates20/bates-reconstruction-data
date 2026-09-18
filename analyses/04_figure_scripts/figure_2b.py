@@ -36,97 +36,139 @@ from pathlib import Path
 
 import polars as pl
 import plotnine as pn
-from sklearn.manifold import MDS
+import numpy as np
+from sklearn.metrics import precision_score, f1_score, recall_score
 
 from bates_reconstruction_data import palettes
 
 
 if args.cache is not None:
-    MDS_DATA = Path(args.cache) / "figure_2b_MDS.csv"
-    DATA_EXISTS = MDS_DATA.exists()
+    METRICS_DATA = Path(args.cache) / "figure_2b_reaction_metrics.csv"
+    DATA_EXISTS = METRICS_DATA.exists()
 else:
-    MDS_DATA = None
+    METRICS_DATA = None
     DATA_EXISTS = None
 
 
+def get_rxn_array(df: pl.DataFrame, org_id: str, source_id: str) -> tuple:
+    row = (
+        df.filter(
+            pl.col.organism_id == org_id,
+            pl.col.source_id == source_id
+        )
+        .drop("organism_id", "source_id")
+        .row(0)
+    )
+    return row
+
+
 if args.cache is not None and DATA_EXISTS:
-    mds_data = pl.read_csv(MDS_DATA)        # ty:ignore[invalid-argument-type]
+    rxn_metrics = pl.read_csv(METRICS_DATA)     # ty:ignore[invalid-argument-type]
 
 else:
-    rxn_data = (
-        pl.read_csv(args.data)
-        .filter(pl.col.source_id != "BiGG")
-    )
-    X = (
+    # Load reaction data
+    rxn_data = pl.read_csv(args.data)
+
+    # Get source/organism combinations
+    organisms_and_sources = (
         rxn_data
-        .drop("organism_id", "source_id")
-        .to_numpy()
+        .filter(pl.col.source_id != "BiGG")
+        .select("organism_id", "source_id")
+        .unique()
+        .iter_rows()
     )
 
-    # Run MDS
-    n = 2
-    method = MDS(
-        n_components=n,
-        metric_mds=False,       # non-metric for non-linear relationships
-        metric="jaccard",       # Jaccard distance because all values are 0 or 1
-        normalized_stress=True,
-        init="classical_mds"
-    )
-    mds_data = (
-        pl.DataFrame(
-            method.fit_transform(X),
-            schema={f"mds_dim{i+1}": pl.Float64 for i in range(n)}
-        )
-        .select(
-            rxn_data.get_column("organism_id"),
-            rxn_data.get_column("source_id"),
-            pl.all()
-        )
-    )
+    # Dictionary to compile metrics
+    metric_dict = {
+        "organism_id": [],
+        "source_id": [],
+        "precision": [],
+        "recall": [],
+        "f1_score": []
+    }
 
-    print(f"MDS normalized stress = {method.stress_}")
+    # Calculate metrics
+    for org_id, source_id in organisms_and_sources:
+        pred = get_rxn_array(rxn_data, org_id, source_id)
+        true = get_rxn_array(rxn_data, org_id, "BiGG")
 
-    # Save mds results
+        metric_dict["organism_id"].append(org_id)
+        metric_dict["source_id"].append(source_id)
+        metric_dict["precision"].append(precision_score(true, pred))
+        metric_dict["recall"].append(recall_score(true, pred))
+        metric_dict["f1_score"].append(f1_score(true, pred))
+
+    rxn_metrics = pl.DataFrame(metric_dict)
+
+    # Cache metrics if specified
     if args.cache is not None:
-        mds_data.write_csv(MDS_DATA)
+        rxn_metrics.write_csv(METRICS_DATA)
 
 
-# Combine MDS results with metadata
-data = mds_data.join(
-    pl.read_csv(args.set_info),
-    on="source_id"
+# Prepare plot data by pivoting to long format and adding metadata
+data = (
+    rxn_metrics
+    .unpivot(
+        on=["f1_score", "precision", "recall"],
+        index=["organism_id", "source_id"],
+        variable_name="metric",
+        value_name="value"
+    )
+    .with_columns(
+        pl.col.metric.replace({"precision": "Precision", "recall": "Recall", "f1_score": "F1 Score"})
+    )
+    .join(
+        pl.read_csv(args.set_info),
+        on="source_id"
+    )
 )
 
-# Plot MDS reuslts
 plot = (
     pn.ggplot(
         data,
         pn.aes(
-            x="mds_dim1",
-            y="mds_dim2",
+            x="reconstruction_tool",
+            y="value",
             color="data_source",
             shape="reconstruction_tool"
         )
     )
-    + pn.geom_point(alpha=0.7, size=4)
+    + pn.facet_wrap("metric")
+    + pn.geom_point(
+        alpha=0.15,
+        size=0.8,
+        position=pn.position_jitterdodge(dodge_width=0.7, jitter_width=0.1),
+        show_legend=False
+    )
+    + pn.geom_errorbar(
+        width=0.2,
+        size=0.8,
+        stat="summary",
+        position=pn.position_dodge(width=0.7),
+        show_legend=False
+    )
+    + pn.geom_errorbar(
+        width=0.5,
+        size=1.2,
+        stat="summary",
+        fun_ymin=np.mean,
+        fun_ymax=np.mean,
+        position=pn.position_dodge(width=0.7),
+        show_legend=False
+    )
     + pn.scale_color_manual(palettes.DATA_SOURCE_COLOR)
     + pn.scale_shape_manual(palettes.RECONSTRUCTION_TOOL_SHAPE)
     + pn.labs(
-        x="NMDS Dimension 1",
-        y="NMDS Dimension 2",
-        color="Data source",
-        shape="Reconstruction tool"
+        subtitle="Reactions",
+        x="",
+        y="",
     )
-    + pn.coord_fixed(ratio=1)
-    + pn.theme_classic(base_size=12)
+    + pn.coord_cartesian(ylim=(0, 1))
+    + pn.theme_classic()
     + pn.theme(
-        figure_size=(3.5, 4),
-        axis_ticks=pn.element_blank(),
-        axis_text=pn.element_blank(),
-        legend_position="bottom",
-        legend_direction="vertical",
-        legend_box_spacing=0.1,
-        legend_spacing=25
+        figure_size=(3,2.4),
+        axis_text_x=pn.element_text(rotation="vertical"),
+        plot_subtitle=pn.element_text(weight="bold", size=10)
     )
 )
 

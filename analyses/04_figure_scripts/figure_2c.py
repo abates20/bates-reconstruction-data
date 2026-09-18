@@ -12,7 +12,7 @@ from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument(
     "data",
-    help="Path to csv with reaction data"
+    help="Path to csv with substrate utilization data/predictions"
 )
 parser.add_argument(
     "--set-info",
@@ -43,36 +43,39 @@ from bates_reconstruction_data import palettes
 
 
 if args.cache is not None:
-    METRICS_DATA = Path(args.cache) / "figure_2c_reaction_metrics.csv"
+    METRICS_DATA = Path(args.cache) / "figure_2c_growth_metrics.csv"
     DATA_EXISTS = METRICS_DATA.exists()
 else:
     METRICS_DATA = None
     DATA_EXISTS = None
 
 
-def get_rxn_array(df: pl.DataFrame, org_id: str, source_id: str) -> tuple:
-    row = (
-        df.filter(
-            pl.col.organism_id == org_id,
-            pl.col.source_id == source_id
-        )
-        .drop("organism_id", "source_id")
-        .row(0)
-    )
-    return row
-
-
 if args.cache is not None and DATA_EXISTS:
-    rxn_metrics = pl.read_csv(METRICS_DATA)
+    growth_metrics = pl.read_csv(METRICS_DATA)      # ty:ignore[invalid-argument-type]
 
 else:
-    # Load reaction data
-    rxn_data = pl.read_csv(args.data)
+    # Load growth data
+    growth_data = (
+        pl.read_csv(args.data)
+        .select("organism_id", "source_id", "compound", "growth")
+    )
+
+    # Create separate df per organism (to remove compounds missing experimental data)
+    growth_dfs: dict[str, pl.DataFrame] = {}
+    for org_id in growth_data.get_column("organism_id").unique():
+        df = (
+            growth_data
+            .filter(pl.col.organism_id == org_id)
+            .pivot("source_id", values="growth")
+            .drop("organism_id", "compound")
+            .drop_nulls()
+        )
+        growth_dfs[org_id] = df
 
     # Get source/organism combinations
     organisms_and_sources = (
-        rxn_data
-        .filter(pl.col.source_id != "BiGG")
+        growth_data
+        .filter(pl.col.source_id != "experimental")
         .select("organism_id", "source_id")
         .unique()
         .iter_rows()
@@ -89,8 +92,9 @@ else:
 
     # Calculate metrics
     for org_id, source_id in organisms_and_sources:
-        pred = get_rxn_array(rxn_data, org_id, source_id)
-        true = get_rxn_array(rxn_data, org_id, "BiGG")
+        df = growth_dfs[org_id]
+        pred = df.get_column(source_id)
+        true = df.get_column("experimental")
 
         metric_dict["organism_id"].append(org_id)
         metric_dict["source_id"].append(source_id)
@@ -98,16 +102,16 @@ else:
         metric_dict["recall"].append(recall_score(true, pred))
         metric_dict["f1_score"].append(f1_score(true, pred))
 
-    rxn_metrics = pl.DataFrame(metric_dict)
+    growth_metrics = pl.DataFrame(metric_dict)
 
     # Cache metrics if specified
     if args.cache is not None:
-        rxn_metrics.write_csv(METRICS_DATA)
+        growth_metrics.write_csv(METRICS_DATA)
 
 
 # Prepare plot data by pivoting to long format and adding metadata
 data = (
-    rxn_metrics
+    growth_metrics
     .unpivot(
         on=["f1_score", "precision", "recall"],
         index=["organism_id", "source_id"],
@@ -159,7 +163,7 @@ plot = (
     + pn.scale_color_manual(palettes.DATA_SOURCE_COLOR)
     + pn.scale_shape_manual(palettes.RECONSTRUCTION_TOOL_SHAPE)
     + pn.labs(
-        subtitle="Reactions",
+        subtitle="Substrate utilization",
         x="",
         y="",
     )
