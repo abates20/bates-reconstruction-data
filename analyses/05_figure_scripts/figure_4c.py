@@ -270,10 +270,10 @@ data = data.join(baseline_sets, on="source_id", how="anti")
 # Set width of figure elements to ensure panels align with figure 3b
 total_width = 7.0 # in
 buffer = 0.5 / 72 # in (when svg saved, there is a 0.5pt buffer added on each edge?)
-panel_width = 0.624 # in
+panel_width = 0.601 # in
 legend_width = 0.98 # in
 panel_spacing = 0.005 * total_width # in
-axis_text_y_width = 22.96 / 72 # in
+axis_text_y_width = 40 / 72 # in
 plot_margin = 0.01 * total_width # in
 legend_margin = 0.7 # in
 n_panels = data.get_column("species_abbrev").unique().len()
@@ -316,7 +316,7 @@ plot = (
     + pn.labs(
         subtitle="Substrate utilization",
         x="Percent of genes with random annotation",
-        y="",
+        y="Metric score",
         color="",
         linetype="",
         size=""

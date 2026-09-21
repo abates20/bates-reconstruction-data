@@ -308,7 +308,7 @@ plot = (
     + pn.labs(
         subtitle="Reaction content",
         x="Percent of genes with random annotation",
-        y="",
+        y="Metric score",
         linetype="",
         size=""
     )

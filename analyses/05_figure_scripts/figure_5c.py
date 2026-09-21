@@ -240,7 +240,7 @@ plot = (
     + pn.labs(
         subtitle="Reaction content",
         x="Taxonomic distance",
-        y="",
+        y="Metric score",
         linetype="",
         size=""
     )

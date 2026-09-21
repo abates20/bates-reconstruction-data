@@ -165,7 +165,7 @@ plot = (
     + pn.labs(
         subtitle="Substrate utilization",
         x="",
-        y="",
+        y="Metric score",
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()

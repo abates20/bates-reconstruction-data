@@ -221,10 +221,10 @@ data = (
 # Set width of figure elements to ensure panels align with figure 3b
 total_width = 3.7 # in
 buffer = 0.5 / 72 # in (when svg saved, there is a 0.5pt buffer added on each edge?)
-panel_width = 0.634 # in
+panel_width = 0.6 # in
 legend_width = 0.958 # in
 panel_spacing = 0.01 * total_width # in
-axis_text_y_width = 23.176 / 72 # in
+axis_text_y_width = 34.5 / 72 # in
 plot_margin = 0.01 * total_width # in
 legend_margin = 0.1 # in
 nrow = 2 # number of rows of panels
@@ -264,7 +264,7 @@ plot = (
     + pn.labs(
         subtitle="Substrate utilization",
         x="Taxonomic distance",
-        y="",
+        y="Metric score",
         color="",
         linetype="",
         size=""
