@@ -1,8 +1,8 @@
 """
-figure_4e.py
+figure_5e.py
 ------------
 
-Code to generate the plot for Figure 4E.
+Code to generate the plot for Figure 5E.
 """
 
 
@@ -26,7 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--out",
-    default="figure_4e.svg",
+    default="figure_5e.svg",
     help="Path to save figure"
 )
 parser.add_argument(
@@ -47,10 +47,10 @@ from bates_reconstruction_data import palettes, taxonomy
 
 
 if args.cache is not None:
-    METRICS_DATA = Path(args.cache) / "figure_4e_growth_metrics.csv"
+    METRICS_DATA = Path(args.cache) / "figure_5e_growth_metrics.csv"
     METRICS_DATA_EXISTS = METRICS_DATA.exists()
 
-    DIST_DATA = Path(args.cache) / "figure_4e_taxonomic_distances.csv"
+    DIST_DATA = Path(args.cache) / "figure_5e_taxonomic_distances.csv"
     DIST_DATA_EXISTS = DIST_DATA.exists()
 
     TAX_DMP = Path(args.cache) / "tax.dmp"
@@ -232,7 +232,7 @@ n_panels = data.get_column("species_abbrev").unique().len() / nrow
 legend_box_spacing = (
     total_width
     + (2 * buffer)
-    - (2 * plot_margin) 
+    - (2 * plot_margin)
     - (2 * legend_margin)
     - legend_width
     - (panel_width * n_panels)

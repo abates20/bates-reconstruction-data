@@ -1,8 +1,8 @@
 """
-figure_4f.py
+figure_5f.py
 ------------
 
-Code to generate the plot for Figure 4F.
+Code to generate the plot for Figure 5F.
 """
 
 
@@ -26,7 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--out",
-    default="figure_4f.svg",
+    default="figure_5f.svg",
     help="Path to save figure"
 )
 parser.add_argument(
@@ -51,10 +51,10 @@ from bates_reconstruction_data import palettes, taxonomy
 
 
 if args.cache is not None:
-    REGRESSION_DATA = Path(args.cache) / "figure_4f_regression_results.csv"
+    REGRESSION_DATA = Path(args.cache) / "figure_5f_regression_results.csv"
     REGRESSION_DATA_EXISTS = REGRESSION_DATA.exists()
 
-    DIST_DATA = Path(args.cache) / "figure_4f_taxonomic_distances.csv"
+    DIST_DATA = Path(args.cache) / "figure_5f_taxonomic_distances.csv"
     DIST_DATA_EXISTS = DIST_DATA.exists()
 
     TAX_DMP = Path(args.cache) / "tax.dmp"

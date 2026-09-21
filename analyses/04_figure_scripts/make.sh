@@ -96,42 +96,42 @@ if [[ "$1" == "3c" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "4c" || "$1" == "all" ]]; then
-    echo "Generating figure 4c..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_4c.py" \
+if [[ "$1" == "5c" || "$1" == "all" ]]; then
+    echo "Generating figure 5c..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5c.py" \
         "${ANALYSES}/03_taxonomic_representation/results/reaction_matrix.csv" \
         --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_4c.svg" \
+        --out "${FIGURES}/figure_5c.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "4d" || "$1" == "all" ]]; then
-    echo "Generating figure 4d..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_4d.py" \
+if [[ "$1" == "5d" || "$1" == "all" ]]; then
+    echo "Generating figure 5d..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5d.py" \
         "${ANALYSES}/03_taxonomic_representation/results/reaction_matrix.csv" \
         --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_4d.svg" \
+        --out "${FIGURES}/figure_5d.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "4e" || "$1" == "all" ]]; then
-    echo "Generating figure 4e..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_4e.py" \
+if [[ "$1" == "5e" || "$1" == "all" ]]; then
+    echo "Generating figure 5e..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5e.py" \
         "${ANALYSES}/03_taxonomic_representation/results/growth_data.csv" \
         --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_4e.svg" \
+        --out "${FIGURES}/figure_5e.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "4f" || "$1" == "all" ]]; then
-    echo "Generating figure 4f..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_4f.py" \
+if [[ "$1" == "5f" || "$1" == "all" ]]; then
+    echo "Generating figure 5f..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5f.py" \
         "${ANALYSES}/03_taxonomic_representation/results/growth_data.csv" \
         --set-info "${ANALYSES}/03_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_4f.svg" \
+        --out "${FIGURES}/figure_5f.svg" \
         --cache "$CACHE"
 fi
