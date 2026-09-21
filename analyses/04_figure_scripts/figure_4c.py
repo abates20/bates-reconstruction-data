@@ -1,8 +1,8 @@
 """
-figure_3c.py
+figure_4c.py
 ------------
 
-Code to generate the plot for Figure 3C.
+Code to generate the plot for Figure 4C.
 """
 
 
@@ -26,7 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--out",
-    default="figure_3c.svg",
+    default="figure_4c.svg",
     help="Path to save figure"
 )
 parser.add_argument(
@@ -50,10 +50,10 @@ from bates_reconstruction_data import palettes
 
 
 if args.cache is not None:
-    METRICS_DATA = Path(args.cache) / "figure_3c_growth_metrics.csv"
+    METRICS_DATA = Path(args.cache) / "figure_4c_growth_metrics.csv"
     METRICS_DATA_EXISTS = METRICS_DATA.exists()
 
-    STATS_DATA = Path(args.cache) / "figure_3c_metric_stats.csv"
+    STATS_DATA = Path(args.cache) / "figure_4c_metric_stats.csv"
     STATS_DATA_EXISTS = STATS_DATA.exists()
 else:
     METRICS_DATA = None

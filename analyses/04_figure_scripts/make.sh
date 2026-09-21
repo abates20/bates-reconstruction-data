@@ -76,23 +76,23 @@ if [[ "$1" == "2c" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "3b" || "$1" == "all" ]]; then
-    echo "Generating figure 3b..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_3b.py" \
+if [[ "$1" == "4b" || "$1" == "all" ]]; then
+    echo "Generating figure 4b..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4b.py" \
         "${ANALYSES}/02_annotation_uncertainty/results/reaction_matrix.csv" \
         --set-info "${ANALYSES}/02_annotation_uncertainty/datasets.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_3b.svg" \
+        --out "${FIGURES}/figure_4b.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "3c" || "$1" == "all" ]]; then
-    echo "Generating figure 3c..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_3c.py" \
+if [[ "$1" == "4c" || "$1" == "all" ]]; then
+    echo "Generating figure 4c..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4c.py" \
         "${ANALYSES}/02_annotation_uncertainty/results/growth_data.csv" \
         --set-info "${ANALYSES}/02_annotation_uncertainty/datasets.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_3c.svg" \
+        --out "${FIGURES}/figure_4c.svg" \
         --cache "$CACHE"
 fi
 
