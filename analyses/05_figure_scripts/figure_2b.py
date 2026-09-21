@@ -159,7 +159,7 @@ plot = (
     + pn.scale_color_manual(palettes.DATA_SOURCE_COLOR)
     + pn.scale_shape_manual(palettes.RECONSTRUCTION_TOOL_SHAPE)
     + pn.labs(
-        subtitle="Reactions",
+        subtitle="Reaction content",
         x="",
         y="",
     )

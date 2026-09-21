@@ -309,7 +309,7 @@ plot = (
     )
     + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.labs(
-        subtitle="Reactions",
+        subtitle="Reaction content",
         x="",
         y="Regression coefficient",
         color="Dependent\nvariable"

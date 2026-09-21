@@ -238,7 +238,7 @@ plot = (
         guide=None
     )
     + pn.labs(
-        subtitle="Reactions",
+        subtitle="Reaction content",
         x="Taxonomic distance",
         y="",
         linetype="",

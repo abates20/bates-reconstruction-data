@@ -306,7 +306,7 @@ plot = (
     )
     + pn.scale_x_discrete(labels=label_percent())
     + pn.labs(
-        subtitle="Reactions",
+        subtitle="Reaction content",
         x="Percent of genes with random annotation",
         y="",
         linetype="",
