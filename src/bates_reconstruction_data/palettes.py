@@ -8,6 +8,11 @@ DATA_SOURCE_COLOR = {
     "KEGG/ModelSEED": "#5d1736"
 }
 
+DATABASE_COLOR = {
+    "BiGG": "#288de4",
+    "KEGG": "#5d1736"
+}
+
 METRIC_COLOR = {
     "F1 Score": "#cb5d00",
     "Recall": "#008f5d",
