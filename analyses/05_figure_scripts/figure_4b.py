@@ -247,7 +247,7 @@ data = (
     )
 )
 
-# Set order of species so that they line up with figure 3c
+# Set order of species so that they line up with figure 4c
 species_order = [
     "A. baumannii",
     "B. subtilis",

@@ -210,6 +210,21 @@ data = (
     )
 )
 
+# Set order of species so that they line up with figure 5e
+species_order = [
+    "A. baumannii",
+    "B. subtilis",
+    "C. difficile",
+    "C. ljungdahlii",
+    "L. cremoris",
+    "E. coli",
+    "P. putida",
+    "S. aureus",
+    "S. sonnei",
+    "Y. pestis"
+]
+data = data.with_columns(pl.col.species_abbrev.cast(pl.Enum(species_order)))
+
 plot = (
     pn.ggplot(
         data,
