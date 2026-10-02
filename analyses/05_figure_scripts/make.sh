@@ -103,8 +103,8 @@ fi
 if [[ "$1" == "4b" || "$1" == "all" ]]; then
     echo "Generating figure 4b..."
     "$PYTHON" "${SCRIPT_DIR}/figure_4b.py" \
-        "${ANALYSES}/03_annotation_uncertainty/results/reaction_matrix.csv" \
-        --set-info "${ANALYSES}/03_annotation_uncertainty/datasets.csv" \
+        "${ANALYSES}/03_misannotation/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/03_misannotation/datasets.csv" \
         --model-info "${DATA}/model_info.csv" \
         --out "${FIGURES}/figure_4b.svg" \
         --cache "$CACHE"
@@ -113,8 +113,8 @@ fi
 if [[ "$1" == "4c" || "$1" == "all" ]]; then
     echo "Generating figure 4c..."
     "$PYTHON" "${SCRIPT_DIR}/figure_4c.py" \
-        "${ANALYSES}/03_annotation_uncertainty/results/growth_data.csv" \
-        --set-info "${ANALYSES}/03_annotation_uncertainty/datasets.csv" \
+        "${ANALYSES}/03_misannotation/results/growth_data.csv" \
+        --set-info "${ANALYSES}/03_misannotation/datasets.csv" \
         --model-info "${DATA}/model_info.csv" \
         --out "${FIGURES}/figure_4c.svg" \
         --cache "$CACHE"

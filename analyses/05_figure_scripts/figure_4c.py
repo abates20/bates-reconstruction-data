@@ -63,19 +63,19 @@ else:
     STATS_DATA_EXISTS = False
 
 
-def t_test(data: dict):
+def linear_regression(data: dict):
     """
-    Run a 1 sample t-test.
+    Run linear regression.
 
-    `data` is a dictionary with keys 'x' (the sample values) and 'mu' (the
-    population mean that is being tested against).
+    `data` is a dictionary with keys 'x' (the independent variable) and 'y' (the
+    dependent variable).
 
-    Returns the test statistic and pvalue.
+    Returns the slope and pvalue.
     """
-    res = stats.ttest_1samp(data["x"], data["mu"])
-    stat = None if np.isnan(res.statistic) else res.statistic
+    res = stats.linregress(data["x"], data["y"])
+    slope = None if np.isnan(res.slope) else res.slope
     pval = None if np.isnan(res.pvalue) else res.pvalue
-    return stat, pval
+    return slope, pval
 
 
 def species_abbreviation(name: str) -> pl.Expr:
@@ -183,32 +183,23 @@ if args.cache is not None and STATS_DATA_EXISTS:
 # Otherwise run stats
 else:
 
-    # Get baseline metrics (sets with 0% random annotations)
-    baseline_metrics = (
-        growth_metrics
-        .join(baseline_sets, on="source_id", how="semi")
-        .drop("source_id")
-    )
-
-    # Test sets with random annotations to see if metrics are different from baseline
+    # Run linear regression for each combo of species and metric
     metric_stats = (
         growth_metrics
-        .join(baseline_sets, on="source_id", how="anti")
         .join(set_data, on="source_id")
-        .group_by("organism_id", "metric", "fraction")
-        .agg("value")
-        .join(baseline_metrics, on=["organism_id", "metric"], suffix="_baseline")
+        .group_by("organism_id", "metric")
+        .agg("fraction", "value")
         .with_columns(
-            ttest_result=(
-                pl.struct(x="value", mu="value_baseline")
+            result=(
+                pl.struct(x="fraction", y="value")
                 .map_elements(
-                    t_test,
-                    return_dtype=pl.Struct({"t_stat": pl.Float64, "pval": pl.Float64})
+                    linear_regression,
+                    return_dtype=pl.Struct({"slope": pl.Float64, "pval": pl.Float64})
                 )
             )
         )
-        .unnest("ttest_result")
-        .drop("value", "value_baseline")
+        .unnest("result")
+        .drop("fraction", "value")
     )
 
     # False discovery control to get adjusted p-values
@@ -218,7 +209,6 @@ else:
         .select(
             "organism_id",
             "metric",
-            "fraction",
             adj_pval=pl.col.pval.map_batches(
                 stats.false_discovery_control,
                 return_dtype=pl.Float64
@@ -227,7 +217,7 @@ else:
     )
     metric_stats = metric_stats.join(
         adj_pvals,
-        on=["organism_id", "metric", "fraction"],
+        on=["organism_id", "metric"],
         how="left"
     )
 
@@ -246,7 +236,7 @@ data = (
     )
     .join(
         metric_stats,
-        on=["organism_id", "metric", "fraction"],
+        on=["organism_id", "metric"],
         how="left"
     )
     .with_columns(
@@ -255,17 +245,9 @@ data = (
     )
 )
 
-# Get sorted fraction order
-fraction_levels = (
-    data
-    .get_column("fraction")
-    .unique()
-    .sort()
-)
-
-# Split up data for 0% random annotations and >0% random annotations
-baseline_data = data.join(baseline_sets, on="source_id", how="semi")
-data = data.join(baseline_sets, on="source_id", how="anti")
+# Set order of metrics to put F1 score on top
+metric_order = ["Precision", "Recall", "F1 Score"]
+data = data.with_columns(pl.col.metric.cast(pl.Enum(metric_order)))
 
 # Set width of figure elements to ensure panels align with figure 3b
 total_width = 7.0 # in
@@ -292,30 +274,28 @@ plot = (
     pn.ggplot(
         data,
         pn.aes(
-            x="factor(fraction, categories=fraction_levels)",
+            x="fraction",
             y="value",
             color="metric",
         )
     )
     + pn.facet_grid(cols="species_abbrev")
-    + pn.geom_point(data=baseline_data, shape="*", size=2)
     + pn.geom_point(
-        alpha=0.3,
-        size=0.7,
-        position=pn.position_jitter(width=0.1)
+        alpha=0.1,
+        size=0.7
     )
-    + pn.geom_path(
+    + pn.geom_smooth(
         pn.aes(group="metric", linetype="metric", size="metric"),
-        pl.concat([data, baseline_data]),
-        stat="summary"
+        method="lm",
+        se=False
     )
     + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.scale_linetype_manual({"F1 Score": "solid", "Precision": "dashed", "Recall": "dashed"})
     + pn.scale_size_manual({"F1 Score": 1.25, "Precision": 0.6, "Recall": 0.6})
-    + pn.scale_x_discrete(labels=label_percent())
+    + pn.scale_x_continuous(breaks=[0.0, 0.3, 0.6, 0.9])
     + pn.labs(
         subtitle="Substrate utilization",
-        x="Percent of genes with random annotation",
+        x="Fraction of genes with random annotation",
         y="Metric score",
         color="",
         linetype="",
@@ -326,7 +306,7 @@ plot = (
     + pn.theme(
         figure_size=(total_width,2.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        axis_text_x=pn.element_text(rotation=50, size=7, margin={"t": 0, "unit": "pt"}),
+        axis_text_x=pn.element_text(rotation=45, size=7, margin={"t": 0, "unit": "pt"}),
         legend_title=pn.element_blank(),
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=panel_spacing / total_width,                                  # convert inches to fraction
