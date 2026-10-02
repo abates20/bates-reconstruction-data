@@ -262,7 +262,7 @@ if [ ! -f "$rxn_matrix" ]; then
     sbatch \
         --output="${LOGS}/reaction-matrix_%j.out" \
         --dependency="$deps" \
-        --time=0:25:00 \
+        --time=2:00:00 \
         --wrap="${CMD[*]}"
 fi
 
@@ -288,6 +288,6 @@ if [ ! -f "$growth_data" ]; then
     sbatch \
         --output="${LOGS}/substrate-utilization_%j.out" \
         --dependency="$deps" \
-        --time=0:30:00 \
+        --time=2:00:00 \
         --wrap="${CMD[*]}"
 fi
