@@ -242,11 +242,11 @@ species_order = [
     "A. baumannii",
     "B. subtilis",
     "C. difficile",
+    "C. ljungdahlii",
+    "L. cremoris",
     "E. coli",
     "P. putida",
     "S. aureus",
-    "C. ljungdahlii",
-    "L. cremoris",
     "S. sonnei",
     "Y. pestis"
 ]
@@ -265,7 +265,7 @@ plot = (
             color="metric"
         )
     )
-    + pn.facet_grid(cols="species_abbrev")
+    + pn.facet_wrap("species_abbrev", ncol=5)
     + pn.geom_point(
         alpha=0.1,
         size=0.7
@@ -275,29 +275,36 @@ plot = (
         method="lowess",
         se=False
     )
-    + pn.scale_color_manual(palettes.METRIC_COLOR, guide=None)
+    + pn.scale_color_manual(
+        palettes.METRIC_COLOR,
+        limits=["F1 Score", "Precision", "Recall"]
+    )
     + pn.scale_linetype_manual(
         {"F1 Score": "solid", "Precision": "dashed", "Recall": "dashed"},
-        guide=None
+        limits=["F1 Score", "Precision", "Recall"]
     )
     + pn.scale_size_manual(
         {"F1 Score": 1.25, "Precision": 0.6, "Recall": 0.6},
-        guide=None
+        limits=["F1 Score", "Precision", "Recall"]
     )
     + pn.scale_x_continuous(breaks=[0.0, 0.3, 0.6, 0.9])
     + pn.labs(
         subtitle="Reaction content",
         x="Fraction of genes with random annotation",
         y="Metric score",
+        color="",
         linetype="",
         size=""
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(7,2.2),
+        figure_size=(4.8,3.6),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation=45, size=7, margin={"t": 0, "unit": "pt"}),
+        legend_title=pn.element_blank(),
+        legend_text=pn.element_text(size=11),
+        legend_key_spacing_y=10,
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=0.005
     )

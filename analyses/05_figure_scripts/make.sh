@@ -113,10 +113,20 @@ fi
 if [[ "$1" == "4c" || "$1" == "all" ]]; then
     echo "Generating figure 4c..."
     "$PYTHON" "${SCRIPT_DIR}/figure_4c.py" \
-        "${ANALYSES}/03_misannotation/results/growth_data.csv" \
+        "${ANALYSES}/03_misannotation/results/reaction_matrix.csv" \
         --set-info "${ANALYSES}/03_misannotation/datasets.csv" \
         --model-info "${DATA}/model_info.csv" \
         --out "${FIGURES}/figure_4c.svg" \
+        --cache "$CACHE"
+fi
+
+if [[ "$1" == "4d" || "$1" == "all" ]]; then
+    echo "Generating figure 4d..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_4d.py" \
+        "${ANALYSES}/03_misannotation/results/growth_data.csv" \
+        --set-info "${ANALYSES}/03_misannotation/datasets.csv" \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_4d.svg" \
         --cache "$CACHE"
 fi
 

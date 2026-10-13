@@ -38,19 +38,19 @@ args = parser.parse_args()
 
 # Additional imports
 from pathlib import Path
+from collections import defaultdict
 
 import polars as pl
 import plotnine as pn
 import numpy as np
 from scipy import stats
 from sklearn.metrics import precision_score, f1_score, recall_score
-from mizani.labels import label_percent
 
 from bates_reconstruction_data import palettes
 
 
 if args.cache is not None:
-    METRICS_DATA = Path(args.cache) / "figure_4c_growth_metrics.csv"
+    METRICS_DATA = Path(args.cache) / "figure_4c_reaction_metrics.csv"
     METRICS_DATA_EXISTS = METRICS_DATA.exists()
 
     STATS_DATA = Path(args.cache) / "figure_4c_metric_stats.csv"
@@ -95,38 +95,29 @@ def species_abbreviation(name: str) -> pl.Expr:
 
 # Load computed metrics if cached
 if args.cache is not None and METRICS_DATA_EXISTS:
-    growth_metrics = pl.read_csv(
+    metrics = pl.read_csv(
         METRICS_DATA,                                       # ty:ignore[invalid-argument-type]
         schema_overrides={"source_id": pl.String}
     )
 
 # Otherwise compute data for plotting
 else:
-    # Load growth data
-    growth_data = (
-        pl.read_csv(
-            args.data,
-            schema_overrides={"source_id": pl.String}
-        )
-        .select("organism_id", "source_id", "compound", "growth")
+    # Load reaction data
+    rxn_data = pl.read_csv(
+        args.data,
+        schema_overrides={"source_id": pl.String}
     )
 
-    # Create separate df per organism (to remove compounds missing experimental data)
-    growth_dfs: dict[str, pl.DataFrame] = {}
-    for org_id in growth_data.get_column("organism_id").unique():
-        df = (
-            growth_data
-            .filter(pl.col.organism_id == org_id)
-            .pivot("source_id", values="growth")
-            .drop("organism_id", "compound")
-            .drop_nulls()
-        )
-        growth_dfs[org_id] = df
+    # Index the reaction data
+    data_index = defaultdict(dict)
+    row_iter = rxn_data.select("organism_id", "source_id").iter_rows()
+    for i, (org_id, source_id) in enumerate(row_iter):
+        data_index[org_id][source_id] = i
 
     # Get source/organism combinations
     organisms_and_sources = (
-        growth_data
-        .filter(pl.col.source_id != "experimental")
+        rxn_data
+        .filter(pl.col.source_id != "BiGG")
         .select("organism_id", "source_id")
         .unique()
         .iter_rows()
@@ -142,10 +133,10 @@ else:
     }
 
     # Calculate metrics
+    matrix = rxn_data.drop("organism_id", "source_id")
     for org_id, source_id in organisms_and_sources:
-        df = growth_dfs[org_id]
-        pred = df.get_column(source_id)
-        true = df.get_column("experimental")
+        pred = matrix.row(data_index[org_id][source_id])
+        true = matrix.row(data_index[org_id]["BiGG"])
 
         metric_dict["organism_id"].append(org_id)
         metric_dict["source_id"].append(source_id)
@@ -153,7 +144,7 @@ else:
         metric_dict["recall"].append(recall_score(true, pred))
         metric_dict["f1_score"].append(f1_score(true, pred))
 
-    growth_metrics = (
+    metrics = (
         pl.DataFrame(metric_dict)
         .unpivot(
             on=["f1_score", "precision", "recall"],
@@ -165,7 +156,7 @@ else:
 
     # Cache metrics if specified
     if args.cache is not None:
-        growth_metrics.write_csv(METRICS_DATA)
+        metrics.write_csv(METRICS_DATA)
 
 
 # Load info about resource sets and get sets with 0% random annotations
@@ -185,7 +176,7 @@ else:
 
     # Run linear regression for each combo of species and metric
     metric_stats = (
-        growth_metrics
+        metrics
         .join(set_data, on="source_id")
         .group_by("organism_id", "metric")
         .agg("fraction", "value")
@@ -228,16 +219,10 @@ else:
 
 # Prepare plot data by adding metadata
 data = (
-    growth_metrics
-    .join(set_data, on="source_id")
+    metric_stats
     .join(
         pl.read_csv(args.model_info),
         on="organism_id"
-    )
-    .join(
-        metric_stats,
-        on=["organism_id", "metric"],
-        how="left"
     )
     .with_columns(
         pl.col.metric.replace({"precision": "Precision", "recall": "Recall", "f1_score": "F1 Score"}),
@@ -245,77 +230,56 @@ data = (
     )
 )
 
-# Set order of metrics to put F1 score on top
-metric_order = ["Precision", "Recall", "F1 Score"]
+# Set order of metrics to put F1 score first
+metric_order = ["F1 Score", "Precision", "Recall"]
 data = data.with_columns(pl.col.metric.cast(pl.Enum(metric_order)))
-
-# Set width of figure elements to ensure panels align with figure 3b
-total_width = 7.0 # in
-buffer = 0.5 / 72 # in (when svg saved, there is a 0.5pt buffer added on each edge?)
-panel_width = 0.601 # in
-legend_width = 0.98 # in
-panel_spacing = 0.005 * total_width # in
-axis_text_y_width = 40 / 72 # in
-plot_margin = 0.01 * total_width # in
-legend_margin = 0.7 # in
-n_panels = data.get_column("species_abbrev").unique().len()
-legend_box_spacing = (
-    total_width
-    + (2 * buffer)
-    - (2 * plot_margin)
-    - (2 * legend_margin)
-    - legend_width
-    - (panel_width * n_panels)
-    - (panel_spacing * (n_panels - 1))
-    - axis_text_y_width
-)
 
 plot = (
     pn.ggplot(
         data,
         pn.aes(
-            x="fraction",
-            y="value",
+            x="metric",
+            y="slope",
             color="metric",
         )
     )
-    + pn.facet_grid(cols="species_abbrev")
+    + pn.geom_hline(
+        yintercept=0,
+        linetype="dashed"
+    )
     + pn.geom_point(
-        alpha=0.1,
-        size=0.7
+        alpha=0.2,
+        position=pn.position_jitter(width=0.1, height=0)
     )
-    + pn.geom_smooth(
-        pn.aes(group="metric", linetype="metric", size="metric"),
-        method="lm",
-        se=False
+    + pn.stat_summary(
+        geom=pn.geom_errorbar,
+        width=0.15,
+        size=1,
+        fun_data="mean_cl_boot",
+        fun_args=dict(confidence_interval=0.95)
     )
-    + pn.scale_color_manual(palettes.METRIC_COLOR)
-    + pn.scale_linetype_manual({"F1 Score": "solid", "Precision": "dashed", "Recall": "dashed"})
-    + pn.scale_size_manual({"F1 Score": 1.25, "Precision": 0.6, "Recall": 0.6})
-    + pn.scale_x_continuous(breaks=[0.0, 0.3, 0.6, 0.9])
+    + pn.stat_summary(
+        geom=pn.geom_errorbar,
+        width=0.4,
+        size=1.5,
+        fun_ymin=np.mean,
+        fun_ymax=np.mean
+    )
+    + pn.scale_color_manual(palettes.METRIC_COLOR, guide=None)
     + pn.labs(
-        subtitle="Substrate utilization",
-        x="Fraction of genes with random annotation",
-        y="Metric score",
+        subtitle="Reaction content",
+        x="",
+        y="Regression coefficient",
         color="",
         linetype="",
         size=""
     )
-    + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(total_width,2.2),
-        strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        axis_text_x=pn.element_text(rotation=45, size=7, margin={"t": 0, "unit": "pt"}),
-        legend_title=pn.element_blank(),
+        figure_size=(1.8, 1.7),
+        axis_title_y=pn.element_text(size=10),
+        axis_text_x=pn.element_text(rotation=45, size=8, margin={"t": 0, "unit": "pt"}),
         plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=panel_spacing / total_width,                                  # convert inches to fraction
-        legend_box_spacing=legend_box_spacing / total_width,                        # convert inches to fraction (plotnine docs say pts but seems to actually be fraction)
-        legend_text=pn.element_text(size=12),
-        legend_key_spacing_y=10,
-        legend_box_margin=legend_margin * 72,                                       # convert inches to pts
-        plot_margin_left=plot_margin / total_width,                                 # convert inches to fraction
-        plot_margin_right=plot_margin / total_width,                                # convert inches to fraction
     )
 )
 
