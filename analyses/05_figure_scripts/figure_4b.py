@@ -299,12 +299,13 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(4.8,3.6),
+        figure_size=(4.5,3.6),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation=45, size=7, margin={"t": 0, "unit": "pt"}),
+        legend_position="bottom",
         legend_title=pn.element_blank(),
         legend_text=pn.element_text(size=11),
-        legend_key_spacing_y=10,
+        legend_key_spacing_x=20,
         plot_subtitle=pn.element_text(weight="bold", size=10),
         panel_spacing=0.005
     )

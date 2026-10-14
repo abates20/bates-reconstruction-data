@@ -285,7 +285,7 @@ plot = (
     )
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(1.8, 1.7),
+        figure_size=(1.9, 1.7),
         axis_title_y=pn.element_text(size=10),
         axis_text_x=pn.element_text(rotation=45, size=8, margin={"t": 0, "unit": "pt"}),
         plot_subtitle=pn.element_text(weight="bold", size=10),
