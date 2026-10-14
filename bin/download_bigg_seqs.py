@@ -73,10 +73,10 @@ def load_seqs(fasta) -> dict[str, str]:
                 current_seq = ""
             else:
                 current_seq += line.strip()
-        
+
         if current_gene is not None:
             seqs[current_gene] = current_seq
-    
+
     return seqs
 
 
@@ -91,7 +91,7 @@ def download_genes(model: dict, threads: Optional[int] = None, show_progress: bo
             itertools.repeat(model["id"]),
             gene_ids,
             itertools.repeat(s),
-            threads=threads,
+            max_workers=threads,
             show_progress=show_progress
         )
     return dict(zip(gene_ids, genes))
@@ -105,7 +105,7 @@ def download_ncbi_genome(accession: str) -> tuple[dict[str, str], pl.DataFrame]:
     """
     ncbi = NCBI()
     with TemporaryDirectory() as tempdir:
-        
+
         # Download the genome
         download_path = os.path.join(tempdir, "ncbi_data.zip")
         datapkg = ncbi.genome.download(
@@ -138,7 +138,7 @@ def format_seq(seq: str, line_length: int = 80):
     """
     Format an amino acid sequence by splitting across multiple lines if longer
     than the specified line length.
-    
+
     Default line length is 80 for writing to a fasta file.
     """
     lines = [seq[i:i+line_length] for i in range(0, len(seq), line_length)]
@@ -188,7 +188,7 @@ if len(missing) > 0 and args.refseq_accession is not None:
         )
         .select("bigg_id", "ncbi_id")
     )
-    
+
     i = 0
     for bigg_id, ncbi_id in bigg_ncbi_map.iter_rows():
         seq = ncbi_seqs.get(ncbi_id)

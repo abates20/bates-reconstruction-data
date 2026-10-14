@@ -51,7 +51,7 @@ def batched_request(
         [url_template.format("+".join(b)) for b in batched(iterable, batch_size)],
         itertools.repeat(method),
         itertools.repeat(session),
-        threads=threads,
+        max_workers=threads,
         show_progress=show_progress
     )
 

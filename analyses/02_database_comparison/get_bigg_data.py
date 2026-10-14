@@ -93,7 +93,7 @@ with requests.Session() as s:
         bigg.get_model,
         model_info.get_column("bigg_id"),
         itertools.repeat(s),
-        threads=args.threads
+        max_workers=args.threads
     )
 
 # compile reactions and associated genes from models

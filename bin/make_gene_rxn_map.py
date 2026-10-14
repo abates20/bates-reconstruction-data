@@ -59,7 +59,7 @@ if __name__ == "__main__":
             bigg.get_model,
             args.models,
             itertools.repeat(session),
-            threads=args.threads
+            max_workers=args.threads
         )
 
     # Create the gene -> reaction map

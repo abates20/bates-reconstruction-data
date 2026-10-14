@@ -59,7 +59,7 @@ def create_metabolite(bigg_id, compartment) -> cobra.Metabolite:
         compartment
     )
     add_identifiers(met, met_info.get("database_links", {}))
-    
+
     return met
 
 
@@ -102,7 +102,7 @@ met_list = parallel.apply(
     create_metabolite,
     biomass_db.get_column("bigg_id"),
     biomass_db.get_column("comp"),
-    threads=args.threads
+    max_workers=args.threads
 )
 metabolites = {m.id: m for m in met_list} # turn into dict for easy lookup
 
