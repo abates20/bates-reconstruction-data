@@ -335,7 +335,7 @@ fi
 
         # Process reaction content
         reactions_flag="${work_dir}/reactions.submitted.jobid"
-        reactions_out="${MODELS}/reactions_${organism_id}.csv"
+        reactions_out="${RESULTS}/reactions_${organism_id}.csv"
         if [[ ! -f "$reactions_flag" || $RUN_REMAINING -eq 1 ]]; then
             echo "Submitting job to process reactions for ${organism_id}..."
             cmd=(
@@ -361,7 +361,7 @@ fi
 
         # Substrate utilization predictions
         predictions_flag="${work_dir}/predictions.submitted.jobid"
-        predictions_out="${MODELS}/growth_data_${organism_id}.csv"
+        predictions_out="${RESULTS}/growth_data_${organism_id}.csv"
         if [[ ! -f "$predictions_flag" || $RUN_REMAINING -eq 1 ]]; then
             echo "Submitting job to run substrate utilization predictions for ${organism_id}..."
             cmd=(
