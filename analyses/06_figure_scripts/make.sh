@@ -130,42 +130,42 @@ if [[ "$1" == "4d" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "5c" || "$1" == "all" ]]; then
-    echo "Generating figure 5c..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_5c.py" \
-        "${ANALYSES}/04_taxonomic_representation/results/reaction_matrix.csv" \
-        --set-info "${ANALYSES}/04_taxonomic_representation/results/dataset_metrics.csv" \
+if [[ "$1" == "6c" || "$1" == "all" ]]; then
+    echo "Generating figure 6c..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_6c.py" \
+        "${ANALYSES}/05_taxonomic_representation/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/05_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_5c.svg" \
+        --out "${FIGURES}/figure_6c.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "5d" || "$1" == "all" ]]; then
-    echo "Generating figure 5d..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_5d.py" \
-        "${ANALYSES}/04_taxonomic_representation/results/reaction_matrix.csv" \
-        --set-info "${ANALYSES}/04_taxonomic_representation/results/dataset_metrics.csv" \
+if [[ "$1" == "6d" || "$1" == "all" ]]; then
+    echo "Generating figure 6d..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_6d.py" \
+        "${ANALYSES}/05_taxonomic_representation/results/reaction_matrix.csv" \
+        --set-info "${ANALYSES}/05_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_5d.svg" \
+        --out "${FIGURES}/figure_6d.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "5e" || "$1" == "all" ]]; then
-    echo "Generating figure 5e..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_5e.py" \
-        "${ANALYSES}/04_taxonomic_representation/results/growth_data.csv" \
-        --set-info "${ANALYSES}/04_taxonomic_representation/results/dataset_metrics.csv" \
+if [[ "$1" == "6e" || "$1" == "all" ]]; then
+    echo "Generating figure 6e..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_6e.py" \
+        "${ANALYSES}/05_taxonomic_representation/results/growth_data.csv" \
+        --set-info "${ANALYSES}/05_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_5e.svg" \
+        --out "${FIGURES}/figure_6e.svg" \
         --cache "$CACHE"
 fi
 
-if [[ "$1" == "5f" || "$1" == "all" ]]; then
-    echo "Generating figure 5f..."
-    "$PYTHON" "${SCRIPT_DIR}/figure_5f.py" \
-        "${ANALYSES}/04_taxonomic_representation/results/growth_data.csv" \
-        --set-info "${ANALYSES}/04_taxonomic_representation/results/dataset_metrics.csv" \
+if [[ "$1" == "6f" || "$1" == "all" ]]; then
+    echo "Generating figure 6f..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_6f.py" \
+        "${ANALYSES}/05_taxonomic_representation/results/growth_data.csv" \
+        --set-info "${ANALYSES}/05_taxonomic_representation/results/dataset_metrics.csv" \
         --model-info "${DATA}/model_info.csv" \
-        --out "${FIGURES}/figure_5f.svg" \
+        --out "${FIGURES}/figure_6f.svg" \
         --cache "$CACHE"
 fi

@@ -1,8 +1,8 @@
 """
-figure_5c.py
+figure_6c.py
 ------------
 
-Code to generate the plot for Figure 5C.
+Code to generate the plot for Figure 6C.
 """
 
 
@@ -26,7 +26,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--out",
-    default="figure_5c.svg",
+    default="figure_6c.svg",
     help="Path to save figure"
 )
 parser.add_argument(
@@ -48,10 +48,10 @@ from bates_reconstruction_data import palettes, taxonomy
 
 
 if args.cache is not None:
-    METRICS_DATA = Path(args.cache) / "figure_5c_reaction_metrics.csv"
+    METRICS_DATA = Path(args.cache) / "figure_6c_reaction_metrics.csv"
     METRICS_DATA_EXISTS = METRICS_DATA.exists()
 
-    DIST_DATA = Path(args.cache) / "figure_5c_taxonomic_distances.csv"
+    DIST_DATA = Path(args.cache) / "figure_6c_taxonomic_distances.csv"
     DIST_DATA_EXISTS = DIST_DATA.exists()
 
     TAX_DMP = Path(args.cache) / "tax.dmp"

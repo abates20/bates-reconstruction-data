@@ -1,9 +1,10 @@
 """
-figure_5f.py
+figure_6d.py
 ------------
 
-Code to generate the plot for Figure 5F.
+Code to generate the plot for Figure 6D.
 """
+from plotnine.themes.themeable import legend_title
 
 
 from argparse import ArgumentParser
@@ -12,7 +13,7 @@ from argparse import ArgumentParser
 parser = ArgumentParser()
 parser.add_argument(
     "data",
-    help="Path to csv with substrate utilization data/predictions"
+    help="Path to csv with reaction data"
 )
 parser.add_argument(
     "--set-info",
@@ -26,7 +27,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--out",
-    default="figure_5f.svg",
+    default="figure_6d.svg",
     help="Path to save figure"
 )
 parser.add_argument(
@@ -51,10 +52,10 @@ from bates_reconstruction_data import palettes, taxonomy
 
 
 if args.cache is not None:
-    REGRESSION_DATA = Path(args.cache) / "figure_5f_regression_results.csv"
+    REGRESSION_DATA = Path(args.cache) / "figure_6d_regression_results.csv"
     REGRESSION_DATA_EXISTS = REGRESSION_DATA.exists()
 
-    DIST_DATA = Path(args.cache) / "figure_5f_taxonomic_distances.csv"
+    DIST_DATA = Path(args.cache) / "figure_6d_taxonomic_distances.csv"
     DIST_DATA_EXISTS = DIST_DATA.exists()
 
     TAX_DMP = Path(args.cache) / "tax.dmp"
@@ -170,31 +171,22 @@ if args.cache is not None and REGRESSION_DATA_EXISTS:
 
 # Otherwise compute regression data for plotting
 else:
-    # Load growth data
-    growth_data = (
-        pl.read_csv(
-            args.data,
-            schema_overrides={"source_id": pl.String}
-        )
-        .select("organism_id", "source_id", "compound", "growth")
+    # Load reaction data
+    rxn_data = pl.read_csv(
+        args.data,
+        schema_overrides={"source_id": pl.String}
     )
 
-    # Create separate df per organism (to remove compounds missing experimental data)
-    growth_dfs: dict[str, pl.DataFrame] = {}
-    for org_id in growth_data.get_column("organism_id").unique():
-        df = (
-            growth_data
-            .filter(pl.col.organism_id == org_id)
-            .pivot("source_id", values="growth")
-            .drop("organism_id", "compound")
-            .drop_nulls()
-        )
-        growth_dfs[org_id] = df
+    # Index the reaction data
+    data_index = defaultdict(dict)
+    row_iter = rxn_data.select("organism_id", "source_id").iter_rows()
+    for i, (org_id, source_id) in enumerate(row_iter):
+        data_index[org_id][source_id] = i
 
     # Get source/organism combinations
     organisms_and_sources = (
-        growth_data
-        .filter(pl.col.source_id != "experimental")
+        rxn_data
+        .filter(pl.col.source_id != "BiGG")
         .select("organism_id", "source_id")
         .unique()
         .iter_rows()
@@ -210,10 +202,10 @@ else:
     }
 
     # Calculate metrics
+    matrix = rxn_data.drop("organism_id", "source_id")
     for org_id, source_id in organisms_and_sources:
-        df = growth_dfs[org_id]
-        pred = df.get_column(source_id)
-        true = df.get_column("experimental")
+        pred = matrix.row(data_index[org_id][source_id])
+        true = matrix.row(data_index[org_id]["BiGG"])
 
         metric_dict["organism_id"].append(org_id)
         metric_dict["source_id"].append(source_id)
@@ -221,7 +213,7 @@ else:
         metric_dict["recall"].append(recall_score(true, pred))
         metric_dict["f1_score"].append(f1_score(true, pred))
 
-    growth_metrics = (
+    metrics = (
         pl.DataFrame(metric_dict)
         .unpivot(
             on=["f1_score", "precision", "recall"],
@@ -234,7 +226,7 @@ else:
     x_vars = ["taxonomic_distance", "bigg_coverage"]
     y_var = "value"
     regression = (
-        growth_metrics
+        metrics
         .join(tax_dists, on=["organism_id", "source_id"])
         .join(set_data, on="source_id")
         .group_by("organism_id", "metric")
@@ -317,7 +309,7 @@ plot = (
     )
     + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.labs(
-        subtitle="Substrate utilization",
+        subtitle="Reaction content",
         x="",
         y="Regression coefficient",
         color="Dependent\nvariable"
