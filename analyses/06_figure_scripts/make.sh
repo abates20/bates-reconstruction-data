@@ -130,6 +130,27 @@ if [[ "$1" == "4d" || "$1" == "all" ]]; then
         --cache "$CACHE"
 fi
 
+if [[ "$1" == "5a" || "$1" == "all" ]]; then
+    echo "Generating figure 5a..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5a.py" \
+        "${ANALYSES}/04_single_misannotations/results/"reactions_*.csv \
+        --set-info "${ANALYSES}/04_single_misannotations/reconstruction/"*/annotation_sets.csv \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_5a.svg" \
+        --cache "$CACHE"
+fi
+
+if [[ "$1" == "5b" || "$1" == "all" ]]; then
+    echo "Generating figure 5b..."
+    "$PYTHON" "${SCRIPT_DIR}/figure_5b.py" \
+        "${ANALYSES}/04_single_misannotations/results/"growth_data_*.csv \
+        --exp-data "${DATA}/substrate_utilization_data.csv" \
+        --set-info "${ANALYSES}/04_single_misannotations/reconstruction/"*/annotation_sets.csv \
+        --model-info "${DATA}/model_info.csv" \
+        --out "${FIGURES}/figure_5b.svg" \
+        --cache "$CACHE"
+fi
+
 if [[ "$1" == "6c" || "$1" == "all" ]]; then
     echo "Generating figure 6c..."
     "$PYTHON" "${SCRIPT_DIR}/figure_6c.py" \
