@@ -28,8 +28,8 @@ Dependencies for the project are specified in
 
 > [!IMPORTANT]
 > The analyses in this project were done on a high-performance computing (HPC)
-  cluster using slurm. Consequently, you need to run the code in this repository
-  in a computing envirnoment where you can submit jobs using slurm.
+> cluster using slurm. Consequently, you need to run the code in this repository
+> in a computing envirnoment where you can submit jobs using slurm.
 
 This section describes how to run the code in this repository to reproduce the analyses and figures in the paper.
 
@@ -78,7 +78,12 @@ non-default value in the `.env` file. For example, you can provide slurm with
 non-default values for account and partition by specifying them in `.env`. See
 the section below about local configurations for more info.
 
-### 3. Run analysis scripts 
+### 3. Run analysis scripts
+
+> [!WARNING]
+> Generating all the models and data in this project requires around 90 GB of
+> disk space. The 04_single_misannotations analysis is the primary culprit,
+> requiring around 76 GB of disk space by itself.
 
 Each analysis has a main `run.sh` driver script that submits all the jobs for
 that analysis. You can run them individually:
