@@ -102,14 +102,14 @@ Once the jobs for an analysis have finished successfully, you can generate the
 corresponding figures using the `make.sh` script in the figure scripts folder:
 
 ```sh
-bash analyses/05_figure_scripts/make.sh 2a # generates figure 2a
+bash analyses/06_figure_scripts/make.sh 2a # generates figure 2a
 ```
 
 If the jobs for all analyses have successfully completed, then you can create
 all the figures in one go:
 
 ```sh
-bash analyses/05_figure_scripts/make.sh all # generates all figures
+bash analyses/06_figure_scripts/make.sh all # generates all figures
 ```
 
 ## Local configurations (.env file)
