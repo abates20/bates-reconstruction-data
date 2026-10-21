@@ -1,3 +1,5 @@
+# This file was updated from the original version in CarveMe by Adam Bates
+
 from bates_reconstruction_data.carveme.reconstruction.utils import medium_to_constraints
 from reframed.core.transformation import disconnected_metabolites
 from reframed.solvers import solver_instance
@@ -58,7 +60,7 @@ def gapFill(model, universe, constraints=None, min_growth=0.1, scores=None, inpl
 
         for r_id in new_reactions:
             solver.add_variable('y_' + r_id, 0, 1, vartype=vartype)
-            
+
         solver.update()
 
         for r_id in new_reactions:
@@ -79,7 +81,7 @@ def gapFill(model, universe, constraints=None, min_growth=0.1, scores=None, inpl
         solver.problem.setParam('TimeLimit', 600)
         solver.problem.setParam('MIPGap', 0.001)
         GRB_status_mapping[GRB.TIME_LIMIT] = Status.SUBOPTIMAL # hack to set status as suboptimal if solver hits time limit
-        
+
     solution = solver.solve(objective, minimize=True, constraints=constraints, allow_suboptimal=True)
 
     if solution.status == Status.OPTIMAL or solution.status == Status.SUBOPTIMAL:
@@ -155,7 +157,7 @@ def multiGapFill(model, universe, media, media_db, min_growth=0.1, max_uptake=10
 
             gapFill(model, universe, constraints=constraints, min_growth=min_growth,
                     scores=scores, inplace=True, bigM=bigM, tag=medium_name, solver=solver, fast_gapfill=fast_gapfill)
-            
+
         else:
             print('Medium {} not in database, ignored.'.format(medium_name))
 

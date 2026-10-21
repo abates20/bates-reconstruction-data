@@ -1,3 +1,5 @@
+# This file was updated from the original version in CarveMe by Adam Bates
+
 import numpy as np
 import warnings
 import pandas as pd
@@ -174,7 +176,7 @@ def minmax_reduction(model, scores, min_growth=0.1, min_atpm=0.1, eps=1e-3, bigM
         for r_id in model.reactions:
             if r_id.startswith('R_EX') and r_id not in soft_constraints:
                 objective['y_' + r_id] = uptake_score
-    
+
     solver.set_objective(objective, minimize=False)
 
     if debug_output:
@@ -190,7 +192,7 @@ def minmax_reduction(model, scores, min_growth=0.1, min_atpm=0.1, eps=1e-3, bigM
         solver.problem.setParam('TimeLimit', 600)
         solver.problem.setParam('MIPGap', 0.001)
         GRB_status_mapping[GRB.TIME_LIMIT] = Status.SUBOPTIMAL # hack to set status as suboptimal if solver hits time limit
-    
+
     solution = solver.solve(allow_suboptimal=True)
 
     return solution
@@ -254,9 +256,9 @@ def carve_model(model, reaction_scores, inplace=True, default_score=-1.0, uptake
         pos_score = {r_id for r_id, val in scores.items() if val > 0}
         neg_score = {r_id for r_id, val in scores.items() if val < 0}
         active = set(model.reactions) - inactive
-        n_ai = len(pos_score & active) 
-        n_ae = len(pos_score & inactive) 
-        n_ni = len(neg_score & active) 
+        n_ai = len(pos_score & active)
+        n_ae = len(pos_score & inactive)
+        n_ni = len(neg_score & active)
         n_ne = len(neg_score & inactive)
         print('Reaction consensus: (A)nnotated, (N)on-annotated, (I)ncluded, (E)xcluded')
         print(f'AI: {n_ai:4n} AE: {n_ae:4n}')
