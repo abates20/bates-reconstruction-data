@@ -72,7 +72,7 @@ plot = (
     )
     + pn.coord_flip(ylim=(0, 9000))
     + pn.theme_classic()
-    + pn.theme(figure_size=(2.1,1.4))
+    + pn.theme(figure_size=(2, 1.4))
 )
 
 plot.save(args.out)

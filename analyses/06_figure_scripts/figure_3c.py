@@ -56,14 +56,14 @@ plot = (
         pn.aes(x="n_genes", fill="database")
     )
     + pn.geom_density(alpha=0.8)
-    + pn.scale_fill_manual(palettes.DATABASE_COLOR)
+    + pn.scale_fill_manual(palettes.DATABASE_COLOR, limits=["KEGG", "BiGG"])
     + pn.labs(
         x="Annotated genes\nper organism",
         y="Density"
     )
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(2.4,1.4),
+        figure_size=(2.2, 1.4),
         axis_text_y=pn.element_blank(),
         axis_ticks_y=pn.element_blank(),
         legend_title=pn.element_blank()
