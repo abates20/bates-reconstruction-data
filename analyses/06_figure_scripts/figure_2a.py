@@ -118,15 +118,15 @@ plot = (
         shape="Reconstruction tool"
     )
     + pn.coord_fixed(ratio=1)
-    + pn.theme_classic(base_size=12)
+    + pn.theme_classic()
     + pn.theme(
-        figure_size=(3.5, 4.5),
+        figure_size=(3.2, 4.2),
         axis_ticks=pn.element_blank(),
         axis_text=pn.element_blank(),
         legend_position="bottom",
         legend_direction="vertical",
-        legend_box_spacing=0.2,
-        legend_spacing=25
+        legend_box_spacing=0.15,
+        legend_spacing=20
     )
 )
 
