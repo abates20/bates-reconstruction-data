@@ -299,7 +299,7 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(4.5,3.6),
+        figure_size=(4.1,3.2),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_text(rotation=45, size=7, margin={"t": 0, "unit": "pt"}),
         legend_position="bottom",
