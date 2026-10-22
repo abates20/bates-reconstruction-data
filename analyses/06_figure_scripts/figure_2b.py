@@ -164,12 +164,20 @@ plot = (
         y="Metric score",
     )
     + pn.coord_cartesian(ylim=(0, 1))
-    + pn.theme_classic()
+    + pn.theme_classic(base_family="Helvetica")
     + pn.theme(
         figure_size=(3,2),
-        axis_text_x=pn.element_text(rotation="vertical", size=8),
+        axis_text_x=pn.element_text(rotation=40),
         plot_subtitle=pn.element_text(weight="bold", size=10)
     )
 )
 
-plot.save(args.out)
+# Hack to put the x-axis labels in the right place
+# See: https://github.com/has2k1/plotnine/issues/1141#issuecomment-6347184892
+fig = plot.draw()
+fig.draw_without_rendering()
+fig.set_layout_engine("none")
+for ax in fig.axes:
+    for label in ax.get_xticklabels():
+        label.set(ha="right", va="top", rotation_mode="anchor", y=0)
+fig.savefig(args.out)
