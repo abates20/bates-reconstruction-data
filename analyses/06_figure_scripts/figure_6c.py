@@ -225,6 +225,13 @@ species_order = [
 ]
 data = data.with_columns(pl.col.species_abbrev.cast(pl.Enum(species_order)))
 
+# Calculate spacing values as fraction of total width (to make spacing same as 6e)
+width = 3.8
+height = 2.3
+legend_box_spacing = 0.04 / width
+panel_spacing = 0.02 / width
+plot_margin = 0.025 / width
+
 plot = (
     pn.ggplot(
         data,
@@ -243,29 +250,33 @@ plot = (
         pn.aes(group="metric", linetype="metric", size="metric"),
         stat="summary"
     )
-    + pn.scale_color_manual(palettes.METRIC_COLOR, guide=None)
+    + pn.scale_color_manual(palettes.METRIC_COLOR)
     + pn.scale_linetype_manual(
         {"F1 Score": "solid", "Precision": "dashed", "Recall": "dashed"},
-        guide=None
     )
     + pn.scale_size_manual(
         {"F1 Score": 1.25, "Precision": 0.6, "Recall": 0.6},
-        guide=None
     )
     + pn.labs(
         subtitle="Reaction content",
         x="Taxonomic distance",
         y="Metric score",
+        color="",
         linetype="",
         size=""
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(3.7,2.4),
+        figure_size=(width, height),
+        plot_margin=plot_margin,
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.01
+        axis_title_x=pn.element_text(margin={"t": 5 / width}),
+        legend_title=pn.element_blank(),
+        legend_position="bottom",
+        legend_box_spacing=legend_box_spacing,
+        plot_subtitle=pn.element_text(weight="bold", size=10, margin={"t": 0, "b": 5 / width}),
+        panel_spacing=panel_spacing
     )
 )
 

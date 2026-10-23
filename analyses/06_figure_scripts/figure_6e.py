@@ -218,27 +218,12 @@ data = (
     )
 )
 
-# Set width of figure elements to ensure panels align with figure 3b
-total_width = 3.7 # in
-buffer = 0.5 / 72 # in (when svg saved, there is a 0.5pt buffer added on each edge?)
-panel_width = 0.6 # in
-legend_width = 0.958 # in
-panel_spacing = 0.01 * total_width # in
-axis_text_y_width = 34.5 / 72 # in
-plot_margin = 0.01 * total_width # in
-legend_margin = 0.1 # in
-nrow = 2 # number of rows of panels
-n_panels = data.get_column("species_abbrev").unique().len() / nrow
-legend_box_spacing = (
-    total_width
-    + (2 * buffer)
-    - (2 * plot_margin)
-    - (2 * legend_margin)
-    - legend_width
-    - (panel_width * n_panels)
-    - (panel_spacing * (n_panels - 1))
-    - axis_text_y_width
-)
+# Calculate spacing values as fraction of total width (to make spacing same as 6c)
+width = 2.5
+height = 2.3
+legend_box_spacing = 0.04 / width
+panel_spacing = 0.02 / width
+plot_margin = 0.025 / width
 
 plot = (
     pn.ggplot(
@@ -249,7 +234,7 @@ plot = (
             color="metric",
         )
     )
-    + pn.facet_wrap("species_abbrev", nrow=nrow)
+    + pn.facet_wrap("species_abbrev", nrow=2)
     + pn.geom_point(
         alpha=0.3,
         size=0.7,
@@ -272,17 +257,16 @@ plot = (
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(total_width,2.4),
+        figure_size=(width, height),
+        plot_margin=plot_margin,
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
+        axis_title_x=pn.element_text(margin={"t": 5 / width}),
         legend_title=pn.element_blank(),
-        plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=panel_spacing / total_width,                                  # convert inches to fraction
-        legend_box_spacing=legend_box_spacing / total_width,                        # convert inches to fraction (plotnine docs say pts but seems to actually be fraction)
-        legend_text=pn.element_text(size=12),
-        legend_key_spacing_y=10,
-        legend_box_margin=legend_margin * 72,                                       # convert inches to pts
-        plot_margin_left=plot_margin / total_width,                                 # convert inches to fraction
-        plot_margin_right=plot_margin / total_width,                                # convert inches to fraction
+        legend_position="bottom",
+        legend_justification="right",
+        legend_box_spacing=legend_box_spacing,
+        plot_subtitle=pn.element_text(weight="bold", size=10, margin={"t": 0, "b": 5 / width}),
+        panel_spacing=panel_spacing,
     )
 )
 

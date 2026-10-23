@@ -268,7 +268,12 @@ data = (
     )
 )
 
-DODGE = 0.7
+# Calculate spacing values as fraction of total width (to make spacing same as 6e)
+width = 3.6
+height = 1.3
+plot_margin = 0.025 / width
+
+DODGE = 0.8
 plot = (
     pn.ggplot(
         data,
@@ -293,16 +298,16 @@ plot = (
     )
     + pn.stat_summary(
         geom=pn.geom_errorbar,
-        width=0.2,
-        size=0.7,
+        width=0.5,
+        size=0.8,
         fun_data="mean_cl_boot",
         fun_args=dict(confidence_interval=0.95),
         position=pn.position_dodge(width=DODGE)
     )
     + pn.stat_summary(
         geom=pn.geom_errorbar,
-        width=0.5,
-        size=1.2,
+        width=1,
+        size=1.3,
         fun_ymin=np.mean,
         fun_ymax=np.mean,
         position=pn.position_dodge(width=DODGE)
@@ -314,11 +319,15 @@ plot = (
         y="Regression coefficient",
         color="Dependent\nvariable"
     )
+    + pn.coord_flip()
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(3,2.2),
-        plot_subtitle=pn.element_text(weight="bold", size=10),
-        legend_title=pn.element_text(ma="left")
+        figure_size=(width, height),
+        plot_subtitle=pn.element_text(weight="bold", size=10, margin={"t": 0, "b": 5 / width}),
+        legend_title=pn.element_text(ma="left"),
+        axis_title_x=pn.element_text(margin={"t": 5 / width}),
+        plot_margin=plot_margin,
+        legend_box_spacing=0.05,
     )
 )
 
