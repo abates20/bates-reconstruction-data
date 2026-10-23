@@ -241,6 +241,12 @@ data = (
     .sort("metric")
 )
 
+# Calculate spacing values as function of figure width
+width = 6.5
+height = 2
+panel_spacing = 0.02 / width
+plot_margin = 0.025 / width
+
 plot = (
     pn.ggplot(
         data,
@@ -253,31 +259,33 @@ plot = (
     + pn.facet_wrap("species_abbrev", ncol=5, scales="free_x")
     + pn.geom_point(
         alpha=0.5,
-        size=0.5,
+        size=0.3,
     )
     + pn.scale_color_manual(
         palettes.METRIC_COLOR,
         limits=["F1 Score", "Precision", "Recall"],
-        guide=None
+        guide=pn.guide_legend(override_aes={"size": 1.5})         # ty:ignore[invalid-argument-type]
     )
     + pn.labs(
         subtitle="Reaction content",
-        x="",
+        x="Functional annotation dataset",
         y="Metric score",
         color="",
     )
     + pn.coord_cartesian(ylim=(0, 1))
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(4, 2.5),
+        figure_size=(width, height),
         strip_text_x=pn.element_text(style="italic", family="arial", size=7),
         axis_text_x=pn.element_blank(),
         axis_ticks_x=pn.element_blank(),
+        axis_title_x=pn.element_text(margin={"t": 10 / width}),
+        axis_title_y=pn.element_text(margin={"r": 20 / width}),
         legend_title=pn.element_blank(),
         legend_text=pn.element_text(size=11),
-        legend_key_spacing_y=10,
-        plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.005
+        plot_subtitle=pn.element_text(weight="bold", size=10, margin={"b": 5 / width}),
+        panel_spacing=panel_spacing,
+        plot_margin=plot_margin
     )
 )
 

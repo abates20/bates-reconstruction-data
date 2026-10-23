@@ -47,6 +47,7 @@ from pathlib import Path
 
 import polars as pl
 import plotnine as pn
+import matplotlib as mpl
 
 from bates_reconstruction_data import palettes
 
@@ -195,10 +196,11 @@ data = (
     )
 )
 
-# Grab the most impactful genes for each organism (biggest average effect on F1 score)
+# Grab the most impactful genes for each organism (biggest average effect on Recall)
+# Using recall to capture the one gene that stands out for C. difficile
 to_plot = (
     data
-    .filter(pl.col.metric == "F1 Score")
+    .filter(pl.col.metric == "Recall")
     .group_by("organism_id", "gene")
     .agg(pl.col.effect.abs().mean())
     .group_by("organism_id")
@@ -215,27 +217,57 @@ data = data.join(
     how="semi"
 )
 
-# Also set order of metrics to put F1 score on top
+# Also set order of metrics to put F1 score on top and create axis labels
 metric_order = ["Precision", "Recall", "F1 Score"]
+gene_names = {
+    "ABAYE_RS05005": "fbp",
+    "PP_5040": "fbp",
+    "USA300HOU_RS08940": "gapA",
+    "USA300HOU_RS09500": "pckA",
+    "BSU33930": "pgk",
+    "BSU33940": "gapA",
+    "SF1444": "gapA",
+    "CD630_00520": "cysS"
+}
 data = (
     data.with_columns(
-        pl.col.metric.cast(pl.Enum(metric_order))
+        pl.col.metric.cast(pl.Enum(metric_order)),
+        gene_name=pl.col.gene.replace(gene_names),
+        species_formatted="($\it{" + pl.col.species_abbrev + "}$)"
+    )
+    .with_columns(
+        label=(
+            pl.lit("$\it{")
+            .add(pl.col.gene_name)
+            .add("}$ ")
+            .add(
+                pl.col.species_formatted
+                .str.pad_start(
+                    pl.col.species_formatted.str.len_chars().max(),
+                    " "
+                )
+            )
+        )
     )
     .sort("metric")
 )
+
+# Hack to make italic mathtext font family be monospace (so labels line up)
+mpl.rcParams["mathtext.fontset"] = "custom"
+mpl.rcParams["mathtext.it"] = "monospace:italic"
 
 plot = (
     pn.ggplot(
         data,
         pn.aes(
-            x="gene",
+            x="label",
             y="effect",
             color="metric"
         )
     )
     + pn.geom_hline(yintercept=0, linetype="dashed")
     + pn.geom_segment(
-        pn.aes(xend="gene"),
+        pn.aes(xend="label"),
         yend=0,
         position=pn.position_dodge(width=0.4),
         show_legend=False
@@ -262,11 +294,9 @@ plot = (
     + pn.coord_flip()
     + pn.theme_classic()
     + pn.theme(
-        figure_size=(2.9, 2.3),
-        strip_text_x=pn.element_text(style="italic", family="arial", size=7),
-        axis_text_y=pn.element_text(size=8),
+        figure_size=(2.8, 1.9),
+        axis_text_y=pn.element_text(size=8, family="monospace"),
         plot_subtitle=pn.element_text(weight="bold", size=10),
-        panel_spacing=0.005,
     )
 )
 
