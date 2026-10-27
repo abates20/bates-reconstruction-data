@@ -1,5 +1,7 @@
 # Impact of data selection on automated reconstruction of genome-scale metabolic models
 
+[![DOI](https://zenodo.org/badge/1340076339.svg)](https://doi.org/10.5281/zenodo.23701079)
+
 This repository contains the code that was used to run the analyses in the
 paper, "Impact of data selection on automated reconstruction of genome-scale
 metabolic models."
